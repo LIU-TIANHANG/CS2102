@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const methodOR = require('method-override');
 /* --- V7: Using dotenv     --- */
 require('dotenv').load();
 
@@ -31,7 +31,12 @@ var formsRouter = require('./routes/forms');
 var insertRouter = require('./routes/insert');
 /* ---------------------------- */
 
+var deleteRouter = require('./routes/delete');
+
+var updateRouter = require('./routes/update');
 var app = express();
+
+app.use(methodOR('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -70,6 +75,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/insert', insertRouter);
 /* ---------------------------- */
 
+app.use('/delete',deleteRouter);
+app.use('/update',updateRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

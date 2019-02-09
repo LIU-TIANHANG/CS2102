@@ -1,14 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'thcf19945',
-  port: 5432,
-})
+	connectionString: process.env.DATABASE_URL
+});
 
 /* SQL Query */
 var sql_query = 'INSERT INTO student_info VALUES';
@@ -24,7 +20,6 @@ router.post('/', function(req, res, next) {
 	var matric  = req.body.matric;
 	var name    = req.body.name;
 	var faculty = req.body.faculty;
-	
 	// Construct Specific SQL Query
 	var insert_query = sql_query + "('" + matric + "','" + name + "','" + faculty + "')";
 	
