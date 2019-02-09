@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var methodOR = require('method-override');
+
 /* --- V7: Using dotenv     --- */
 require('dotenv').load();
 
@@ -76,8 +76,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/insert', insertRouter);
 /* ---------------------------- */
 
-app.use('/delete',deleteRouter);
-app.use('/update',updateRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
