@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const methodOR = require('method-override');
+var methodOR = require('method-override');
 /* --- V7: Using dotenv     --- */
 require('dotenv').load();
 
