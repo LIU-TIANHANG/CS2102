@@ -3,41 +3,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// var methodOR = require('method-override');
+const methodOR = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
 /* --- V7: Using dotenv     --- */
 require('dotenv').load();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-/* --- V2: Adding Web Pages --- */
-var aboutRouter = require('./routes/about');
-/* ---------------------------- */
-
-/* --- V3: Basic Template   --- */
-var tableRouter = require('./routes/table');
-var loopsRouter = require('./routes/loops');
-/* ---------------------------- */
-
-/* --- V4: Database Connect --- */
-var selectRouter = require('./routes/select');
-/* ---------------------------- */
-
-/* --- V5: Adding Forms     --- */
-var formsRouter = require('./routes/forms');
-/* ---------------------------- */
-
-/* --- V6: Modify Database  --- */
-var insertRouter = require('./routes/insert');
-/* ---------------------------- */
-
-var deleteRouter = require('./routes/delete');
-
-var updateRouter = require('./routes/update');
-
+const restaurant = require('./routes/Restaurant/index');
+const home = require('./routes/home/index')
+const bodyParser = require('body-parser');
 var app = express();
 
+app.use(methodOR('_method'));
+app.use(flash());
+app.use(session({
+  secret:'th123',
+  resave:true,
+  saveUninitialized:true,
 
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -49,39 +34,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-/* --- V2: Adding Web Pages --- */
-app.use('/about', aboutRouter);
-/* ---------------------------- */
-
-/* --- V3: Basic Template   --- */
-app.use('/table', tableRouter);
-app.use('/loops', loopsRouter);
-/* ---------------------------- */
-
-/* --- V4: Database Connect --- */
-app.use('/select', selectRouter);
-/* ---------------------------- */
-
-/* --- V5: Adding Forms     --- */
-app.use('/forms', formsRouter);
-/* ---------------------------- */
-
-/* --- V6: Modify Database  --- */
-var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/insert', insertRouter);
-/* ---------------------------- */
 
-app.use('/delete',deleteRouter);
-app.use('/update',updateRouter);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/',home);
+app.use('/restaurant',restaurant);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
