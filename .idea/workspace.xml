@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="288549ca-335c-401e-a396-6dbf05ddf2bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/reservation/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/Restaurant/update.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/Schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Restaurant/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Restaurant/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/sql/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Restaurant/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Restaurant/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Restaurant/insert.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Restaurant/insert.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/register.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="288549ca-335c-401e-a396-6dbf05ddf2bd" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -43,7 +28,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/reservation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
+            <state relative-caret-position="491">
               <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
             </state>
           </provider>
@@ -244,12 +229,12 @@
       <workItem from="1551274835795" duration="6094000" />
       <workItem from="1551532835901" duration="5133000" />
       <workItem from="1551580046845" duration="7379000" />
-      <workItem from="1551602785900" duration="4188000" />
+      <workItem from="1551602785900" duration="4334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45008000" />
+    <option name="totallyTimeSpent" value="45154000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,7 +247,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
@@ -273,7 +257,7 @@
       <window_info id="Job Explorer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.3110368" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.3110368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -527,7 +511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/reservation/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
+        <state relative-caret-position="491">
           <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
         </state>
       </provider>
