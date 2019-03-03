@@ -1,53 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <% include ../partials/home %>
-</head>
-<body>
-    <div class="card card-register mx-auto mt-5">
-        <% if (typeof error == 'object' && error) { %>
-        <% for(var i = 0; i < error.length; i++) { %>
-            <div class="alert alert-danger"><%= error[i].message %></div>
+  </head>
+  <body>
+    <div
+      class="jumbotron jumbotron-fluid mb-0"
+      style="background-image: url(https://stmed.net/sites/default/files/restaurant-wallpapers-28840-5067949.jpg); background-repeat: no-repeat; background-size: cover"
+    >
+      <div class="card card-register mx-auto mt-5 mb-5" style="width:600px; background-color: #271E1E; opacity: .8">
+        <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
+        error.length; i++) { %>
+        <div class="alert alert-danger"><%= error[i].message %></div>
         <% } }%>
 
-        <div class="card-header">Register an Account</div>
+        <div class="card-header" style="font-weight:bold; color: antiquewhite">Register an Account</div>
         <div class="card-body">
-            <form action="/register" method="post">
-                <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <label for="firstname">First name</label>
-                            <input required name="firstName" class="form-control" id="firstName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="exampleInputLastName">Last name</label>
-                            <input required name="lastName" class="form-control" id="lastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
-                        </div>
-                    </div>
+          <form action="/register" method="post">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="firstname" style="color: antiquewhite">First name</label>
+                  <input
+                    required
+                    name="firstName"
+                    class="form-control"
+                    id="firstName"
+                    type="text"
+                    aria-describedby="nameHelp"
+                    placeholder="Enter first name"
+                  />
                 </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input required name="email" class="form-control" id="email" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <div class="col-md-6">
+                  <label for="exampleInputLastName" style="color: antiquewhite">Last name</label>
+                  <input
+                    required
+                    name="lastName"
+                    class="form-control"
+                    id="lastName"
+                    type="text"
+                    aria-describedby="nameHelp"
+                    placeholder="Enter last name"
+                  />
                 </div>
-                <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <label for="password">Password</label>
-                            <input required name="password" class="form-control" id="password" type="password" placeholder="Password">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="passwordConfirm">Confirm password</label>
-                            <input required name="passwordConfirm" class="form-control" id="passwordConfirm" type="password" placeholder="Confirm password">
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </form>
-            <div class="text-center">
-                <a class="d-block small mt-3" href="/login">Login Page</a>
-                <a class="d-block small" href="/">Home Page?</a>
+              </div>
             </div>
+            <div class="form-group">
+              <label for="email" style="color: antiquewhite">Email address</label>
+              <input
+                required
+                name="email"
+                class="form-control"
+                id="email"
+                type="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="password" style="color: antiquewhite">Password</label>
+                  <input
+                    required
+                    name="password"
+                    class="form-control"
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="passwordConfirm" style="color: antiquewhite">Confirm password</label>
+                  <input
+                    required
+                    name="passwordConfirm"
+                    class="form-control"
+                    id="passwordConfirm"
+                    type="password"
+                    placeholder="Confirm password"
+                  />
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: peru; border-color: rosybrown">
+              Register
+            </button>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="/login" style="color: seashell">Login Page</a>
+            <a class="d-block small" href="/" style="color: seashell">Home Page?</a>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
