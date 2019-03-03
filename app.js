@@ -10,10 +10,15 @@ const passport = require('passport');
 /* --- V7: Using dotenv     --- */
 require('dotenv').load();
 
-const restaurant = require('./routes/Restaurant/index');
-const home = require('./routes/home/index')
 const bodyParser = require('body-parser');
+
+// internal file dir
+const restaurant = require('./routes/Restaurant/index');
+const home = require('./routes/home/index');
+const reservation = require('./routes/reservation/index');
 var app = express();
+
+
 
 app.use(methodOR('_method'));
 app.use(flash());
@@ -42,6 +47,7 @@ app.use(passport.session());
 
 app.use('/',home);
 app.use('/restaurant',restaurant);
+app.use('/reservation',reservation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

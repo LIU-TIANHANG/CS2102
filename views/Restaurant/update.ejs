@@ -17,10 +17,10 @@
     <script src="javascripts/insertScript.js"></script>
 </head>
 <body>
-<form id="html_form" action="insert" role="form" method="post">
+<form id="html_form" action="<%= data[0].rid%>" role="form" method="post">
     <div class="form-group">
         <label for="name">Name</label>
-        <input required type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" placeholder="Enter your restaurant name">
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
     </div>
     <div class="form-group">
         <label for="timeSelect">Opening Hour</label>
@@ -29,15 +29,15 @@
     </div>
     <div class="form-group">
         <label for="cuisineType">Cuisine Type</label>
-        <input required type="text" class="form-control" id="cuisineType" name="cuisineType" placeholder="Enter your restaurant cuisine type">
+        <input type="text" class="form-control" id="cuisineType" name="cuisineType" value="<%= data[0].cuisine%>">
     </div>
     <div class="form-group">
         <label for="introduction">A brief introduction for customer</label>
-        <textarea required class="form-control" rows=4 id="introduction" name="introduction" placeholder="Enter your introduction"></textarea>
+        <textarea class="form-control" rows=4 id="introduction" name="introduction"><%= data[0].intro%></textarea>
     </div>
     <div class="form-group">
         <label for="telephone">Contact number</label>
-        <input required type="tel" class="form-control" id="telephone" name="telephone" placeholder="Enter your contact number">
+        <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactnumber%>">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

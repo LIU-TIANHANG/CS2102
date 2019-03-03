@@ -21,6 +21,7 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">openingHour</th>
+        <th scope="col">cuisine</th>
         <th scope="col">Intro</th>
         <th scope="col">contact number</th>
     </tr>
@@ -28,18 +29,19 @@
     <tbody>
     <% for(var i=0; i<data.length; i++) { %>
         <tr>
-            <td><%= data[i].id%></td>
-            <td><%= data[i].name%></td>
+            <td><%= data[i].rid%></td>
+            <td><%= data[i].rname%></td>
             <td><%= data[i].openinghour%></td>
+            <td><%= data[i].cuisine%></td>
             <td><%= data[i].intro%></td>
             <td><%= data[i].contactnumber%></td>
             <td>
-                <form action="/restaurant/update/<%= data[i].id%>" method="get">
+                <form action="/restaurant/update/<%= data[i].rid%>" method="get">
                     <button type="submit" class="btn btn-danger">Update</button>
                 </form>
             </td>
             <td>
-                <form action="/restaurant/delete/<%= data[i].id %>" method="post">
+                <form action="/restaurant/delete/<%= data[i].rid %>" method="post">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
