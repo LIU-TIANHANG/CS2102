@@ -13,7 +13,6 @@ router.delete('/:id', function(req, res, next) {
     console.log(req.params.id);
     pool.query(sql_query,[req.params.id])
         .then(result=>{
-            console.log(result);
             res.redirect("/select");
         })
         .catch(err=>{

@@ -34,12 +34,12 @@
             <td><%= data[i].intro%></td>
             <td><%= data[i].contactnumber%></td>
             <td>
-                <form action="/update/<%= data[i].ID%>" method="get">
+                <form action="/restaurant/update/<%= data[i].id%>" method="get">
                     <button type="submit" class="btn btn-danger">Update</button>
                 </form>
             </td>
             <td>
-                <form action="/delete/<%= data[i].ID%>?_method=DELETE" method="post">
+                <form action="/restaurant/delete/<%= data[i].id %>" method="post">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
@@ -47,7 +47,7 @@
     <% } %>
     </tbody>
 </table>
-<a href="/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new contact</a>
+<a href= "/restaurant/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new restaurant</a>
 </body>
 
 </html>

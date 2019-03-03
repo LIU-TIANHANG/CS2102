@@ -1,8 +1,8 @@
 
-DROP TABLE IF EXISTS Restaurants2;
+DROP TABLE IF EXISTS Restaurants;
 DROP TABLE IF EXISTS Menu;
 DROP TABLE IF EXISTS Users;
-CREATE TABLE Restaurants2 (
+CREATE TABLE Restaurants(
 	id SERIAL,
 	name VARCHAR(30) NOT NULL,
 	openingHour TIME,
@@ -32,7 +32,7 @@ CREATE TABLE Users(
 
 INSERT INTO Users VALUES (DEFAULT, '123','th','liu','tainhang3@Hotmil.com','standard');
 -- Restaurants INSERTION
-INSERT INTO Restaurants2 VALUES (DEFAULT, 'the first restaurants', '00:00:00', 'a brief intro of sql', '12345677');
+INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00', 'a brief intro of sql', '12345677');
 
 -- MENU insertion
 INSERT INTO Menu VALUES('the first menu', 34.32, 'a brief desciption',1);

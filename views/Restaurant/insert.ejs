@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Page Title -->
+    <title><%= title%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- CSS for Styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- JavaScript for Interactivity -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- ADDED JavaScript -->
+    <script src="javascripts/insertScript.js"></script>
+</head>
+<body>
+<form id="html_form" action="insert" role="form" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" placeholder="Enter your restaurant name">
+    </div>
+    <div class="form-group">
+        <label for="timeSelect">Opening Hour</label>
+        <select id="timeSelect" name="timeSelect" >
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="introduction">A brief introduction for customer</label>
+        <textarea class="form-control" rows=4 id="introduction" name="introduction" placeholder="Enter your introduction"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="telephone">Contact number</label>
+        <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Enter your contact number">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    (function() {
+        window.addEventListener('load', function() {
+            var forms = [document.getElementById('html_form')];
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', check, false);
+            });
+        }, false);
+    })();
+</script>
+<script>
+    // populate time
+    function populate(selector) {
+        var select = $(selector);
+        var hours, minutes, ampm;
+        for(var i = 420; i <= 1320; i += 15){
+            hours = Math.floor(i / 60);
+            minutes = i % 60;
+            if (minutes < 10){
+                minutes = '0' + minutes; // adding leading zero
+            }
+            // ampm = hours % 24 < 12 ? 'AM' : 'PM';
+            // hours = hours % 12;
+            if (hours === 0){
+                hours = 12;
+            }
+            select.append($('<option></option>')
+                .attr('value', hours + ':' + minutes )
+                .text(hours + ':' + minutes ));
+        }
+    }
+    populate('#timeSelect');
+    // Restricts input for the given textbox to the given inputFilter.
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+            textbox.addEventListener(event, function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        });
+    }
+    setInputFilter(document.getElementById("telephone"), function(value) {
+        return /^\d*$/.test(value);
+    });
+    // Integer values (both positive and negative):
+    // /^-?\d*$/.test(value)
+    // Integer values (positive only):
+    // /^\d*$/.test(value)
+    // Integer values (positive and up to a particular limit):
+    // /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500)
+    // Floating point values (allowing both . and , as decimal separator):
+    // /^-?\d*[.,]?\d*$/.test(value)
+    // Currency values (i.e. at most two decimal places):
+    // /^-?\d*[.,]?\d{0,2}$/.test(value)
+    // Hexadecimal values:
+    //     /^[0-9a-f]*$/i.test(value)
+</script>
+</body>
+</html>

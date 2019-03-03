@@ -8,6 +8,9 @@
         <div class="card-header">Login</div>
 
         <div class="card-body">
+            <% if (typeof message == "string" && message) { %>
+                <p class="alert alert-danger"><%= message %></p>
+            <% } %>
             <form action="/login" method="post">
 
                 <div class="form-group">

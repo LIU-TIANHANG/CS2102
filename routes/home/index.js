@@ -52,8 +52,6 @@ passport.use(new LocalStrategy({usernameField: 'email', },(email, password, cb) 
 }));
 
 passport.serializeUser((user, done) => {
-    console.log("this is from serial");
-    console.log(user);
     done(null, user.id);
 });
 
@@ -70,7 +68,7 @@ router.post('/login',(req,res,next)=>{
     passport.authenticate('local', {failureFlash:true}, function(err, user,info) {
             if (err) { throw err };
             if (!user) {
-                return res.redirect('/restaurant');
+                return res.render('home/login', {message:'Wrong user authentication, please login again'});
             }
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
