@@ -6,33 +6,67 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
     <% include ../partials/home %>
+
+    <style>
+      .jumbotron {
+        background-image: url(https://stmed.net/sites/default/files/restaurant-wallpapers-28840-4035412.jpg);
+        background-repeat: no-repeat;
+        background-size: auto;
+        margin: -10%;
+        padding: -10%;
+      }
+      .card-header {
+        font-weight: bold;
+        color: antiquewhite;
+        background-color: peru;
+      }
+      .btn {
+        background-color: peru;
+        border-color: rosybrown;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .d-block {
+        color: seashell; 
+      }
+
+    </style>
+ 
 </head>
 <body>
-<form id="html_form" action="insert" role="form" method="post">
-    <div class="form-group">
-        <label for="name">Name</label>
+
+<div class="jumbotron jumbotron-fluid">
+<div class="card card-login mx-auto mt-5 mb-5" style="width:600px; background-color: #271E1E; opacity: .85">
+    <div class="card-header">Add A Restaurant</div>
+    <div class="card-body">
+        <form id="html_form" action="insert" role="form" method="post">
+            <div class="form-group px-3">
+        <label for="name" style="color: antiquewhite">Name</label>
         <input required type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" placeholder="Enter your restaurant name">
-    </div>
-    <div class="form-group">
-        <label for="timeSelect">Opening Hour</label>
+            </div>
+            <div class="form-group px-3">
+        <label for="timeSelect" style="color: antiquewhite">Opening Hour</label>
         <select id="timeSelect" name="timeSelect" >
         </select>
-    </div>
-    <div class="form-group">
-        <label for="cuisineType">Cuisine Type</label>
+            </div>
+            <div class="form-group px-3">
+        <label for="cuisineType" style="color: antiquewhite">Cuisine Type</label>
         <input required type="text" class="form-control" id="cuisineType" name="cuisineType" placeholder="Enter your restaurant cuisine type">
-    </div>
-    <div class="form-group">
-        <label for="introduction">A brief introduction for customer</label>
+            </div>
+            <div class="form-group px-3">
+        <label for="introduction" style="color: antiquewhite">A brief introduction for customer</label>
         <textarea required class="form-control" rows=4 id="introduction" name="introduction" placeholder="Enter your introduction"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="telephone">Contact number</label>
+            </div>
+            <div class="form-group px-3">
+        <label for="telephone" style="color: antiquewhite">Contact number</label>
         <input required type="tel" class="form-control" id="telephone" name="telephone" placeholder="Enter your contact number">
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: center">Submit</button>
+        </form>
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+</div>
 
 <script>
     (function() {
