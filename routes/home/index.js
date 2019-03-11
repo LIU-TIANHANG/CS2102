@@ -11,10 +11,7 @@ const query = require('./../../sql/query');
 //app.use(passport.initialize());
 //app.use(passport.session());
 
-const { Pool } = require('pg');
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
-});
+const pool = require('./../../sql/pool');
 
 router.all('/*',(req,res,next)=>{
     next();
