@@ -5,30 +5,36 @@
     <title><%= title%></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
-    <% include ../partials/home %>
+    <% include ../../partials/home %>
+
+    <!--for date css-->
+    <link rel="stylesheet" href="/build/kalendae.css" type="text/css" charset="utf-8">
+    <script type="text/javascript" src="/build/kalendae.standalone.min.js"></script>
 </head>
 <body>
+<h1>Welcome to <%= rname %> time slot management</h1>
+<% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
+error.length; i++) { %>
+    <div class="alert alert-danger"><%= error[i].message %></div>
+<% } }%>
 <form id="html_form" action="insert" role="form" method="post">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input required type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" placeholder="Enter your restaurant name">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
     </div>
     <div class="form-group">
-        <label for="timeSelect">Opening Hour</label>
-        <select id="timeSelect" name="timeSelect" >
+        <label for="startTime">Start Hour</label>
+        <select id="startTime" name="startTime" >
         </select>
     </div>
     <div class="form-group">
-        <label for="cuisineType">Cuisine Type</label>
-        <input required type="text" class="form-control" id="cuisineType" name="cuisineType" placeholder="Enter your restaurant cuisine type">
+        <label for="endTime">End Hour</label>
+        <select id="endTime" name="endTime" >
+        </select>
     </div>
     <div class="form-group">
-        <label for="introduction">A brief introduction for customer</label>
-        <textarea required class="form-control" rows=4 id="introduction" name="introduction" placeholder="Enter your introduction"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="telephone">Contact number</label>
-        <input required type="tel" class="form-control" id="telephone" name="telephone" placeholder="Enter your contact number">
+        <label for="slot">Number of Slots</label>
+        <input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -65,7 +71,8 @@
                 .text(hours + ':' + minutes ));
         }
     }
-    populate('#timeSelect');
+    populate('#startTime');
+    populate('#endTime');
     // Restricts input for the given textbox to the given inputFilter.
     function setInputFilter(textbox, inputFilter) {
         ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
@@ -81,7 +88,7 @@
             });
         });
     }
-    setInputFilter(document.getElementById("telephone"), function(value) {
+    setInputFilter(document.getElementById("slot"), function(value) {
         return /^\d*$/.test(value);
     });
     // Integer values (both positive and negative):

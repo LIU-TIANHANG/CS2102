@@ -72,7 +72,7 @@ router.post('/login',(req,res,next)=>{
             };
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
-                return res.redirect('/restaurant');
+                return res.render('landing/index');
             });
         })(req, res, next);
     }

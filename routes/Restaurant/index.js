@@ -6,12 +6,16 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL
 });
 
+const availability = require('./availability/index');
+
+
 router.all('/*',(req,res,next)=>{
     req.app.locals.layout = 'admin';
     next();
 
 });
 
+router.use('/availability', availability);
 
 router.get('/', function(req, res, next) {
     pool.query(query.restaurants_read_query, (err, data) => {
@@ -21,6 +25,7 @@ router.get('/', function(req, res, next) {
         res.render('Restaurant/index', { title: 'Restaurants Infomation', data: data.rows });
     });
 });
+
 
 router.get('/insert',function (req,res) {
     res.render('Restaurant/insert',{ title: 'Restaurants Infomation'});
@@ -44,7 +49,6 @@ router.get('/update/:id', function(req, res, next) {
         if(err){
             console.log(err);
         }
-        console.log(data.rows);
         res.render('Restaurant/update', { title: 'Change your restaurant detail', data: data.rows });
     });
 });

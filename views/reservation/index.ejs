@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Page Title -->
-    <title>CS2102 Database Connect</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../partials/home %>
 
-    <!-- CSS for Styling -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <!-- JavaScript for Interactivity -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 <body>
 <h1>CS2102: <%= title%></h1>
@@ -24,6 +15,8 @@
         <th scope="col">rdate</th>
         <th scope="col">rtime</th>
         <th scope="col">numPeople</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -32,16 +25,16 @@
             <td><%= data[i].rsvid%></td>
             <td><%= data[i].userid%></td>
             <td><%= data[i].resid%></td>
-            <td><%= data[i].rdate%></td>
-            <td><%= data[i].rtime%></td>
+            <td><%= date[i]%></td>
+            <td><%= data[i].timeslot%></td>
             <td><%= data[i].numpeople%></td>
             <td>
-                <form action="/restaurant/update/<%= data[i].rid%>" method="get">
-                    <button type="submit" class="btn btn-danger">Update</button>
+                <form action="/reservation/update/<%= data[i].rsvid%>" method="get">
+                    <button type="submit" class="btn btn-danger disabled">Update</button>
                 </form>
             </td>
             <td>
-                <form action="/restaurant/delete/<%= data[i].rid %>" method="post">
+                <form action="/reservation/delete/<%= data[i].rsvid %>" method="post">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
@@ -49,7 +42,7 @@
     <% } %>
     </tbody>
 </table>
-<a href= "/restaurant/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new restaurant</a>
+<a href= "/reservation/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new reservation</a>
 </body>
 
 </html>

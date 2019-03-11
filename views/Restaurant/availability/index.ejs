@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<% include ../../partials/home %>
+
+</head>
+<body>
+<h1>CS2102: <%= title%></h1>
+    <table class="table">
+    <thead>
+    <tr>
+        <th scope="col">resID</th>
+        <th scope="col">rdate</th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+        <th scope="col">Available seats</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+    </tr>
+</thead>
+<tbody>
+<% for(var i=0; i<data.length; i++) { %>
+<tr>
+    <td><%= data[i].rid%></td>
+    <td><%= date[i]%></td>
+    <td><%= data[i].timeavailablestart%></td>
+    <td><%= data[i].timeavailableend%></td>
+    <td><%= data[i].numseats%></td>
+        </tr>
+        <% } %>
+</tbody>
+</table>
+<a href= "/restaurant/availability/<%= id%>/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new available slot</a>
+
+</body>
+
+</html>

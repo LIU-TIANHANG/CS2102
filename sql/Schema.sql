@@ -14,6 +14,17 @@ CREATE TABLE Restaurants(
 --e.g query
 INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00','chinese', 'a brief intro of sql', '12345677');
 
+CREATE TABLE Availability(
+    rid INTEGER,
+    dataAvailable DATE,
+    timeAvailableStart TIME,
+    timeAvailableEnd TIME,
+    numSeats NUMERIC,
+    PRIMARY KEY (rid,dataAvailable,timeAvailableStart,timeAvailableEnd)
+)
+
+INSERT INTO Availability VALUES  (100,'January 8, 1999','00:00:00','10:00:00',5);
+
 CREATE TABLE Menu(
 	name CHAR(30),
 	price NUMERIC,
@@ -26,7 +37,7 @@ CREATE TABLE Menu(
 CREATE TABLE Reservations(
 	rsvID       SERIAL,
 	rdate       DATE NOT NULL,
-	rtime       TIME NOT NULL,
+	timeslot       VARCHAR(20),
 	numPeople   INT NOT NULL,
 	attendance  BOOL DEFAULT FALSE,
 	PRIMARY KEY (rsvID),
@@ -38,7 +49,7 @@ CREATE TABLE Reservations(
 	FOREIGN KEY (resID) REFERENCES Restaurants
 );
 
-INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', '00:00:00','1', 'true', '1' , '1');
+INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
 
 CREATE TABLE Users(
 	userID SERIAL,
