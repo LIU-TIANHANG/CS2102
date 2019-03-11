@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="288549ca-335c-401e-a396-6dbf05ddf2bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/sql/pool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -107,8 +106,8 @@
         <option value="$PROJECT_DIR$/views/landing/index.ejs" />
         <option value="$PROJECT_DIR$/sql/Schema.sql" />
         <option value="$PROJECT_DIR$/routes/home/index.js" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/sql/pool.js" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -122,7 +121,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,6 +172,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,11 +251,12 @@
       <workItem from="1552223092042" duration="12108000" />
       <workItem from="1552278464771" duration="4641000" />
       <workItem from="1552284879695" duration="1199000" />
+      <workItem from="1552286839659" duration="892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66421000" />
+    <option name="totallyTimeSpent" value="67313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -269,9 +269,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.27248323" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.27651006" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="npm" order="2" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="Favorites" order="3" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
@@ -591,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql/pool.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -605,10 +597,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-line="1" />
         </state>
       </provider>
     </entry>
