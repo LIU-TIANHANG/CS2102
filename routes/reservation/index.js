@@ -1,3 +1,4 @@
+// router for reservation
 const express = require('express');
 const app = express();
 const router  = express.Router();
@@ -33,14 +34,11 @@ router.get('/insert',(req,res)=>{
     }).catch(err=>{
         console.log(err);
     })
-
 });
 
 router.post('/insert',(req,res)=>{
     var rname = req.body.rname;
     var date = req.body.date;
-    var timeslot = req.body.timeSlot;
-    var slot = req.body.slot;
     var userId = req["user"].userid;
     console.log(rname,date,timeslot,slot,userId);
     pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{

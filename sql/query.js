@@ -18,8 +18,12 @@ module.exports = {
     reservations_insert_query : "INSERT INTO Reservations VALUES (DEFAULT, $1, $2,$3, 'true', $4 , $5)",
     reservations_delete_query : 'DELETE FROM Reservations WHERE rsvid = $1',
 
-    availability_read_query : 'SELECT * FROM Availability',
-    availability_read_query_id : 'SELECT * FROM Availability WHERE rid = $1',
-    availability_insert_query : 'INSERT INTO Availability VALUES  ($1,$2, $3,$4,$5);'
 
+    availability_read_query : 'SELECT * FROM Availability',
+    availability_read_query_rid : 'SELECT * FROM Availability WHERE rid = $1',
+    availability_read_query_aid : 'SELECT * FROM Availability WHERE aid = $1',
+    availability_insert_query : 'INSERT INTO Availability VALUES  (DEFAULT,$1,$2, $3,$4,$5);',
+    availability_update_query : 'UPDATE Availability SET dateAvailable = $1 , timeAvailableStart=$2, timeAvailableEnd=$3, numSeats=$4 WHERE aid = $5',
+    availability_delete_query : 'DELETE FROM Availability WHERE aid = $1',
+    availability_read_query_rid_date : 'SELECT * FROM Availability WHERE rid = $1 AND dateAvailable = $2',
 };

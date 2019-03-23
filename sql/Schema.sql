@@ -17,15 +17,16 @@ CREATE TABLE Restaurants(
 INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00','chinese', 'a brief intro of sql', '12345677');
 
 CREATE TABLE Availability(
+    aid SERIAL,
     rid INTEGER,
-    dataAvailable DATE,
+    dateAvailable DATE,
     timeAvailableStart TIME,
     timeAvailableEnd TIME,
     numSeats NUMERIC,
-    PRIMARY KEY (rid,dataAvailable,timeAvailableStart,timeAvailableEnd)
-)
+    PRIMARY KEY (rid,dateAvailable,timeAvailableStart,timeAvailableEnd)
+);
 
-INSERT INTO Availability VALUES  (100,'January 8, 1999','00:00:00','10:00:00',5);
+INSERT INTO Availability VALUES  (DEFAULT,100,'January 8, 1999','00:00:00','10:00:00',5);
 
 CREATE TABLE Menu(
 	name CHAR(30),
@@ -33,7 +34,7 @@ CREATE TABLE Menu(
 	desciption VARCHAR(100),
 	RestaurantsID INTEGER NOT NULL,
 	PRIMARY KEY (name,RestaurantsID),
-	FOREIGN KEY (RestaurantsID) REFERENCES Restaurants2(id)
+	FOREIGN KEY (RestaurantsID) REFERENCES Restaurants(id)
 );
 
 CREATE TABLE Reservations(

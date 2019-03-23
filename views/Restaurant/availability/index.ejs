@@ -1,4 +1,4 @@
-
+<!--home page of availability-->
 <html>
 <head>
 <% include ../../partials/home %>
@@ -9,6 +9,7 @@
     <table class="table">
     <thead>
     <tr>
+        <th scope="col">AID</th>
         <th scope="col">resID</th>
         <th scope="col">rdate</th>
         <th scope="col">Start time</th>
@@ -21,11 +22,22 @@
 <tbody>
 <% for(var i=0; i<data.length; i++) { %>
 <tr>
+    <td><%= data[i].aid%></td>
     <td><%= data[i].rid%></td>
     <td><%= date[i]%></td>
     <td><%= data[i].timeavailablestart%></td>
     <td><%= data[i].timeavailableend%></td>
     <td><%= data[i].numseats%></td>
+    <td>
+        <form action="/restaurant/availability/<%= data[i].rid%>/update/<%= data[i].aid%>" method="get">
+            <button type="submit" class="btn btn-danger ">Update</button>
+        </form>
+    </td>
+    <td>
+        <form action="/restaurant/availability/<%= data[i].rid%>/delete/<%= data[i].aid%>" method="get">
+            <button type="submit" class="btn btn-danger ">Delete</button>
+        </form>
+    </td>
         </tr>
         <% } %>
 </tbody>

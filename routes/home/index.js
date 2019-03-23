@@ -117,7 +117,7 @@ router.post('/register',(req,res)=>{
                 if(result.rows.length == 0){
                     bcrypt.genSalt(10,(err,salt)=>{
                         bcrypt.hash(req.body.password,salt,(err,hash)=>{
-                            pool.query(query.register_insert_query,[hash,req.body.firstName,req.body.lastName,req.body.email,'standard'])
+                            pool.query(query.register_insert_query,[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.authentication])
                                 .then(result=>{
                                     req.flash('success_message',"you are now registered,please login");
                                     res.redirect('/login');
@@ -136,7 +136,7 @@ router.post('/register',(req,res)=>{
 
             })
             .catch(err=>{
-                console.log(err);
+                res.send(err);
             });
     }
 

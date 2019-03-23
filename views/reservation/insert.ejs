@@ -30,32 +30,22 @@ error.length; i++) { %>
         <label for="date">Date</label>
         <input type="date" id="date" name="date">
     </div>
-    <div class="form-group">
-        <label for="timeSlot">TimeSlot</label>
-        <select name="timeSlot" id="timeSlot">
-                <option>Breakfast</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="slot">Number of People</label>
-        <input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">
-    </div>
+    <!--<div class="form-group">-->
+        <!--<label for="timeSlot">TimeSlot</label>-->
+        <!--<select name="timeSlot" id="timeSlot">-->
+                <!--<option>Breakfast</option>-->
+                <!--<option>Lunch</option>-->
+                <!--<option>Dinner</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label for="slot">Number of People</label>-->
+        <!--<input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">-->
+    <!--</div>-->
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Next</button>
 </form>
 
-<script>
-    (function() {
-        window.addEventListener('load', function() {
-            var forms = [document.getElementById('html_form')];
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', check, false);
-            });
-        }, false);
-    })();
-</script>
 <script>
     // populate time
     function populate(selector) {
