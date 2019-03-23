@@ -36,6 +36,26 @@ router.get('/insert',(req,res)=>{
     })
 });
 
+router.post('/confirmation',(req,res)=>{
+    let rname = req.body.rname;
+    let date = req.body.date;
+    res.cookie('rnameAndDate',[rname,date]);
+    pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{
+        return data.rows[0].rid;
+
+    }).then(rid=>{
+        console.log(rid,date);
+        pool.query(query.availability_read_query_rid_date,[rid,date])
+            .then(result=>{
+                // date = dateFormatModifer(result);
+                console.log(result.rows);
+                res.render('reservation/confirmation',{data:result.rows});
+            })
+    }).catch(err=>{
+            res.send(err);
+        });
+});
+
 router.post('/insert',(req,res)=>{
     var rname = req.body.rname;
     var date = req.body.date;
@@ -69,4 +89,11 @@ router.post('/delete/:id',(req,res)=> {
     })
 });
 
+function dateFormatModifer(data){
+    var date  = [];
+    for(let i=0 ;i < data.rows.length ;i++){
+        date[i] =  data.rows[0].dateavailable.toString().substring(4,15);
+    }
+    return date;
+}
 module.exports = router;
