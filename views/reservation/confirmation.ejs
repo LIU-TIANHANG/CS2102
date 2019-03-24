@@ -21,7 +21,7 @@ error.length; i++) { %>
         <tbody>
         <% for(var i=0; i<data.length; i++) { %>
             <tr>
-                <td><%= data[i].aid%></td>
+                <td><%= data[i].timeavailablestart%></td>
                 <td><%= data[i].timeavailableend%></td>
                 <td><%= data[i].numseats%></td>
             </tr>
@@ -29,72 +29,35 @@ error.length; i++) { %>
         </tbody>
     </table>
 
-    <select name="timeslot"></select>
-    <!--<div class="form-group">-->
-    <!--<label for="timeSlot">TimeSlot</label>-->
-    <!--<select name="timeSlot" id="timeSlot">-->
-    <!--<option>Breakfast</option>-->
-    <!--<option>Lunch</option>-->
-    <!--<option>Dinner</option>-->
-    <!--</select>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-    <!--<label for="slot">Number of People</label>-->
-    <!--<input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">-->
-    <!--</div>-->
-
-    <button type="submit" class="btn btn-primary">Next</button>
+    <select name="timeslot">
+        <%for (let a=0; a< data.length; a++) { %>
+            <option><%= data[a].timeavailablestart%> - <%= data[a].timeavailableend%> Max number of seat : <%= data[a].numseats%></option>
+        <%}%>
+    </select>
+    <label for="numOfPeople" >Number of people</label>
+    <input required type="tel" class="form-control" id="numOfPeople" name="numOfPeople" placeholder="Do not exceed max seats">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
-
-<!--<script>-->
-    <!--// Restricts input for the given textbox to the given inputFilter.-->
-    <!--function setInputFilter(textbox, inputFilter) {-->
-        <!--["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {-->
-            <!--textbox.addEventListener(event, function() {-->
-                <!--if (inputFilter(this.value)) {-->
-                    <!--this.oldValue = this.value;-->
-                    <!--this.oldSelectionStart = this.selectionStart;-->
-                    <!--this.oldSelectionEnd = this.selectionEnd;-->
-                <!--} else if (this.hasOwnProperty("oldValue")) {-->
-                    <!--this.value = this.oldValue;-->
-                    <!--this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);-->
-                <!--}-->
-            <!--});-->
-        <!--});-->
-    <!--}-->
-    <!--setInputFilter(document.getElementById("slot"), function(value) {-->
-        <!--return /^\d*$/.test(value);-->
-    <!--});-->
-    <!--// Integer values (both positive and negative):-->
-    <!--// /^-?\d*$/.test(value)-->
-    <!--// Integer values (positive only):-->
-    <!--// /^\d*$/.test(value)-->
-    <!--// Integer values (positive and up to a particular limit):-->
-    <!--// /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500)-->
-    <!--// Floating point values (allowing both . and , as decimal separator):-->
-    <!--// /^-?\d*[.,]?\d*$/.test(value)-->
-    <!--// Currency values (i.e. at most two decimal places):-->
-    <!--// /^-?\d*[.,]?\d{0,2}$/.test(value)-->
-    <!--// Hexadecimal values:-->
-    <!--//     /^[0-9a-f]*$/i.test(value)-->
-<!--</script>-->
-
 <script>
-    window.onload = function() {
-        function populate(selector) {
-            let select = $(selector);
-            console.log(<%=data[0].aid%>);
-            console.log(<%= data.length %>);
-            for (let i = 0; i < " <%= data.length %>" ; i++) {
-
-                console.log(<%=data[i]%>);
-            }
-        }
-
-        populate($('#timeslot'));
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+            textbox.addEventListener(event, function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        });
     }
+    setInputFilter(document.getElementById("numOfPeople"), function(value) {
+        return /^\d*$/.test(value);
+    });
 </script>
+
+
 </body>
 </html>

@@ -46,8 +46,6 @@ router.post('/confirmation',(req,res)=>{
     }).then(rid=>{
         pool.query(query.availability_read_query_rid_date,[rid,date])
             .then(result=>{
-                // date = dateFormatModifer(result);
-                console.log(result.rows);
                 res.render('reservation/confirmation',{data:result.rows});
             })
     }).catch(err=>{
@@ -56,15 +54,16 @@ router.post('/confirmation',(req,res)=>{
 });
 
 router.post('/insert',(req,res)=>{
-    var rname = req.body.rname;
-    var date = req.body.date;
+    let cookie = req.cookies['rnameAndDate'];
+    let rname = cookie[0];
+    let date = cookie [1];
+    let numOfPeople = req.body.numOfPeople
     var userId = req["user"].userid;
-    console.log(rname,date,timeslot,slot,userId);
     pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{
         return data.rows[0].rid;
 
     }).then(rid=>{
-        pool.query(query.reservations_insert_query,[date,timeslot,slot,userId,rid]).then(
+        pool.query(query.reservations_insert_query,[date,timeslot,numOfPeople,userId,rid]).then(
             result=>{
                 res.redirect('/reservation');
             }
