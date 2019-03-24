@@ -2,14 +2,7 @@
 <html>
 <head>
     <!-- Page Title -->
-    <title>Confirmation page</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <% include ../partials/home %>
-
-    <!--for date css-->
-    <link rel="stylesheet" href="/build/kalendae.css" type="text/css" charset="utf-8">
-    <script type="text/javascript" src="/build/kalendae.standalone.min.js"></script>
+    <% include ../partials/home%>
 </head>
 <body>
 <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
@@ -28,13 +21,15 @@ error.length; i++) { %>
         <tbody>
         <% for(var i=0; i<data.length; i++) { %>
             <tr>
-                <td><%= data[i].timeavailablestart%></td>
+                <td><%= data[i].aid%></td>
                 <td><%= data[i].timeavailableend%></td>
                 <td><%= data[i].numseats%></td>
             </tr>
         <% } %>
         </tbody>
     </table>
+
+    <select name="timeslot"></select>
     <!--<div class="form-group">-->
     <!--<label for="timeSlot">TimeSlot</label>-->
     <!--<select name="timeSlot" id="timeSlot">-->
@@ -51,59 +46,55 @@ error.length; i++) { %>
     <button type="submit" class="btn btn-primary">Next</button>
 </form>
 
+
+
+<!--<script>-->
+    <!--// Restricts input for the given textbox to the given inputFilter.-->
+    <!--function setInputFilter(textbox, inputFilter) {-->
+        <!--["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {-->
+            <!--textbox.addEventListener(event, function() {-->
+                <!--if (inputFilter(this.value)) {-->
+                    <!--this.oldValue = this.value;-->
+                    <!--this.oldSelectionStart = this.selectionStart;-->
+                    <!--this.oldSelectionEnd = this.selectionEnd;-->
+                <!--} else if (this.hasOwnProperty("oldValue")) {-->
+                    <!--this.value = this.oldValue;-->
+                    <!--this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+    <!--}-->
+    <!--setInputFilter(document.getElementById("slot"), function(value) {-->
+        <!--return /^\d*$/.test(value);-->
+    <!--});-->
+    <!--// Integer values (both positive and negative):-->
+    <!--// /^-?\d*$/.test(value)-->
+    <!--// Integer values (positive only):-->
+    <!--// /^\d*$/.test(value)-->
+    <!--// Integer values (positive and up to a particular limit):-->
+    <!--// /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500)-->
+    <!--// Floating point values (allowing both . and , as decimal separator):-->
+    <!--// /^-?\d*[.,]?\d*$/.test(value)-->
+    <!--// Currency values (i.e. at most two decimal places):-->
+    <!--// /^-?\d*[.,]?\d{0,2}$/.test(value)-->
+    <!--// Hexadecimal values:-->
+    <!--//     /^[0-9a-f]*$/i.test(value)-->
+<!--</script>-->
+
 <script>
-    // populate time
-    function populate(selector) {
-        var select = $(selector);
-        var hours, minutes, ampm;
-        for(var i = 420; i <= 1320; i += 15){
-            hours = Math.floor(i / 60);
-            minutes = i % 60;
-            if (minutes < 10){
-                minutes = '0' + minutes; // adding leading zero
+    window.onload = function() {
+        function populate(selector) {
+            let select = $(selector);
+            console.log(<%=data[0].aid%>);
+            console.log(<%= data.length %>);
+            for (let i = 0; i < " <%= data.length %>" ; i++) {
+
+                console.log(<%=data[i]%>);
             }
-            // ampm = hours % 24 < 12 ? 'AM' : 'PM';
-            // hours = hours % 12;
-            if (hours === 0){
-                hours = 12;
-            }
-            select.append($('<option></option>')
-                .attr('value', hours + ':' + minutes )
-                .text(hours + ':' + minutes ));
         }
+
+        populate($('#timeslot'));
     }
-    populate('#startTime');
-    populate('#endTime');
-    // Restricts input for the given textbox to the given inputFilter.
-    function setInputFilter(textbox, inputFilter) {
-        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
-            textbox.addEventListener(event, function() {
-                if (inputFilter(this.value)) {
-                    this.oldValue = this.value;
-                    this.oldSelectionStart = this.selectionStart;
-                    this.oldSelectionEnd = this.selectionEnd;
-                } else if (this.hasOwnProperty("oldValue")) {
-                    this.value = this.oldValue;
-                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-                }
-            });
-        });
-    }
-    setInputFilter(document.getElementById("slot"), function(value) {
-        return /^\d*$/.test(value);
-    });
-    // Integer values (both positive and negative):
-    // /^-?\d*$/.test(value)
-    // Integer values (positive only):
-    // /^\d*$/.test(value)
-    // Integer values (positive and up to a particular limit):
-    // /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500)
-    // Floating point values (allowing both . and , as decimal separator):
-    // /^-?\d*[.,]?\d*$/.test(value)
-    // Currency values (i.e. at most two decimal places):
-    // /^-?\d*[.,]?\d{0,2}$/.test(value)
-    // Hexadecimal values:
-    //     /^[0-9a-f]*$/i.test(value)
 </script>
 </body>
 </html>

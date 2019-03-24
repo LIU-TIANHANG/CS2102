@@ -32,7 +32,7 @@ router.get('/insert',(req,res)=>{
     pool.query(query.restaurants_read_query_name).then(data=>{
         res.render('reservation/insert',{title: 'start your reservation', data: data.rows})
     }).catch(err=>{
-        console.log(err);
+        res.send(err);
     })
 });
 
@@ -44,7 +44,6 @@ router.post('/confirmation',(req,res)=>{
         return data.rows[0].rid;
 
     }).then(rid=>{
-        console.log(rid,date);
         pool.query(query.availability_read_query_rid_date,[rid,date])
             .then(result=>{
                 // date = dateFormatModifer(result);
