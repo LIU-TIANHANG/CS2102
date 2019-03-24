@@ -31,7 +31,7 @@ error.length; i++) { %>
 
     <select name="timeslot">
         <%for (let a=0; a< data.length; a++) { %>
-            <option><%= data[a].timeavailablestart%> - <%= data[a].timeavailableend%> Max number of seat : <%= data[a].numseats%></option>
+            <option value= "<%= data[a].aid%>" ><%= data[a].timeavailablestart%> - <%= data[a].timeavailableend%> Max number of seat : <%= data[a].numseats%></option>
         <%}%>
     </select>
     <label for="numOfPeople" >Number of people</label>

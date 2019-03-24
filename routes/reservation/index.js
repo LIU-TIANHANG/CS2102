@@ -58,12 +58,13 @@ router.post('/insert',(req,res)=>{
     let rname = cookie[0];
     let date = cookie [1];
     let numOfPeople = req.body.numOfPeople
-    var userId = req["user"].userid;
+    let userId = req["user"].userid;
+    let aid = req.body.timeslot;
     pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{
         return data.rows[0].rid;
 
     }).then(rid=>{
-        pool.query(query.reservations_insert_query,[date,timeslot,numOfPeople,userId,rid]).then(
+        pool.query(query.reservations_insert_query,[date,aid,numOfPeople,userId,rid]).then(
             result=>{
                 res.redirect('/reservation');
             }

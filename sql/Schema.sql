@@ -40,7 +40,6 @@ CREATE TABLE Menu(
 CREATE TABLE Reservations(
 	rsvID       SERIAL,
 	rdate       DATE NOT NULL,
-	timeslot       VARCHAR(20),
 	numPeople   INT NOT NULL,
 	attendance  BOOL DEFAULT FALSE,
 	PRIMARY KEY (rsvID),
@@ -49,7 +48,9 @@ CREATE TABLE Reservations(
 	FOREIGN KEY (userID) REFERENCES Users,
 	-- Relationship with Restaurants
 	resID       INT NOT NULL,
-	FOREIGN KEY (resID) REFERENCES Restaurants
+	FOREIGN KEY (resID) REFERENCES Restaurants,
+    aid         NUMERIC NOT NULL,
+	FOREIGN KEY (aid) REFERENCES Availability
 );
 
 INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
