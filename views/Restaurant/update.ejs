@@ -8,28 +8,29 @@
     <!-- CSS for Styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
-    .jumbotron {
-        background-image: url(https://stmed.net/sites/default/files/restaurant-wallpapers-28840-5067949.jpg);
-        background-size: cover;
-        margin-top: 0;
-        margin-bottom: 0;
-        z-index: -1; 
-    }
-
-    .card-header {
-        font-weight: bold;
-        color: antiquewhite;
-        background-color: peru;
-    }
-    .btn {
-        background-color: peru;
-        border-color: rosybrown;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: auto;
-    }
-    </style>
+        .jumbotron {
+          background-image: url(https://stmed.net/sites/default/files/restaurant-wallpapers-28840-5067949.jpg);
+          background-size: cover;
+          margin-top: 0;
+          margin-bottom: 0;
+          z-index: -1; 
+        }
+  
+        .card-header {
+          font-weight: bold;
+          color: #271E1E;
+          background-color: goldenrod;
+        }
+        .btn {
+          background-color: goldenrod;
+          border-color: gold;
+          color: #271E1E;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: auto;
+        }
+      </style>
 
     <!-- JavaScript for Interactivity -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -40,33 +41,75 @@
     <script src="javascripts/insertScript.js"></script>
 </head>
 <body>
-<form id="html_form" action="<%= data[0].rid%>" role="form" method="post">
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
-    </div>
-    <div class="form-group">
-        <label for="timeSelect">Opening Hour</label>
-        <select id="timeSelect" name="timeSelect" >
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="cuisineType">Cuisine Type</label>
-        <input type="text" class="form-control" id="cuisineType" name="cuisineType" value="<%= data[0].cuisine%>">
-    </div>
-    <div class="form-group">
-        <label for="introduction">A brief introduction for customer</label>
-        <textarea class="form-control" rows=4 id="introduction" name="introduction"><%= data[0].intro%></textarea>
-    </div>
-    <div class="form-group">
-        <label for="telephone">Contact number</label>
-        <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactnumber%>">
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">
-            Login
-          </button>
-</form>
+<div class="jumbotron jumbotron-fluid">
+    <!--Navbar update links-->
+    <nav class="navbar navbar-dark fixed-top" style="background-color:#271E1E;">
+        <a class="navbar-brand" href="#" style="color:antiquewhite"><%= title%></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
 
+    <div class="card card-login mx-auto mt-5 mb-5" style="width:800px; background-color: #271E1E; opacity: 0.8">
+        <div class="card-header">Update Restaurant</div>
+        <div class="card-body">
+        <% if (typeof message == "string" && message) { %>
+                <p class="alert alert-danger"><%= message %></p>
+        <% } %>
+            <form id="html_form" action="<%= data[0].rid%>" role="form" method="post">
+                <div class="form-group">
+                    <label for="name" style="color: antiquewhite">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
+                </div>
+                <div class="form-group">
+                    <label for="timeSelect" style="color: antiquewhite">Opening Hour</label>
+                    <select id="timeSelect" name="timeSelect" >
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cuisineType" style="color: antiquewhite">Cuisine Type</label>
+                    <input type="text" class="form-control" id="cuisineType" name="cuisineType" value="<%= data[0].cuisine%>">
+                </div>
+                <div class="form-group">
+                    <label for="introduction" style="color: antiquewhite">A brief introduction for customer</label>
+                    <textarea class="form-control" rows=4 id="introduction" name="introduction"><%= data[0].intro%></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="telephone" style="color: antiquewhite">Contact number</label>
+                    <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactnumber%>">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="width: 759px">
+                        Login
+                    </button>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     (function() {
         window.addEventListener('load', function() {
