@@ -14,6 +14,18 @@ CREATE TABLE Restaurants(
 	contactNumber INTEGER NOT NULL,
 	PRIMARY KEY (resid)
 );
+
+CREATE TABLE Users(
+	userID SERIAL,
+	password 	    VARCHAR(100) NOT NULL,
+	firstName 		VARCHAR(30) NOT NULL,
+	lastName 		VARCHAR(30) NOT NULL,
+	email           VARCHAR(50) NOT NULL UNIQUE,
+	authentication  VARCHAR(20) NOT NULL,
+	PRIMARY KEY (userID)
+);
+
+
 --e.g query
 INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00','chinese', 'a brief intro of sql', '12345677');
 
@@ -56,16 +68,6 @@ CREATE TABLE Reservations(
 );
 
 INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
-
-CREATE TABLE Users(
-	userID SERIAL,
-	password 	    VARCHAR(100) NOT NULL,
-	firstName 		VARCHAR(30) NOT NULL,
-	lastName 		VARCHAR(30) NOT NULL,
-	email           VARCHAR(50) NOT NULL UNIQUE,
-	authentication  VARCHAR(20) NOT NULL,
-	PRIMARY KEY (userID)
-);
 
 CREATE TABLE Reviews(
 	userID      INT,
