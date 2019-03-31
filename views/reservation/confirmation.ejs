@@ -3,41 +3,110 @@
 <head>
     <!-- Page Title -->
     <% include ../partials/home%>
-</head>
-<body>
-<% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
-error.length; i++) { %>
-    <div class="alert alert-danger"><%= error[i].message %></div>
-<% } }%>
-<form id="html_form" action="insert" role="form" method="post">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">startTime</th>
-            <th scope="col">endTime</th>
-            <th scope="col">NumOfSeatsAvailable</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for(var i=0; i<data.length; i++) { %>
-            <tr>
-                <td><%= data[i].timeavailablestart%></td>
-                <td><%= data[i].timeavailableend%></td>
-                <td><%= data[i].numseats%></td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
+    <style>
+        .jumbotron {
+            background-image: url(https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+            background-size: cover;
+            margin-top: 0;
+            margin-bottom: 0;
+            z-index: -1; 
+        }
 
-    <select name="timeslot">
-        <%for (let a=0; a< data.length; a++) { %>
-            <option value= "<%= data[a].aid%>" ><%= data[a].timeavailablestart%> - <%= data[a].timeavailableend%> Max number of seat : <%= data[a].numseats%></option>
-        <%}%>
-    </select>
-    <label for="numOfPeople" >Number of people</label>
-    <input required type="tel" class="form-control" id="numOfPeople" name="numOfPeople" placeholder="Do not exceed max seats">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        .card-header {
+            font-weight: bold;
+            color: #271E1E;
+            background-color: greenyellow;
+        }
+        .btn {
+            background-color: orange;
+            border-color: orange;
+            color: #271E1E;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+
+        .table {
+            background-color: black;
+            color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <nav class="navbar navbar-dark fixed-top" style="background-color:#271E1E;">
+            <a class="navbar-brand" href="#" style="color:antiquewhite"><%= title%></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                </ul>
+            </div>
+    </nav>
+
+    <div class="card card-login mx-auto mt-5 mb-5" style="width:800px; background-color: #271E1E; opacity: 0.8">
+        <div class="card-header">Confirm Reservation</div>
+        <div class="card-body">
+        <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
+        error.length; i++) { %>
+            <div class="alert alert-danger"><%= error[i].message %></div>
+        <% } }%>
+        <form id="html_form" action="insert" role="form" method="post">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">startTime</th>
+                    <th scope="col">endTime</th>
+                    <th scope="col">NumOfSeatsAvailable</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0; i<data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].timeavailablestart%></td>
+                        <td><%= data[i].timeavailableend%></td>
+                        <td><%= data[i].numseats%></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+
+            <select name="timeslot">
+                <%for (let a=0; a< data.length; a++) { %>
+                    <option value= "<%= data[a].aid%>" ><%= data[a].timeavailablestart%> - <%= data[a].timeavailableend%> Max number of seat : <%= data[a].numseats%></option>
+                <%}%>
+            </select>
+            <label for="numOfPeople" >Number of people</label>
+            <input required type="tel" class="form-control" id="numOfPeople" name="numOfPeople" placeholder="Do not exceed max seats">
+            <button type="submit" class="btn btn-primary" style="width: 759px">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
 <script>
     function setInputFilter(textbox, inputFilter) {
         ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {

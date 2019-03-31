@@ -11,35 +11,100 @@
     <!--for date css-->
     <link rel="stylesheet" href="/build/kalendae.css" type="text/css" charset="utf-8">
     <script type="text/javascript" src="/build/kalendae.standalone.min.js"></script>
+
+    <style>
+        .jumbotron {
+            background-image: url(https://stmed.net/sites/default/files/restaurant-wallpapers-28840-5067949.jpg);
+            background-size: cover;
+            margin-top: 0;
+            margin-bottom: 0;
+            z-index: -1; 
+        }
+    
+        .card-header {
+            font-weight: bold;
+            color: #271E1E;
+            background-color: goldenrod;
+        }
+        .btn {
+            background-color: goldenrod;
+            border-color: gold;
+            color: #271E1E;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+        </style>
 </head>
 <body>
 <h1>You are resetting on <%= data[0].rid%> Data: <%= date[0]%> timeStart:<%= data[0].timeavailablestart%> timeEnd:<%= data[0].timeavailableend%> numSeat: <%= data[0].numseats%> </h1>
-<% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
-error.length; i++) { %>
-    <div class="alert alert-danger"><%= error[i].message %></div>
-<% } }%>
-<form id="html_form" action="" role="form" method="post">
-    <div class="form-group">
-        <label for="date" >Date</label>
-        <input type="date" id="date" name="date" >
-    </div>
-    <div class="form-group">
-        <label for="startTime">Start Hour</label>
-        <select id="startTime" name="startTime" >
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="endTime">End Hour</label>
-        <select id="endTime" name="endTime" >
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="slot">Number of Slots</label>
-        <input required type="tel" class="form-control" id="slot" name="slot" value="<%= data[0].numseats%> ">
-    </div>
+<div class="jumbotron jumbotron-fluid">
+    <nav class="navbar navbar-dark fixed-top" style="background-color:#271E1E;">
+                <a class="navbar-brand" href="#" style="color:antiquewhite"><%= title%></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                    </ul>
+                </div>
+    </nav>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <div class="card card-login mx-auto mt-5 mb-5" style="width:800px; background-color: #271E1E; opacity: 0.8">
+            <div class="card-header">Update Availability</div>
+            <div class="card-body">
+            <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
+            error.length; i++) { %>
+                <div class="alert alert-danger"><%= error[i].message %></div>
+            <% } }%>
+            <form id="html_form" action="" role="form" method="post">
+                <div class="form-group">
+                    <label for="date" style="color: antiquewhite">Date</label>
+                    <input type="date" id="date" name="date" >
+                </div>
+                <div class="form-group">
+                    <label for="startTime" style="color: antiquewhite">Start Hour</label>
+                    <select id="startTime" name="startTime" >
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="endTime" style="color: antiquewhite">End Hour</label>
+                    <select id="endTime" name="endTime" >
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="slot" style="color: antiquewhite">Number of Slots</label>
+                    <input required type="tel" class="form-control" id="slot" name="slot" value="<%= data[0].numseats%> ">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 759px">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <script>
     // populate time
