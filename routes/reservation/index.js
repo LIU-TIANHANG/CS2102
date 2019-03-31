@@ -20,9 +20,10 @@ router.get('/',(req,res)=>{
         if(err){
             console.log(err);
         }
+        console.log(data.rows);
         let date  = [];
         for(let i=0 ;i < data.rows.length ;i++){
-            date[i] =  data.rows[i].rdate.toString().substring(4,15);
+            date[i] =  data.rows[i].dateavailable.toString().substring(4,15);
         }
         res.render('reservation/index', { title: 'Reservation Infomation', data: data.rows, date:date});
     });
@@ -41,10 +42,11 @@ router.post('/confirmation',(req,res)=>{
     let date = req.body.date;
     res.cookie('rnameAndDate',[rname,date]);
     pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{
-        return data.rows[0].rid;
+        return data.rows[0].resid;
 
-    }).then(rid=>{
-        pool.query(query.availability_read_query_rid_date,[rid,date])
+    }).then(resid=>{
+
+        pool.query(query.availability_read_query_resid_date,[resid,date])
             .then(result=>{
                 res.render('reservation/confirmation',{data:result.rows});
             })
@@ -57,20 +59,34 @@ router.post('/insert',(req,res)=>{
     let cookie = req.cookies['rnameAndDate'];
     let rname = cookie[0];
     let date = cookie [1];
-    let numOfPeople = req.body.numOfPeople
+    let numOfPeople = req.body.numOfPeople;
     let userId = req["user"].userid;
     let aid = req.body.timeslot;
     pool.query(query.restaurants_read_query_id_basedOn_name,[rname]).then(data=>{
-        return data.rows[0].rid;
+        return data.rows[0].resid;
 
     }).then(rid=>{
-        pool.query(query.reservations_insert_query,[date,aid,numOfPeople,userId,rid]).then(
-            result=>{
-                res.redirect('/reservation');
-            }
-        )
-
-        console.log(rid);
+        pool.query(query.availability_minus_seat_query,[aid,numOfPeople,aid])
+            .then(result=>{
+                pool.query(query.reservations_insert_query,[numOfPeople,userId,rid,aid])
+                    .then(result=>{
+                        res.redirect('/reservation');
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                        res.send(err);
+                    })
+            })
+            .catch(err=>{
+                res.send(err);
+            })
+        // pool.query(query.reservations_insert_query,[date,aid,numOfPeople,userId,rid]).then(
+        //     result=>{
+        //         res.redirect('/reservation');
+        //     }
+        // )
+        //
+        // console.log(rid);
     })
         .catch(err=>{
         console.log(err);

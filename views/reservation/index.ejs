@@ -13,7 +13,8 @@
         <th scope="col">userID</th>
         <th scope="col">resID</th>
         <th scope="col">rdate</th>
-        <th scope="col">rtime</th>
+        <th scope="col">timeStart</th>
+        <th scope="col">timeend</th>
         <th scope="col">numPeople</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -26,7 +27,8 @@
             <td><%= data[i].userid%></td>
             <td><%= data[i].resid%></td>
             <td><%= date[i]%></td>
-            <td><%= data[i].timeslot%></td>
+            <td><%= data[i].timeavailablestart%></td>
+            <td><%= data[i].timeavailableend%></td>
             <td><%= data[i].numpeople%></td>
             <td>
                 <form action="/reservation/update/<%= data[i].rsvid%>" method="get">

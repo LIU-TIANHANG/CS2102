@@ -81,7 +81,7 @@
         <% if (typeof message == "string" && message) { %>
                 <p class="alert alert-danger"><%= message %></p>
         <% } %>
-            <form id="html_form" action="<%= data[0].rid%>" role="form" method="post">
+            <form id="html_form" action="<%= data[0].resid%>" role="form" method="post">
                 <div class="form-group">
                     <label for="name" style="color: antiquewhite">Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
@@ -104,7 +104,7 @@
                     <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactnumber%>">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block" style="width: 759px">
-                        Login
+                        Update Restaurant information
                     </button>
             </form>
         </div>

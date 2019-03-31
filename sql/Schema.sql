@@ -4,26 +4,40 @@ DROP TABLE IF EXISTS Menu;
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Availability;
 DROP TABLE IF EXISTS Reservations;
+
 CREATE TABLE Restaurants(
-	rid SERIAL,
+	resid SERIAL,
 	rname VARCHAR(30) NOT NULL,
 	openingHour TIME NOT NULL,
 	cuisine VARCHAR(30) NOT NULL,
 	intro VARCHAR(500) NOT NULL,
 	contactNumber INTEGER NOT NULL,
-	PRIMARY KEY (rid)
+	PRIMARY KEY (resid)
 );
+
+CREATE TABLE Users(
+	userID SERIAL,
+	password 	    VARCHAR(100) NOT NULL,
+	firstName 		VARCHAR(30) NOT NULL,
+	lastName 		VARCHAR(30) NOT NULL,
+	email           VARCHAR(50) NOT NULL UNIQUE,
+	authentication  VARCHAR(20) NOT NULL,
+	PRIMARY KEY (userID)
+);
+
+
 --e.g query
 INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00','chinese', 'a brief intro of sql', '12345677');
 
 CREATE TABLE Availability(
-    aid SERIAL,
-    rid INTEGER,
+    aid SERIAL UNIQUE,
+    resid INTEGER,
     dateAvailable DATE,
     timeAvailableStart TIME,
     timeAvailableEnd TIME,
     numSeats NUMERIC,
-    PRIMARY KEY (rid,dateAvailable,timeAvailableStart,timeAvailableEnd)
+    PRIMARY KEY (resid,dateAvailable,timeAvailableStart,timeAvailableEnd),
+    FOREIGN KEY (resid) REFERENCES Restaurants(resid)
 );
 
 INSERT INTO Availability VALUES  (DEFAULT,100,'January 8, 1999','00:00:00','10:00:00',5);
@@ -39,30 +53,30 @@ CREATE TABLE Menu(
 
 CREATE TABLE Reservations(
 	rsvID       SERIAL,
-	rdate       DATE NOT NULL,
 	numPeople   INT NOT NULL,
 	attendance  BOOL DEFAULT FALSE,
 	PRIMARY KEY (rsvID),
 	-- Relationship with Users
 	userID      INT NOT NULL,
-	FOREIGN KEY (userID) REFERENCES Users,
+	FOREIGN KEY (userID) REFERENCES Users(userID),
 	-- Relationship with Restaurants
 	resID       INT NOT NULL,
-	FOREIGN KEY (resID) REFERENCES Restaurants,
-    aid         NUMERIC NOT NULL,
-	FOREIGN KEY (aid) REFERENCES Availability
+	FOREIGN KEY (resID) REFERENCES Restaurants(resid),
+    --	availability id
+    aid         INT NOT NULL,
+	FOREIGN KEY (aid) REFERENCES Availability(aid)
 );
 
 INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
 
-CREATE TABLE Users(
-	userID SERIAL,
-	password 	    VARCHAR(100) NOT NULL,
-	firstName 		VARCHAR(30) NOT NULL,
-	lastName 		VARCHAR(30) NOT NULL,
-	email           VARCHAR(50) NOT NULL UNIQUE,
-	authentication  VARCHAR(20) NOT NULL,
-	PRIMARY KEY (userID)
+CREATE TABLE Reviews(
+	userID      INT,
+	resID       INT,
+	rating      INT,
+	review      VARCHAR(500),
+	PRIMARY KEY (userID, resID),
+	FOREIGN KEY (userID) REFERENCES Users,
+	FOREIGN KEY (resID) REFERENCES Restaurants
 );
 
 INSERT INTO Users VALUES (DEFAULT, '123','th','liu','tainhang3@Hotmil.com','standard');

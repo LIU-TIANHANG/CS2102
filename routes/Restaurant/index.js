@@ -2,18 +2,11 @@ const express = require('express');
 const router  = express.Router();
 const query = require('./../../sql/query');
 const { Pool } = require('pg');
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
-});
+const pool = require('./../../sql/pool');
 
 const availability = require('./availability/index');
 
 
-router.all('/*',(req,res,next)=>{
-    req.app.locals.layout = 'admin';
-    next();
-
-});
 
 router.use('/availability', availability);
 
