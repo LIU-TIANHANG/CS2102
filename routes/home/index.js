@@ -87,11 +87,7 @@ router.get('/logout',(req,res)=>{
 });
 
 
-router.get('/test',(req,res)=>{
 
-    res.render('landing/test');
-
-});
 
 router.post('/register',(req,res)=>{
     let error = [];
