@@ -20,24 +20,24 @@
     <tbody>
     <% for(var i=0; i<data.length; i++) { %>
         <tr>
-            <td><%= data[i].rid%></td>
+            <td><%= data[i].resid%></td>
             <td><%= data[i].rname%></td>
             <td><%= data[i].openinghour%></td>
             <td><%= data[i].cuisine%></td>
             <td><%= data[i].intro%></td>
             <td><%= data[i].contactnumber%></td>
             <td>
-                <form action="/restaurant/update/<%= data[i].rid%>" method="get">
+                <form action="/restaurant/update/<%= data[i].resid%>" method="get">
                     <button type="submit" class="btn btn-danger">Update</button>
                 </form>
             </td>
             <td>
-                <form action="/restaurant/delete/<%= data[i].rid %>" method="post">
+                <form action="/restaurant/delete/<%= data[i].resid %>" method="post">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
             <td>
-                <form action="/restaurant/availability/<%= data[i].rid %>" method="get">
+                <form action="/restaurant/availability/<%= data[i].resid %>" method="get">
                     <button type="submit" class="btn btn-primary">Availability</button>
                 </form>
             </td>

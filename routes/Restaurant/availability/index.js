@@ -5,10 +5,10 @@ const query = require('./../../../sql/query');
 const pool = require('./../../../sql/pool');
 
 router.get('/:id',(req,res)=>{
-    pool.query(query.availability_read_query_rid,[req.params.id]).then( ( data) => {
+    pool.query(query.availability_read_query_resid,[req.params.id]).then( ( data) => {
         var date  = [];
         for(let i=0 ;i < data.rows.length ;i++){
-            date[i] =  data.rows[0].dateavailable.toString().substring(4,15);
+            date[i] =  data.rows[i].dateavailable.toString().substring(4,15);
         }
 
         res.render('Restaurant/availability/index', { title: 'Restaurant\'s availability', data: data.rows ,date:date, id:req.params.id});
@@ -70,12 +70,13 @@ router.get('/:id/update/:aid', (req,res)=>{
         .then(data=>{
             var date  = [];
             for(let i=0 ;i < data.rows.length ;i++){
-                date[i] =  data.rows[0].dataavailable.toString().substring(4,15);
+                date[i] =  data.rows[0].dateavailable.toString().substring(4,15);
             }
             res.render('Restaurant/availability/update',{data:data.rows, date:date});
         })
         .catch(err=>{
             res.send(err);
+            console.log(err);
         })
 });
 

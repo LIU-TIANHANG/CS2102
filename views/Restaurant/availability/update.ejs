@@ -13,7 +13,7 @@
     <script type="text/javascript" src="/build/kalendae.standalone.min.js"></script>
 </head>
 <body>
-<h1>You are resetting on <%= data[0].rid%> Data: <%= date[0]%> timeStart:<%= data[0].timeavailablestart%> timeEnd:<%= data[0].timeavailableend%> numSeat: <%= data[0].numseats%> </h1>
+<h1>You are resetting on <%= data[0].resid%> Data: <%= date[0]%> timeStart:<%= data[0].timeavailablestart%> timeEnd:<%= data[0].timeavailableend%> numSeat: <%= data[0].numseats%> </h1>
 <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
 error.length; i++) { %>
     <div class="alert alert-danger"><%= error[i].message %></div>
@@ -136,7 +136,6 @@ error.length; i++) { %>
         }
     }
     newDate = newDate + "<%= date[0]%>".substring(4,6);
-    console.log(newDate);
     document.getElementById("date").value = newDate;
 </script>
 </body>

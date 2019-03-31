@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/home %>
+</head>
+<body>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">resId</th>
+                <th scope="col">UserId</th>
+                <th scope="col">rating</th>
+                <th scope="col">review</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+                <tbody>
+                <% for(var i=0; i<data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].resid%></td>
+                        <td><%= data[i].userid%></td>
+                        <td><%= data[i].rating%></td>
+                        <td><%= data[i].review%></td>
+                        <td>
+                            <form action="/review/update/<%= data[i].resid%>/<%= data[i].userid%>" method="get">
+                                <button type="submit" class="btn btn-danger">Update</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/review/delete/<%= data[i].resid %>/<%= data[i].userid%>" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <a href="/review/insert" class="btn btn-info" role="button">Write review</a>
+        </div>
+    </div>
+</body>
+</html>
