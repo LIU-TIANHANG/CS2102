@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Page Title -->
+    <% include ../partials/home%>
+</head>
+
+<body>
+<div id="plot1" style="width:600px;height:250px;"></div>
+<form  action="insert" role="form" method="post">
+    <div class="form-row align-items-center">
+<select class="browser-default custom-select">
+    <% for( let i=0;i< rname.length;i++){ %>
+       <option> "<%= rname[i] %>" </option>
+    <% } %>
+</select>
+    </div>
+</form>
+<script>
+    let rname = <%- JSON.stringify(rname) %>;
+    var slot = <%- JSON.stringify(slot) %>;
+    var trace1 = {
+        x: rname,
+        y: slot,
+        type: 'bar'
+    };
+    var data = [trace1];
+    var layout = {
+        title: 'available slot VS restaurant',
+        xaxis: {
+            title: 'restaurant name'
+        },
+        yaxis: {
+            title: 'slot available'
+        }
+    };
+
+    Plotly.newPlot('plot1', data,layout);
+</script>
+</body>
+
+</html>

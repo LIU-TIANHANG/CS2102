@@ -11,10 +11,12 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">openingHour</th>
-        <th scope="col">cuisine</th>
         <th scope="col">Intro</th>
         <th scope="col">contact number</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
         <th scope="col">Add/change availability</th>
+        <th scope="col">Add/change mealType</th>
     </tr>
     </thead>
     <tbody>
@@ -23,9 +25,9 @@
             <td><%= data[i].resid%></td>
             <td><%= data[i].rname%></td>
             <td><%= data[i].openinghour%></td>
-            <td><%= data[i].cuisine%></td>
             <td><%= data[i].intro%></td>
-            <td><%= data[i].contactnumber%></td>
+            <td><%= data[i].contactno%></td>
+
             <td>
                 <form action="/restaurant/update/<%= data[i].resid%>" method="get">
                     <button type="submit" class="btn btn-danger">Update</button>
@@ -39,6 +41,11 @@
             <td>
                 <form action="/restaurant/availability/<%= data[i].resid %>" method="get">
                     <button type="submit" class="btn btn-primary">Availability</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/meals/<%= data[i].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">mealType</button>
                 </form>
             </td>
         </tr>

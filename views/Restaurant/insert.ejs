@@ -80,14 +80,27 @@
             <input required type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" placeholder="Enter your restaurant name">
                 </div>
                 <div class="form-group">
-            <label for="timeSelect" style="color: antiquewhite">Opening Hour</label>
-            <select id="timeSelect" name="timeSelect" >
+            <label for="oh" style="color: antiquewhite">Opening Hour</label>
+            <select id="oh" name="oh" >
             </select>
                 </div>
-                <div class="form-group">
-            <label for="cuisineType" style="color: antiquewhite">Cuisine Type</label>
-            <input required type="text" class="form-control" id="cuisineType" name="cuisineType" placeholder="Enter your restaurant cuisine type">
-                </div>
+            <div class="form-group">
+                <label for="ch" style="color: antiquewhite">Closing Hour</label>
+                <select id="ch" name="ch" >
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="town" style="color: antiquewhite">Town</label>
+                <select name="town" id="town">
+                    <% for(var i=0; i<data.length; i++) { %>
+                        <option><%= data[i].town%></option>
+                    <%}%>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address" style="color: antiquewhite">Address</label>
+                <input required type="text" class="form-control" id="address" name="address" placeholder="Enter your restaurant address">
+            </div>
                 <div class="form-group">
             <label for="introduction" style="color: antiquewhite">A brief introduction for customer</label>
             <textarea required class="form-control" rows=4 id="introduction" name="introduction" placeholder="Enter your introduction"></textarea>
@@ -134,7 +147,8 @@
                 .text(hours + ':' + minutes ));
         }
     }
-    populate('#timeSelect');
+    populate('#ch');
+    populate('#oh');
     // Restricts input for the given textbox to the given inputFilter.
     function setInputFilter(textbox, inputFilter) {
         ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {

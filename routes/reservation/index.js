@@ -68,7 +68,7 @@ router.post('/insert',(req,res)=>{
     }).then(rid=>{
         pool.query(query.availability_minus_seat_query,[aid,numOfPeople,aid])
             .then(result=>{
-                pool.query(query.reservations_insert_query,[numOfPeople,userId,rid,aid])
+                pool.query(query.reservations_insert_query,[numOfPeople,userId,aid])
                     .then(result=>{
                         res.redirect('/reservation');
                     })

@@ -17,7 +17,10 @@ const restaurant = require('./routes/Restaurant/index');
 const home = require('./routes/home/index');
 const reservation = require('./routes/reservation/index');
 const review = require('./routes/review/index');
-
+const graph = require('./routes/graph/index');
+const town = require('./routes/town/index');
+const meals = require('./routes/meals/index');
+const cuisine = require('./routes/cuisines/index');
 var app = express();
 
 
@@ -51,6 +54,10 @@ app.use('/',home);
 app.use('/restaurant',restaurant);
 app.use('/reservation',reservation);
 app.use('/review',review);
+app.use('/graph',graph);
+app.use('/meals',meals);
+app.use('/town',town);
+app.use('/cuisine',cuisine);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

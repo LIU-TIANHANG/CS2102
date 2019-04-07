@@ -1,0 +1,35 @@
+<!--home page of availability-->
+<html>
+<head>
+    <% include ../../partials/home %>
+
+</head>
+<body>
+<h1>CS2102: <%= title%></h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">res ID</th>
+        <th scope="col">mealtype</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<data.length; i++) { %>
+        <tr>
+            <td><%= data[i].resid%></td>
+            <td><%= data[i].mealtype%></td>
+            <td>
+                <form action="/restaurant/meals/<%= data[i].resid%>/delete/<%= data[i].mealtype%>" method="get">
+                    <button type="submit" class="btn btn-danger ">Delete</button>
+                </form>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+<a href= "/restaurant/meals/<%= id%>/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new mealType</a>
+
+</body>
+
+</html>

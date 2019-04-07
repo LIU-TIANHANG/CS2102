@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include ../partials/home %>
+</head>
+<body>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+    <table class="table">
+    <thead>
+    <tr>
+    <th scope="col">town</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<data.length; i++) { %>
+<tr>
+    <td><%= data[i].town%></td>
+        <td>
+        <form action="/town/delete/<%= data[i].town%>" method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </td>
+
+        <% } %>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-2"></div>
+    </div>
+    <div class="row">
+    <div class="col text-center">
+    <a href="/town/insert" class="btn btn-info" role="button">Add new town</a>
+</div>
+</div>
+</body>
+</html>

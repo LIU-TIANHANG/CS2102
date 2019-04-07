@@ -70,7 +70,7 @@ router.get('/:id/update/:aid', (req,res)=>{
         .then(data=>{
             var date  = [];
             for(let i=0 ;i < data.rows.length ;i++){
-                date[i] =  data.rows[0].dateavailable.toString().substring(4,15);
+                date[i] =  data.rows[i].dateavailable.toString().substring(4,15);
             }
             res.render('Restaurant/availability/update',{data:data.rows, date:date});
         })

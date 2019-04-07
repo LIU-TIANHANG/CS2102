@@ -28,14 +28,12 @@ router.get('/register',(req,res)=>{
 });
 
 router.get('/login',(req,res)=>{
-
     res.render('home/login');
-
 });
 
 
 passport.use(new LocalStrategy({usernameField: 'email', },(email, password, cb) => {
-    pool.query(query.login_read_query_email, [email], (err, result) => {
+    pool.query(query.login_read_query_email_user, [email], (err, result) => {
         if(err) {
             return cb(err);
         }
@@ -43,23 +41,56 @@ passport.use(new LocalStrategy({usernameField: 'email', },(email, password, cb) 
             const first = result.rows[0];
             bcrypt.compare(password, first.password, function(err, res) {
                 if(res) {
-                    cb(null, {id : first.userid},{message: first});
+                    cb(null, {id : first.userid,email : first.email, type : "user"},{message: first});
                 } else {
                     cb(null, false,{message: first})
                 }
             })
         } else {
-            cb(null, false)
+            pool.query(query.login_read_query_email_RO, [email], (err, result) => {
+                if(err) {
+                    return cb(err);
+                }
+                if(result.rows.length > 0) {
+                    const first = result.rows[0];
+                    bcrypt.compare(password, first.password, function(err, res) {
+                        if(res) {
+                            cb(null, {email : first.email,id : first.userid, type : "RO"},{message: first});
+                        } else {
+                            cb(null, false,{message: first})
+                        }
+                    })
+                } else {
+                    pool.query(query.login_read_query_email_admin, [email], (err, result) => {
+                        if(err) {
+                            return cb(err);
+                        }
+                        if(result.rows.length > 0) {
+                            const first = result.rows[0];
+                            console.log(first);
+                            bcrypt.compare(password, first.password, function(err, res) {
+                                if(res) {
+                                    cb(null, {email : first.email, id : first.userid,type : "admin"},{message: first});
+                                } else {
+                                    cb(null, false,{message: first})
+                                }
+                            })
+                        } else {
+                            cb(null, false)
+                        }
+                    })
+                }
+            })
         }
     })
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.email);
 });
 
-passport.deserializeUser((id, cb) => {
-    pool.query(query.login_read_query_id, [parseInt(id, 10)], (err, results) => {
+passport.deserializeUser((email, cb) => {
+    pool.query(query.login_read_query_email, [email], (err, results) => {
         if(err) {
             return cb(err)
         }
@@ -72,9 +103,10 @@ router.post('/login',(req,res,next)=>{
             if (err) { throw err }
             if (!user) {
                 return res.render('home/login', {message:'Wrong user authentication, please login again'});
-            };
+            }
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
+                res.cookie('authentication',user.type);
                 return res.render('landing/index');
             });
         })(req, res, next);
@@ -121,21 +153,45 @@ router.post('/register',(req,res)=>{
                 if(result.rows.length == 0){
                     bcrypt.genSalt(10,(err,salt)=>{
                         bcrypt.hash(req.body.password,salt,(err,hash)=>{
-                            pool.query(query.register_insert_query,[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.authentication])
-                                .then(result=>{
-                                    req.flash('success_message',"you are now registered,please login");
-                                    res.redirect('/login');
-                                    }
+                            if(req.body.authentication == 'user'){
+                                pool.query(query.register_insert_query_user[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.telephone])
+                                    .then(result=>{
+                                            req.flash('success_message',"you are now registered,please login");
+                                            res.redirect('/login');
+                                        }
 
-                                ).catch(err=>{
-                                    console.log("this is error from registration of users");
+                                    ).catch(err=>{
                                     console.log(err);
-                            });
+                                });
+
+                            }else if(req.body.authentication == 'admin'){
+                                pool.query(query.register_insert_query_admin,[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.telephone])
+                                    .then(result=>{
+                                            req.flash('success_message',"you are now registered,please login");
+                                            res.redirect('/login');
+                                        }
+
+                                    ).catch(err=>{
+                                    console.log(err);
+                                });
+
+                            }else if(req.body.authentication == 'restaurant'){
+                                pool.query(query.register_insert_query_RO,[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.telephone])
+                                    .then(result=>{
+                                            req.flash('success_message',"you are now registered,please login");
+                                            res.redirect('/login');
+                                        }
+
+                                    ).catch(err=>{
+                                    console.log(err);
+                                });
+
+                            }
+
                         })
                     });
                 }else{
-                    req.flash('error_message','That email exist, please login');
-                    res.redirect('/login');
+                    res.render('home/login',{message:"That email exist, please login"});
                 }
 
             })
