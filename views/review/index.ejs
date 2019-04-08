@@ -5,42 +5,41 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">resId</th>
-                <th scope="col">UserId</th>
-                <th scope="col">rating</th>
-                <th scope="col">review</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-            </tr>
-            </thead>
-                <tbody>
-                <% for(var i=0; i<data.length; i++) { %>
-                    <tr>
-                        <td><%= data[i].resid%></td>
-                        <td><%= data[i].userid%></td>
-                        <td><%= data[i].rating%></td>
-                        <td><%= data[i].review%></td>
-                        <td>
-                            <form action="/review/update/<%= data[i].resid%>/<%= data[i].userid%>" method="get">
-                                <button type="submit" class="btn btn-danger">Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/review/delete/<%= data[i].resid %>/<%= data[i].userid%>" method="post">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <% } %>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-2"></div>
+        <div class="container">
+            <div class="col-sm-7">
+                <div class="review-block">
+                    <% for(var i=0; i<data.length; i++) { %>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                            <div class="review-block-id"><%= data[i].userid%></div>
+                            <div class="review-block-resId"><%= data[i].resid%></div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="review-block-rate">
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="review-block-description"><%= data[i].review%></div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>                       
     </div>
     <div class="row">
         <div class="col text-center">
