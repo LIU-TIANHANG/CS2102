@@ -37,7 +37,10 @@ CREATE TABLE Users(
 	PRIMARY KEY (userID)
 );
 
-
+CREATE TABLE Locations(
+	town 			VARCHAR(20),
+	PRIMARY KEY(town)
+);
 
 CREATE TABLE Restaurants (
     resID               INTEGER,
@@ -67,7 +70,7 @@ CREATE TABLE Availability(
     dateAvailable DATE,
     timeAvailableStart TIME,
     timeAvailableEnd TIME,
-    numSeats NUMERIC,
+    numSeats INTEGER NOT NULL,
     PRIMARY KEY (resid,dateAvailable,timeAvailableStart,timeAvailableEnd),
     FOREIGN KEY (resid) REFERENCES Restaurants(resid) ON DELETE CASCADE
 );
@@ -75,27 +78,26 @@ CREATE TABLE Availability(
 INSERT INTO Availability VALUES  (DEFAULT,100,'January 8, 1999','00:00:00','10:00:00',5);
 
 CREATE TABLE Menu(
-	name CHAR(30),
+	item VARCHAR(50),
 	price NUMERIC,
 	description VARCHAR(100),
 	resID INTEGER NOT NULL,
-	PRIMARY KEY (name,resID),
-	FOREIGN KEY (resID) REFERENCES Restaurants(resID)
+	PRIMARY KEY (item,resID),
+	FOREIGN KEY (resID) REFERENCES Restaurants(resID) ON DELETE CASCADE
 );
 
 CREATE TYPE booking_status AS ENUM('booked','attended','missing');
 
 CREATE TABLE Reservations(
-	rsvID       SERIAL,
 	numPeople   INT NOT NULL,
 	attendance  booking_status DEFAULT ('booked'),
-	PRIMARY KEY (userID, aid),
 	-- Relationship with Users
 	userID      INT NOT NULL,
 	FOREIGN KEY (userID) REFERENCES Users(userID),
     --	availability id
     aid         INT NOT NULL,
-	FOREIGN KEY (aid) REFERENCES Availability(aid) ON DELETE CASCADE
+	FOREIGN KEY (aid) REFERENCES Availability(aid) ON DELETE CASCADE,
+	PRIMARY KEY (userID, aid)
 );
 
 INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
@@ -107,7 +109,8 @@ CREATE TABLE Reviews(
 	review      VARCHAR(500),
 	PRIMARY KEY (userID, resID),
 	FOREIGN KEY (userID) REFERENCES Users,
-	FOREIGN KEY (resID) REFERENCES Restaurants ON DELETE CASCADE
+	FOREIGN KEY (resID) REFERENCES Restaurants ON DELETE CASCADE,
+	CHECK (rating <= 5)
 );
 
 INSERT INTO Users VALUES (DEFAULT, '123','th','liu','tainhang3@Hotmil.com','standard');
@@ -123,10 +126,6 @@ SELECT * FROM Users;
 SELECT * FROM Menu;
 
 
-CREATE TABLE Locations(
-	town 			VARCHAR(20),
-	PRIMARY KEY(town)
-);
 
 CREATE TABLE Meals(
     -- E.g. breakfast, lunch, dinner, supper, etc.

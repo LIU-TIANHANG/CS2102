@@ -21,7 +21,7 @@ module.exports = {
 
 
     reservations_read_query : 'SELECT * FROM Reservations NATURAL JOIN Availability',
-    reservations_insert_query : "INSERT INTO Reservations VALUES (DEFAULT, $1, 'booked', $2 , $3)",
+    reservations_insert_query : "INSERT INTO Reservations VALUES ($1, 'booked', $2 , $3)",
     reservations_delete_query : 'DELETE FROM Reservations WHERE rsvid = $1',
 
 
