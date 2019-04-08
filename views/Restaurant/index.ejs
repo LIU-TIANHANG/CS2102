@@ -17,6 +17,8 @@
         <th scope="col">Delete</th>
         <th scope="col">Add/change availability</th>
         <th scope="col">Add/change mealType</th>
+        <th scope="col">Add/change cuisine</th>
+        <th scope="col">Add/change Menu</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +48,16 @@
             <td>
                 <form action="/restaurant/meals/<%= data[i].resid %>" method="get">
                     <button type="submit" class="btn btn-primary">mealType</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/cuisines/<%= data[i].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">cuisine</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/menu/<%= data[i].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">menu</button>
                 </form>
             </td>
         </tr>

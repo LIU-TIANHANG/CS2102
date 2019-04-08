@@ -6,10 +6,13 @@ const pool = require('./../../sql/pool');
 
 const availability = require('./availability/index');
 const meals = require('./meals/index');
-
+const cuisine = require('./cuisines/index');
+const menu = require('./menu/index');
 
 router.use('/availability', availability);
 router.use('/meals', meals);
+router.use('/cuisines', cuisine);
+router.use('/menu',menu);
 
 router.get('/', function(req, res, next) {
     pool.query(query.restaurants_read_query, (err, data) => {
