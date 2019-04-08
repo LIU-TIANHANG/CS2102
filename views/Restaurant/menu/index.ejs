@@ -1,0 +1,39 @@
+<!--home page of availability-->
+<html>
+<head>
+    <% include ../../partials/home %>
+
+</head>
+<body>
+<h1>CS2102: <%= title%></h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">res ID</th>
+        <th scope="col">name</th>
+        <th scope="col">price</th>
+        <th scope="col">description</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<data.length; i++) { %>
+        <tr>
+            <td><%= data[i].resid%></td>
+            <td><%= data[i].name%></td>
+            <td><%= data[i].price%></td>
+            <td><%= data[i].description%></td>
+            <td>
+                <form action="/restaurant/menu/<%= data[i].resid%>/delete/<%= data[i].name%>" method="get">
+                    <button type="submit" class="btn btn-danger ">Delete</button>
+                </form>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+<a href= "/restaurant/menu/<%= id%>/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new menu</a>
+
+</body>
+
+</html>

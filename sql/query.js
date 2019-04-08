@@ -13,7 +13,7 @@ module.exports = {
     login_read_query_email_admin : 'SELECT userid, email, password FROM Admins WHERE email=$1',
     login_read_query_email_RO : 'SELECT userid, email, password FROM RestaurantOwners WHERE email=$1',
     login_read_query_id : 'SELECT userid, email, password FROM users WHERE userid=$1',
-    login_read_query_email : 'WITH account AS (SELECT email FROM users UNION SELECT email FROM admins UNION SELECT email FROM RestaurantOwners) SELECT userid, email, password FROM users WHERE email=$1',
+    login_read_query_email : 'WITH accounts AS (SELECT email,userid FROM users UNION SELECT email,userid FROM admins UNION SELECT email,userid FROM RestaurantOwners) SELECT  email,userid FROM accounts WHERE email=$1',
     register_insert_query_user : 'INSERT INTO Users VALUES (DEFAULT, $1,$2,$3,$4,$5)',
     register_insert_query_admin : 'INSERT INTO Admins VALUES (DEFAULT, $1,$2,$3,$4,$5)',
     register_insert_query_RO : 'INSERT INTO RestaurantOwners VALUES (DEFAULT, $1,$2,$3,$4,$5)',
@@ -58,4 +58,11 @@ module.exports = {
     cuisines_insert_query : 'INSERT INTO cuisines VALUES ($1)',
     cuisines_delete_query : 'DELETE FROM cuisines WHERE cuisine = $1',
 
+    offers_read_query : 'SELECT * FROM Offers WHERE resID = $1',
+    offers_insert_query : 'INSERT INTO offers VALUES ($1,$2)',
+    offers_delete_query: 'DELETE FROM offers WHERE resid = $1 AND cuisine = $2',
+
+    menu_read_query : 'SELECT * FROM  menu WHERE resID = $1',
+    menu_insert_query : 'INSERT INTO menu VALUES ($1,$2,$3,$4)',
+    menu_delete_query : 'DELETE FROM menu WHERE resid = $1 AND name = $2',
 };

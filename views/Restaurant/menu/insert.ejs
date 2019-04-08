@@ -76,13 +76,17 @@
             <% } %>
                 <form id="html_form" action="#" role="form" method="post">
                 <div class="form-group">
-                    <label for="mealtype" style="color: antiquewhite">MealType</label>
-                    <select name="mealtype" id="mealtype">
-                        <% for(var i=0; i<data.length; i++) { %>
-                            <option><%= data[i].mealtype%></option>
-                        <%}%>
-                    </select>
+                    <label for="name" style="color: antiquewhite">name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter the cuisine name">
                 </div>
+                    <div class="form-group">
+                        <label for="price" style="color: antiquewhite">Price(SGD):</label>
+                        <input type="text" name="price" id="price" placeholder="Enter the cuisine price">
+                    </div>
+                    <div class="form-group">
+                        <label for="intro" style="color: antiquewhite">Description:</label>
+                        <input type="text" name="intro" id="intro" placeholder="Enter a brief description">
+                    </div>
                 <button type="submit" class="btn btn-primary btn-block" style="width: 659px; font-weight: bold">Submit</button>
             </form>
 

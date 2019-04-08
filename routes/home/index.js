@@ -154,7 +154,7 @@ router.post('/register',(req,res)=>{
                     bcrypt.genSalt(10,(err,salt)=>{
                         bcrypt.hash(req.body.password,salt,(err,hash)=>{
                             if(req.body.authentication == 'user'){
-                                pool.query(query.register_insert_query_user[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.telephone])
+                                pool.query(query.register_insert_query_user,[hash,req.body.firstName,req.body.lastName,req.body.email,req.body.telephone])
                                     .then(result=>{
                                             req.flash('success_message',"you are now registered,please login");
                                             res.redirect('/login');

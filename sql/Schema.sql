@@ -77,10 +77,10 @@ INSERT INTO Availability VALUES  (DEFAULT,100,'January 8, 1999','00:00:00','10:0
 CREATE TABLE Menu(
 	name CHAR(30),
 	price NUMERIC,
-	desciption VARCHAR(100),
-	RestaurantsID INTEGER NOT NULL,
-	PRIMARY KEY (name,RestaurantsID),
-	FOREIGN KEY (RestaurantsID) REFERENCES Restaurants(id)
+	description VARCHAR(100),
+	resID INTEGER NOT NULL,
+	PRIMARY KEY (name,resID),
+	FOREIGN KEY (resID) REFERENCES Restaurants(resID)
 );
 
 CREATE TYPE booking_status AS ENUM('booked','attended','missing');
@@ -146,6 +146,14 @@ CREATE TABLE Serves(
 CREATE TABLE Cuisines( -- E.g. Italian, Chinese, Peranakan, etc.
 	cuisine 		VARCHAR(20),
 	PRIMARY KEY (cuisine)
+);
+
+CREATE TABLE Offers(
+	resID       INTEGER NOT NULL,
+	cuisine     VARCHAR(20),
+	PRIMARY KEY (resID, cuisine),
+	FOREIGN KEY (resID) REFERENCES Restaurants ON DELETE CASCADE,
+	FOREIGN KEY (cuisine) REFERENCES Cuisines ON DELETE CASCADE
 );
 
 
