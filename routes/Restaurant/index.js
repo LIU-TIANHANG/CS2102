@@ -24,6 +24,16 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+    pool.query(query.restaurants_read_query_id,[req.params.id], (err, data) => {
+        if(err){
+            res.send(err);
+        }
+        console.log(data.rows);
+        res.render('Restaurant/index2', { title: 'Restaurants Infomation', data: data.rows });
+    });
+});
+
 
 router.get('/insert',function (req,res) {
     pool.query(query.locations_read_query)

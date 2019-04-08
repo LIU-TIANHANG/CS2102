@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/home %>
+</head>
+<body>
+<h1>CS2102: <%= title%></h1>
+<!--<div class="row">-->
+    <!--<div class="col-2"></div>-->
+    <!--<div class="col-8">-->
+        <!--<div class="row">-->
+            <!--<div class="col">-->
+                <!--Restaurant name : <%= data[0].rname%>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-2"></div>-->
+<!--</div>-->
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form>
+            <div class="form-group">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Restaurant Name</label>
+                <div class="col-sm-10">
+                    <%= data[0].rname%>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">openingHour</th>
+        <th scope="col">Intro</th>
+        <th scope="col">contact number</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Add/change availability</th>
+        <th scope="col">Add/change mealType</th>
+        <th scope="col">Add/change cuisine</th>
+        <th scope="col">Add/change Menu</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= data[0].resid%></td>
+            <td><%= data[0].rname%></td>
+            <td><%= data[0].openinghour%></td>
+            <td><%= data[0].intro%></td>
+            <td><%= data[0].contactno%></td>
+
+            <td>
+                <form action="/restaurant/update/<%= data[0].resid%>" method="get">
+                    <button type="submit" class="btn btn-danger">Update</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">Availability</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">mealType</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">cuisine</button>
+                </form>
+            </td>
+            <td>
+                <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
+                    <button type="submit" class="btn btn-primary">menu</button>
+                </form>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<a href= "/restaurant/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new restaurant</a>
+</body>
+
+</html>
