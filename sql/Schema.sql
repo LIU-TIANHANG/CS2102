@@ -86,14 +86,12 @@ CREATE TABLE Menu(
 CREATE TYPE booking_status AS ENUM('booked','attended','missing');
 
 CREATE TABLE Reservations(
+	PRIMARY KEY (userID, aid),
 	rsvID       SERIAL,
 	numPeople   INT NOT NULL,
 	attendance  booking_status DEFAULT ('booked'),
-	PRIMARY KEY (userID, aid),
-	-- Relationship with Users
 	userID      INT NOT NULL,
 	FOREIGN KEY (userID) REFERENCES Users(userID),
-    --	availability id
     aid         INT NOT NULL,
 	FOREIGN KEY (aid) REFERENCES Availability(aid) ON DELETE CASCADE
 );
