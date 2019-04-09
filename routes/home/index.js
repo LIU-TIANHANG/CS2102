@@ -107,7 +107,15 @@ router.post('/login',(req,res,next)=>{
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
                 res.cookie('authentication',user.type);
-                return res.render('landing/index');
+                console.log(user.type);
+                if(user.type == "user"){
+                    return res.render('landing/user');
+                }else if(user.type == "admin"){
+                    return res.render('landing/index');
+                }else if (user.type == "RO"){
+                    return res.redirect('restaurant/' + user.id);
+                }
+
             });
         })(req, res, next);
     }

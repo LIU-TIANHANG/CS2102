@@ -19,29 +19,19 @@ router.get('/', function(req, res, next) {
         if(err){
             res.send(err);
         }
-        console.log(data.rows);
         res.render('Restaurant/index', { title: 'Restaurants Infomation', data: data.rows });
     });
 });
 
-router.get('/:id', function(req, res, next) {
-    pool.query(query.restaurants_read_query_id,[req.params.id], (err, data) => {
-        if(err){
-            res.send(err);
-        }
-        console.log(data.rows);
-        res.render('Restaurant/index2', { title: 'Restaurants Infomation', data: data.rows });
-    });
-});
 
 
 router.get('/insert',function (req,res) {
     pool.query(query.locations_read_query)
         .then(result=>{
-            res.render('Restaurant/insert',{ title: 'Restaurants Infomation',data:result.rows});
+            res.render('Restaurant/insert',{ title: 'Restaurants Information',data:result.rows});
         })
         .catch(err=>{
-            res.send(err);
+            console.log(err);
         })
 });
 
@@ -56,7 +46,7 @@ router.post('/insert',function (req,res) {
     var town = req.body.town;
     pool.query(query.restaurants_insert_query,[id,name,oh,ch,telephone,introduction,town,address]).then((result)=>{
 
-        res.redirect('/restaurant');
+        res.redirect('/restaurant/' + id);
     }).catch(err => {
         console.log(err);
         res.send(err);
@@ -91,7 +81,7 @@ router.post('/update/:id',(req,res)=>{
     pool.query(query.restaurants_update_query,[name,oh,ch,introduction,telephone,town,address,req.params.id])
         .then(result=>{
             console.log('hello');
-            res.redirect('/restaurant');
+            res.redirect('/restaurant/' + id);
         })
         .catch(err=>{
             res.send(err);
@@ -102,11 +92,25 @@ router.post('/update/:id',(req,res)=>{
 router.post('/delete/:id', function(req, res) {
     pool.query(query.restaurants_delete_query,[req.params.id])
         .then(result=>{
-            res.redirect("/restaurant");
+            res.redirect("/restaurant/" + req['user'].userid);
         })
         .catch(err=>{
             console.log(err);
         });
+});
+
+router.get('/:id', function(req, res, next) {
+    pool.query(query.restaurants_read_query_id,[req.params.id], (err, data) => {
+        if(err){
+            res.send(err);
+        }
+        if(data == undefined || data.rows.length == 0){
+            res.redirect('/restaurant/insert');
+        }else{
+            res.render('Restaurant/index2', { title: 'Restaurants Infomation', data: data.rows });
+        }
+
+    });
 });
 
 module.exports = router;
