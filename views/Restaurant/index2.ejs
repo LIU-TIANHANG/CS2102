@@ -2,134 +2,225 @@
 <html>
 <head>
     <% include ../partials/home %>
+
+    <style>
+        .container{
+            overflow: scroll;
+        }
+
+        .row{
+            padding: 1%;
+        }
+
+        .jumbotron{
+            width: 100%;
+            height: fit-content;
+            background-image: url(https://images.pexels.com/photos/395134/pexels-photo-395134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+        }
+
+        .masthead-brand {
+            color: white;
+            font-style: oblique;
+            text-align: center;
+        }
+
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+
+        .btn {
+            background-color:goldenrod;
+            border-color:darkgoldenrod;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+
+        .card-header{
+            background-color:#9eb738;
+        }
+    </style>
 </head>
 <body>
 <h1>CS2102: <%= title%></h1>
-<!--<div class="row">-->
-    <!--<div class="col-2"></div>-->
-    <!--<div class="col-8">-->
-        <!--<div class="row">-->
-            <!--<div class="col">-->
-                <!--Restaurant name : <%= data[0].rname%>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-2"></div>-->
-<!--</div>-->
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-        <form>
-            <div class="form-group">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Restaurant Name</label>
-                <div class="col-sm-10">
-                    <%= data[0].rname%>
+<div class="main">
+    <div class="jumbotron">
+            <h1 class="masthead-brand mb-3">Restaurants</h1>
+            <hr>
+            <div class = "container">
+                    <div class="container">
+                        <div class="card mb-3 mx-auto" style="width:510px">
+                                <div class="card-header"><b>Restaurant Info</b></div>
+                                <div class="card-body">
+                                    
+                                        <h6 class="card-subtitle">Restaurant Name:</h6>
+                                        <p class="card-text"><%= data[0].rname%></p>
+                                    
+                                    
+                                        <h6 class="card-subtitle">Opening Hour:</h6>
+                                        <p class="card-text"><%= data[0].openinghour%></p>
+                                    
+                                    
+                                        <h6 class="card-subtitle">Closing Hour:</h6>
+                                        <p class="card-text"><%= data[0].closinghour%></p>
+                                    
+                                    
+                                        <h6 class="card-subtitle">Contact Number:</h6>
+                                        <p class="card-text"><%= data[0].contactno%></p>
+                                   
+                                    
+                                        <h6 class="card-subtitle">A Brief Introduction:</h6>
+                                        <p class="card-text"><%= data[0].intro%></p>
+                                    
+                                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                            <form action="/restaurant/update/<%= data[0].resid%>" method="get">
+                                                <button type="submit" class="btn btn-danger btn-sm mr-1">Update</button>
+                                            </form>
+                                            <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
+                                                <button type="submit" class="btn btn-danger btn-sm mr-1">Delete</button>
+                                            </form>
+                                            <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
+                                                <button type="submit" class="btn btn-primary btn-sm mr-1">Availability</button>
+                                            </form>
+                                            <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
+                                                <button type="submit" class="btn btn-primary btn-sm mr-1">mealType</button>
+                                            </form>
+                                            <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
+                                                <button type="submit" class="btn btn-primary btn-sm mr-1">cuisine</button>
+                                            </form>
+                                            <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
+                                                <button type="submit" class="btn btn-primary btn-sm">menu</button>
+                                            </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <!--OG Code-->
+                    <!--<div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <form>
+                                <div class="form-group">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Restaurant Name</label>
+                                    <%= data[0].rname%>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Opening Hour</label>
+                                    <%= data[0].openinghour%>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Closing Hour</label>
+                                    <%= data[0].closinghour%>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Contact number</label>
+                                 
+                                        <%= data[0].contactno%>
+                              
+                                </div>
+                                <div class="form-group">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">A brief introduction</label>
+                                        <%= data[0].intro%>
+                                </div>
+                            </form>
+                            <form action="/restaurant/update/<%= data[0].resid%>" method="get">
+                                <button type="submit" class="btn btn-danger btn-sm">Update</button>
+                            </form>
+                            <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
+                                <button type="submit" class="btn btn-primary btn-sm">Availability</button>
+                            </form>
+                            <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
+                                <button type="submit" class="btn btn-primary btn-sm">mealType</button>
+                            </form>
+                            <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
+                                <button type="submit" class="btn btn-primary btn-sm">cuisine</button>
+                            </form>
+                            <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
+                                <button type="submit" class="btn btn-primary btn-sm">menu</button>
+                            </form>
+                        </div>
+                    </div>-->
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Opening Hour</label>
-                <div class="col-sm-10">
-                    <%= data[0].openinghour%>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Closing Hour</label>
-                <div class="col-sm-10">
-                    <%= data[0].closinghour%>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Contact number</label>
-                <div class="col-sm-10">
-                    <%= data[0].contactno%>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="staticEmail" class="col-sm-2 col-form-label">A brief introduction</label>
-                <div class="col-sm-10">
-                    <%= data[0].intro%>
-                </div>
-            </div>
+    </div>
+    
+    <div class="row">
+            <div class="col"><hr></div>
+            <div class="col-auto">View All Restaurants</div>
+            <div class="col"><hr></div>
+        </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Opening Hours</th>
+                <th scope="col">Intro</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Modify Availability</th>
+                <th scope="col">Modify Meals</th>
+                <th scope="col">Modify Cuisine</th>
+                <th scope="col">Modify Menu</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= data[0].resid%></td>
+                    <td><%= data[0].rname%></td>
+                    <td><%= data[0].openinghour%></td>
+                    <td><%= data[0].intro%></td>
+                    <td><%= data[0].contactno%></td>
 
-        </form>
-        <form action="/restaurant/update/<%= data[0].resid%>" method="get">
-            <button type="submit" class="btn btn-danger">Update</button>
-        </form>
-        <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
-            <button type="submit" class="btn btn-primary">Availability</button>
-        </form>
-        <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
-            <button type="submit" class="btn btn-primary">mealType</button>
-        </form>
-        <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
-            <button type="submit" class="btn btn-primary">cuisine</button>
-        </form>
-        <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
-            <button type="submit" class="btn btn-primary">menu</button>
-        </form>
+                    <td>
+                        <form action="/restaurant/update/<%= data[0].resid%>" method="get">
+                            <button type="submit" class="btn btn-danger btn-sm">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
+                            <button type="submit" class="btn btn-primary btn-sm">Availability</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
+                            <button type="submit" class="btn btn-primary btn-sm">mealType</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
+                            <button type="submit" class="btn btn-primary btn-sm">cuisine</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
+                            <button type="submit" class="btn btn-primary btn-sm">menu</button>
+                        </form>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
     </div>
 </div>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">openingHour</th>
-        <th scope="col">Intro</th>
-        <th scope="col">contact number</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
-        <th scope="col">Add/change availability</th>
-        <th scope="col">Add/change mealType</th>
-        <th scope="col">Add/change cuisine</th>
-        <th scope="col">Add/change Menu</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= data[0].resid%></td>
-            <td><%= data[0].rname%></td>
-            <td><%= data[0].openinghour%></td>
-            <td><%= data[0].intro%></td>
-            <td><%= data[0].contactno%></td>
-
-            <td>
-                <form action="/restaurant/update/<%= data[0].resid%>" method="get">
-                    <button type="submit" class="btn btn-danger">Update</button>
-                </form>
-            </td>
-            <td>
-                <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-            <td>
-                <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
-                    <button type="submit" class="btn btn-primary">Availability</button>
-                </form>
-            </td>
-            <td>
-                <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
-                    <button type="submit" class="btn btn-primary">mealType</button>
-                </form>
-            </td>
-            <td>
-                <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
-                    <button type="submit" class="btn btn-primary">cuisine</button>
-                </form>
-            </td>
-            <td>
-                <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
-                    <button type="submit" class="btn btn-primary">menu</button>
-                </form>
-            </td>
-        </tr>
-
-    </tbody>
-</table>
 </body>
 
 </html>
