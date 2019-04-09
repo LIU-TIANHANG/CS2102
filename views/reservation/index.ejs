@@ -3,47 +3,105 @@
 <head>
     <% include ../partials/home %>
 
+    <style>
+    .container{
+        overflow: scroll;
+    }
+
+    .row{
+        padding: 1%;
+    }
+
+    .jumbotron{
+        width: 100%;
+        height: 290px;
+        background-image: url(https://images.pexels.com/photos/34650/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+        background-size:cover;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+        text-align: center;
+    }
+
+    .masthead-brand {
+        margin-top: 90px;
+        color: white;
+        font-style: oblique;
+    }
+
+    .main {
+        overflow: scroll;
+        height:fit-content;
+    }
+
+    .btn {
+        background-color: bisque;
+        border-color: darkgoldenrod;
+        color: #271E1E;
+        font-weight: bolder;
+    }
+
+    .container-head{
+        height:fit-content;
+        background-color: #271E1E;
+        align-content: center;
+    }
+    </style>
+    
 </head>
 <body>
-<h1>CS2102: <%= title%></h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">rsvID</th>
-        <th scope="col">userID</th>
-        <th scope="col">resID</th>
-        <th scope="col">rdate</th>
-        <th scope="col">timeStart</th>
-        <th scope="col">timeend</th>
-        <th scope="col">numPeople</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(var i=0; i<data.length; i++) { %>
+
+<div class="main">
+<div class="jumbotron">
+
+    <h1 class="masthead-brand mb-3">Reservations</h1>
+        <p class="text-center">
+        <a href= "/reservation/insert" class="btn btn-primary" role="button" aria-pressed="true">Add new reservation</a>
+        </p>
+
+</div>
+<div class="container"> 
+    <div class="row">
+    <table class="table">
+        <thead>
         <tr>
-            <td><%= data[i].rsvid%></td>
-            <td><%= data[i].userid%></td>
-            <td><%= date[i]%></td>
-            <td><%= data[i].timeavailablestart%></td>
-            <td><%= data[i].timeavailableend%></td>
-            <td><%= data[i].numpeople%></td>
-            <td>
-                <form action="/reservation/update/<%= data[i].rsvid%>" method="get">
-                    <button type="submit" class="btn btn-danger disabled">Update</button>
-                </form>
-            </td>
-            <td>
-                <form action="/reservation/delete/<%= data[i].rsvid %>" method="post">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
+            <th scope="col">rsvID</th>
+            <th scope="col">userID</th>
+            <th scope="col">resID</th>
+            <th scope="col">rdate</th>
+            <th scope="col">timeStart</th>
+            <th scope="col">timeend</th>
+            <th scope="col">numPeople</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
         </tr>
-    <% } %>
-    </tbody>
-</table>
-<a href= "/reservation/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new reservation</a>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<data.length; i++) { %>
+            <tr>
+                <td><%= data[i].rsvid%></td>
+                <td><%= data[i].userid%></td>
+                <td><%= date[i]%></td>
+                <td><%= data[i].timeavailablestart%></td>
+                <td><%= data[i].timeavailableend%></td>
+                <td><%= data[i].numpeople%></td>
+                <td>
+                    <form action="/reservation/update/<%= data[i].rsvid%>" method="get">
+                        <button type="submit" class="btn btn-danger disabled">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/reservation/delete/<%= data[i].rsvid %>" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    </div>
+    <!--<a href= "/reservation/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new reservation</a>-->
+</div>
+</div>
 </body>
 
 </html>
