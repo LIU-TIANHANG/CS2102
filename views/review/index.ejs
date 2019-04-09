@@ -2,50 +2,100 @@
 <html>
 <head>
     <% include ../partials/home %>
+
+    <style>
+        .container{
+            overflow: scroll;
+        }
+    
+        .row{
+            padding: 1%;
+        }
+    
+        .jumbotron{
+            width: 100%;
+            height: 335px;
+            background-image: url(https://images.pexels.com/photos/683039/pexels-photo-683039.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            text-align: center;
+        }
+    
+        .masthead-brand {
+            margin-top: 120px;
+            color: white;
+            font-style: oblique;
+        }
+    
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+    
+        .btn {
+            background-color: bisque;
+            border-color: darkgoldenrod;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+    
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">resId</th>
-                <th scope="col">UserId</th>
-                <th scope="col">rating</th>
-                <th scope="col">review</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-            </tr>
-            </thead>
-                <tbody>
-                <% for(var i=0; i<data.length; i++) { %>
-                    <tr>
-                        <td><%= data[i].resid%></td>
-                        <td><%= data[i].userid%></td>
-                        <td><%= data[i].rating%></td>
-                        <td><%= data[i].review%></td>
-                        <td>
-                            <form action="/review/update/<%= data[i].resid%>/<%= data[i].userid%>" method="get">
-                                <button type="submit" class="btn btn-danger">Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/review/delete/<%= data[i].resid %>/<%= data[i].userid%>" method="post">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <% } %>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-2"></div>                    
+<div class="main">
+    <div class="jumbotron">
+        <h1 class="masthead-brand mb-3">Reviews</h1>
+        <p class="text-center">
+        <a href= "/review/insert" class="btn btn-primary btn-lg" role="button">Write A Review</a>
+        </p>
     </div>
-    <div class="row">
-        <div class="col text-center">
-            <a href="/review/insert" class="btn btn-info" role="button">Write review</a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">resId</th>
+                    <th scope="col">UserId</th>
+                    <th scope="col">rating</th>
+                    <th scope="col">review</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                    <tbody>
+                    <% for(var i=0; i<data.length; i++) { %>
+                        <tr>
+                            <td><%= data[i].resid%></td>
+                            <td><%= data[i].userid%></td>
+                            <td><%= data[i].rating%></td>
+                            <td><%= data[i].review%></td>
+                            <td>
+                                <form action="/review/update/<%= data[i].resid%>/<%= data[i].userid%>" method="get">
+                                    <button type="submit" class="btn btn-danger">Update</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/review/delete/<%= data[i].resid %>/<%= data[i].userid%>" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>                    
         </div>
     </div>
+</div>
 </body>
 </html>

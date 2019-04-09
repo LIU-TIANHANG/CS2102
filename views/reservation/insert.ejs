@@ -10,63 +10,109 @@
     <!--for date css-->
     <link rel="stylesheet" href="/build/kalendae.css" type="text/css" charset="utf-8">
     <script type="text/javascript" src="/build/kalendae.standalone.min.js"></script>
+
+    <style>
+        .container-full-bg{
+            height:100vh;
+        }
+        .jumbotron {
+            background-image: url(https://images.pexels.com/photos/724216/pexels-photo-724216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size: cover;
+            height: 100%;
+            width:100%
+        }
+    
+        .card-header {
+            font-weight: bold;
+            color: #271E1E;
+            background-color:#E5A54C;
+        }
+        .btn {
+            background-color: #E5A54C;
+            border-color: #E5A54C;
+            color: #271E1E;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+
+        .card{
+            width:400px;
+        }
+
+        .section__heading{
+            color: white;
+        }
+
+        .section__subheading{
+            color:aliceblue;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-
-                <!-- Heading -->
-                <h2 class="section__heading text-center">
-                        Make online reservation
-                </h2>
-        
-                <!-- Subheading -->
-                <p class="section__subheading text-center">
-                  Select your restaurant, and submit!
-                </p>
-            </div>
-        </div>
-
-        <div class="row justify-content-lg-center  section_reservation__row">
-				
+<div class="container-full-bg">
+    <div class="jumbotron">
+        <div class="container">
+                <div class="row" style="background-color:#0e1821; opacity:0.75">
+                    <div class="col">
+                        <!-- Heading -->
+                        <br>
+                        <h2 class="section__heading text-center">
+                                Make online reservation
+                        </h2>
+                        <!-- Subheading -->
+                        <p class="section__subheading text-center">
+                        Select your restaurant, and submit!
+                        </p>
+                    </div>
+                </div>
+        </div>      
+        <hr>
+        <div class="container">
+            <div class="card mx-auto mt-auto mb-auto" style="opacity: 0.9">   
+                <div class="card-header">Add a reservation</div> 
+                <div class="card-body">
                 <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
                     error.length; i++) { %>
-                        <div class="alert alert-danger"><%= error[i].message %></div>
-                    <% } }%>
-                    <form id="html_form" action="confirmation" role="form" method="post">
-                        <div class="form-group">
-                            <label for="rname">restaurant name</label>
-                            <select name="rname" id="rname">
-                                <% for(var i=0; i<data.length; i++) { %>
-                                    <option><%= data[i].rname%></option>
-                                <%}%>
-                            </select>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-                        <!--<div class="form-group">-->
-                            <!--<label for="timeSlot">TimeSlot</label>-->
-                            <!--<select name="timeSlot" id="timeSlot">-->
-                                    <!--<option>Breakfast</option>-->
-                                    <!--<option>Lunch</option>-->
-                                    <!--<option>Dinner</option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label for="slot">Number of People</label>-->
-                            <!--<input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">-->
-                        <!--</div>-->
-                    
-                        <button type="submit" class="btn btn-primary">Next</button>
+                <div class="alert alert-danger"><%= error[i].message %></div>
+                <% } }%>
+                <form id="html_form" action="confirmation" role="form" method="post">
+                    <div class="form-group">
+                        <label for="rname" style="color: #271E1E">Restaurant Name</label>
+                        <select name="rname" id="rname">
+                            <% for(var i=0; i<data.length; i++) { %>
+                                <option><%= data[i].rname%></option>
+                            <%}%>
+                        </select>
+                    </div>
                 
+                    <div class="form-group">
+                        <label for="date" style="color: #271E1E">Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="timeSlot">TimeSlot</label>-->
+                        <!--<select name="timeSlot" id="timeSlot">-->
+                                <!--<option>Breakfast</option>-->
+                                <!--<option>Lunch</option>-->
+                                <!--<option>Dinner</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="slot">Number of People</label>-->
+                        <!--<input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">-->
+                    <!--</div>-->
+                
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+                </div>
+            </div>
         </div>
     </div>
-
+</div>
+</div>
 <script>
     // populate time
     function populate(selector) {

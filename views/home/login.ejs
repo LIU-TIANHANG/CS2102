@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../partials/home %>
+    <% include ../partials/home-nonavbar %>
 
     <style>
       .jumbotron {
@@ -10,6 +10,7 @@
         background-size: cover;
         margin-top: 0;
         margin-bottom: 0;
+        height:100vh;
       }
       .card-header {
         font-weight: bold;
@@ -22,57 +23,64 @@
       .d-block {
         color: seashell;
       }
+
+      .card{
+
+      }
+
     </style>
 
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid mb-0">
-      <div class="card card-login mx-auto mt-5 mb-5" style="width:500px; background-color: #271E1E; opacity: .85">
-        <div class="card-header">Login</div>
-        <div class="card-body">
-          <% if (typeof message == "string" && message) { %>
-          <p class="alert alert-danger"><%= message %></p>
-          <% } %>
-          <form action="/login" method="post">
-            <div class="form-group">
-              <label for="exampleInputEmail1" style="color: antiquewhite">Email address</label>
-              <input
-                name="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                type="email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1" style="color: antiquewhite">Password</label>
-              <input
-                name="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                type="password"
-                placeholder="Password"
-              />
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <label class="form-check-label" style="color: antiquewhite">
-                  <input class="form-check-input" type="checkbox" /> Remember
-                  Password</label
-                >
+      <div class="d-flex justify-content-end">
+        <div class="card card-login mr-5 mt-5 mb-5" style="width:500px; background-color: rgb(2, 0, 0); opacity: .85">
+          <div class="card-header">Login</div>
+          <div class="card-body">
+            <% if (typeof message == "string" && message) { %>
+            <p class="alert alert-danger"><%= message %></p>
+            <% } %>
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="exampleInputEmail1" style="color: antiquewhite">Email address</label>
+                <input
+                  name="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  type="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
               </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" style="color: antiquewhite">Password</label>
+                <input
+                  name="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label" style="color: antiquewhite">
+                    <input class="form-check-input" type="checkbox" /> Remember
+                    Password</label
+                  >
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Login
+              </button>
+            </form>
+            <div class="text-center">
+              <a class="d-block small mt-3" href="/register">Register an Account</a
+              >
+              <a class="d-block small" href="/change_password">Forgot Password?</a
+              >
+              <a class="d-block small" href="/">Home Page?</a>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              Login
-            </button>
-          </form>
-          <div class="text-center">
-            <a class="d-block small mt-3" href="/register">Register an Account</a
-            >
-            <a class="d-block small" href="/change_password">Forgot Password?</a
-            >
-            <a class="d-block small" href="/">Home Page?</a>
           </div>
         </div>
       </div>

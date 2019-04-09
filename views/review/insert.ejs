@@ -2,38 +2,101 @@
 <html>
 <head>
     <% include ../partials/home %>
+
+    <style>
+            .container-full-bg{
+                height:100vh;
+            }
+            .jumbotron {
+                background-image: url(https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+                background-size: cover;
+                height: 100vh;
+            }
+        
+            .card-header {
+                font-weight: bold;
+                color: #271E1E;
+                background-color:bisque;
+            }
+            .btn {
+                background-color: bisque;
+                border-color: bisque;
+                color: #271E1E;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: auto;
+            }
+    
+            .card{
+                width:600px;
+            }
+    
+            .section__heading{
+                color: white;
+            }
+    
+            .section__subheading{
+                color:aliceblue;
+            }
+        </style>
 </head>
 <body>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="rname">Restaurant name</label>
-                    <select id="rname" name="rname">
-                        <% for(let i=0;i<data.length;i++){%>
-                            <option value="<%= data[i].resid%>"><%= data[i].rname%></option>
-                        <%}%>
-                    </select>
+    <div class="jumbotron">
+        <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!-- Heading -->
+                        <hr>
+                        <h2 class="section__heading text-center">
+                                Add a Review
+                        </h2>
+                        <!-- Subheading -->
+                        <p class="section__subheading text-center">
+                        Let us know about your experience
+                        </p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="rating">Rating</label>
-                    <select id="rating" name="rating">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+        </div>      
+        <hr>
+        <div class="container">
+            <div class="card mx-auto mt-auto mb-auto">
+                <div class="card-header">Add a review</div> 
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <label for="rname">Restaurant name</label>
+                                    <select id="rname" name="rname">
+                                        <% for(let i=0;i<data.length;i++){%>
+                                            <option value="<%= data[i].resid%>"><%= data[i].rname%></option>
+                                        <%}%>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rating">Rating</label>
+                                    <select id="rating" name="rating">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="review">Your review(limit 500 char)</label>
+                                    <textarea class="form-control" id="review" rows="3" name="review"  maxlength="499"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="review">Your review(limit 500 char)</label>
-                    <textarea class="form-control" id="review" rows="3" name="review"  maxlength="499"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
-        <div class="col-2"></div>
     </div>
 </body>
 </html>
