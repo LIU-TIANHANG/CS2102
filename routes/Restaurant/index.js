@@ -24,7 +24,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-
 router.get('/insert',function (req,res) {
     pool.query(query.locations_read_query)
         .then(result=>{
