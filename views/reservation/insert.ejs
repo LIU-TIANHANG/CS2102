@@ -72,22 +72,13 @@
         <hr>
         <div class="container">
             <div class="card mx-auto mt-auto mb-auto" style="opacity: 0.9">   
-                <div class="card-header">Add a reservation</div> 
+                <div class="card-header">Add a reservation</div>
                 <div class="card-body">
                 <% if (typeof error == 'object' && error) { %> <% for(var i = 0; i <
                     error.length; i++) { %>
                 <div class="alert alert-danger"><%= error[i].message %></div>
                 <% } }%>
                 <form id="html_form" action="confirmation" role="form" method="post">
-                    <div class="form-group">
-                        <label for="rname" style="color: #271E1E">Restaurant Name</label>
-                        <select name="rname" id="rname">
-                            <% for(var i=0; i<data.length; i++) { %>
-                                <option><%= data[i].rname%></option>
-                            <%}%>
-                        </select>
-                    </div>
-                
                     <div class="form-group">
                         <label for="date" style="color: #271E1E">Date</label>
                         <input type="date" id="date" name="date">

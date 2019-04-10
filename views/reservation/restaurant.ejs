@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/home %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/i18n/defaults-*.min.js"></script>
+
+    <style>
+        .container{
+            overflow: scroll;
+        }
+
+        .row{
+            padding: 1%;
+        }
+
+        .jumbotron{
+            width: 100%;
+            height: 350px;
+            background-image: url(https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .masthead-brand {
+            margin-top: 35px;
+            font-style: oblique;
+        }
+
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+
+        .btn {
+            background-color: transparent;
+            border-color: darkgoldenrod;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+
+        .row{
+            vertical-align: -webkit-baseline-middle;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1>CS2102: <%= title%></h1>
+<div class="main">
+    <div class="jumbotron">
+            <div class="card" style="background-color: blanchedalmond; opacity: 0.70">
+                <h1 class="masthead-brand mb-3">Restaurants</h1>
+                <div class="row">
+                        <div class="col"><hr></div>
+                        <div class="col-auto">This is a page to modify restaurants</div>
+                        <div class="col"><hr></div>
+                </div>
+                </div>
+                <p class="text-center mt-5">
+                        <a href= "/restaurant/insert" class="btn btn-primary btn-lg" role="button" aria-pressed="true" style="background-color: gold">Add new restaurant</a>
+                        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                    <form action="#" method="post" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Search Restaurants</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-3 p-0">
+                                                <label for="mealType">Select Cuisine</label>
+                                                <select class="selectpicker" id="mealType" multiple data-live-search="true">
+                                                        <option>Mustard</option>
+                                                        <option>Ketchup</option>
+                                                        <option>Relish</option>
+                                                </select>
+                                        </div>
+                                        <div class="col-md-3 p-0">
+                                            <label for="mealType">Select Meal Type</label>
+                                            <select class="selectpicker" id="mealType" multiple data-live-search="true">
+                                                    <option>Mustard</option>
+                                                    <option>Ketchup</option>
+                                                    <option>Relish</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 p-0">
+                                            <label for="rating">Select Rating</label>
+                                            <select class="form-control search-slt" id="rating">
+                                                <option>Example one</option>
+                                                <option>Example one</option>
+                                                <option>Example one</option>
+                                                <option>Example one</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </form>
+            </div>
+            
+            <div class="col">
+                <br>
+                <h4>View All Restaurants</h4>
+                <form id="html_form" action="selectRestaurant" role="form" method="post">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Opening Hours</th>
+                        <th scope="col">Closing Hours</th>
+                        <th scope="col">Intro</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">CheckBox</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i=0; i<data.length; i++) { %>
+                        <tr>
+                            <td><%= data[i].rname%></td>
+                            <td><%= data[i].openinghour%></td>
+                            <td><%= data[i].closinghour%></td>
+                            <td><%= data[i].intro%></td>
+                            <td><%= data[i].contactno%></td>
+                            <td><input type="radio" name="resid" value="<%= data[i].resid%>"></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+
+                    <button type="submit" class="btn btn-danger ">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

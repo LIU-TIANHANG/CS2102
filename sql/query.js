@@ -21,18 +21,22 @@ module.exports = {
 
 
     reservations_read_query : 'SELECT * FROM Reservations NATURAL JOIN Availability',
+    reservations_read_query_userID : 'SELECT * FROM Reservations NATURAL JOIN Availability NATURAL JOIN Restaurants  where userid = $1',
+    reservations_read_query_aid_userID : 'SELECT numPeople FROM Reservations WHERE aid = $1 AND userID = $2',
     reservations_insert_query : "INSERT INTO Reservations VALUES ($1, 'booked', $2 , $3)",
-    reservations_delete_query : 'DELETE FROM Reservations WHERE rsvid = $1',
+    reservations_delete_query : 'DELETE FROM Reservations WHERE aid = $1 AND userid = $2',
 
 
     availability_read_query : 'SELECT * FROM Availability',
     availability_read_query_resid : 'SELECT * FROM Availability WHERE resid = $1',
     availability_read_query_aid : 'SELECT * FROM Availability WHERE aid = $1',
+    availability_read_query_date : 'SELECT resid FROM Availability WHERE dateavailable = $1',
     availability_insert_query : 'INSERT INTO Availability VALUES  (DEFAULT,$1,$2, $3,$4,$5);',
     availability_update_query : 'UPDATE Availability SET dateAvailable = $1 , timeAvailableStart=$2, timeAvailableEnd=$3, numSeats=$4 WHERE aid = $5',
     availability_delete_query : 'DELETE FROM Availability WHERE aid = $1',
     availability_read_query_resid_date : 'SELECT * FROM Availability WHERE resid = $1 AND dateAvailable = $2',
     availability_minus_seat_query : "UPDATE Availability SET numSeats = (SELECT numSeats WHERE aid = $1) - $2 WHERE aid = $3",
+    availability_add_seat_query : "UPDATE Availability SET numSeats = (SELECT numSeats WHERE aid = $1) + $2 WHERE aid = $3",
     availability_read_query_count_slot_restaurant : 'SELECT rname , sum(numSeats) FROM Availability NATURAL JOIN Restaurants GROUP BY rname',
 
 

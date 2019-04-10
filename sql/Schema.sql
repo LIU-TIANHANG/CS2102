@@ -96,7 +96,8 @@ CREATE TABLE Reservations(
 	FOREIGN KEY (userID) REFERENCES Users(userID),
     aid         INT NOT NULL,
 	FOREIGN KEY (aid) REFERENCES Availability(aid) ON DELETE CASCADE,
-	PRIMARY KEY (userID, aid)
+	PRIMARY KEY (userID, aid),
+	CHECK (numPeople > 0)
 );
 
 INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
