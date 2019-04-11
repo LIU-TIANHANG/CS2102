@@ -94,7 +94,7 @@ module.exports = {
         '\tSELECT Res.resID AS resID, Res.rname AS rname, COALESCE(AVG(Rev.rating),0) AS rating\n' +
         '\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n' +
         '\tGROUP BY Res.resID )\n' +
-        'SELECT RR.resID, RR.rname, RR.rating\n' +
+        'SELECT DISTINCT RR.resID, RR.rname, RR.rating\n' +
         'FROM RestaurantRating RR LEFT JOIN Offers O ON RR.resID = O.resID\n' +
         'WHERE O.cuisine IN (SELECT TC.cuisine FROM TopCuisines TC)\n' +
         'ORDER BY RR.rating DESC\n' +
