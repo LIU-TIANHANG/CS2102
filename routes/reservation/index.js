@@ -33,8 +33,22 @@ router.get('/',(req,res)=>{
         }
         res.render('reservation/index', { title: 'Reservation Infomation', data: data.rows, date:date});
     });
-
 });
+
+router.get('/',(req,res)=>{
+    let userid = req['admin'].adminid;
+    pool.query(query.reservations_read_query_adminID,[adminid], (err, data) => {
+        if(err){
+            console.log(err);
+        }
+        let date  = [];
+        for(let i=0 ;i < data.rows.length ;i++){
+            date[i] =  data.rows[i].dateavailable.toString().substring(4,15);
+        }
+        res.render('reservation/index', { title: 'Reservation Infomation', data: data.rows, date:date});
+    });
+});
+
 router.get('/insert',(req,res)=>{
     res.render('reservation/insert',{title: 'start your reservation'})
 });
@@ -217,6 +231,8 @@ router.post('/delete/:aid/:userid',(req,res)=> {
         }
     })().catch(e => console.error(e.stack))
 });
+
+
 
 function dateFormatModifer(data){
     var date  = [];

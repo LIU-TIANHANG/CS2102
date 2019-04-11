@@ -54,11 +54,13 @@
 <h1>CS2102: <%= title%></h1>
 <div class="main">
     <div class="jumbotron">
-            <h1 class="masthead-brand mb-3">Restaurants</h1>
+            <br>
+            <h2 class="masthead-brand mb-3">Restaurants</h2>
             <hr>
+            
             <div class = "container">
                     <div class="container">
-                        <div class="card mb-3 mx-auto" style="width:510px">
+                        <div class="card mb-3 mx-auto" style="width:fit-content">
                                 <div class="card-header"><b>Restaurant Info</b></div>
                                 <div class="card-body">
                                     
@@ -98,10 +100,10 @@
                                                 <button type="submit" class="btn btn-primary btn-sm mr-1">cuisine</button>
                                             </form>
                                             <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
-                                                <button type="submit" class="btn btn-primary btn-sm">menu</button>
+                                                <button type="submit" class="btn btn-primary btn-sm mr-1">menu</button>
                                             </form>
                                             <form action="/restaurant/reservations/<%= data[0].resid %>" method="get">
-                                                <button type="submit" class="btn btn-primary btn-sm">Update reservations</button>
+                                                <button type="submit" class="btn btn-primary btn-sm">Confirm attendance</button>
                                             </form>
                                     </div>
                                 </div>
@@ -155,14 +157,13 @@
                             </form>
                         </div>
                     </div>-->
-                </div>
+            </div>
+            
     </div>
     
-    <div class="row">
-            <div class="col"><hr></div>
-            <div class="col-auto">View All Restaurants</div>
-            <div class="col"><hr></div>
-        </div>
+    <div class="container mb-3">
+  
+    </div>
     <div class="container">
         <table class="table">
             <thead>
@@ -190,32 +191,32 @@
 
                     <td>
                         <form action="/restaurant/update/<%= data[0].resid%>" method="get">
-                            <button type="submit" class="btn btn-danger btn-sm">Update</button>
+                            <button type="submit" class="btn btn-danger btn-sm" style="background-color: transparent">Update</button>
                         </form>
                     </td>
                     <td>
                         <form action="/restaurant/delete/<%= data[0].resid %>" method="post">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" style="background-color: transparent">Delete</button>
                         </form>
                     </td>
                     <td>
                         <form action="/restaurant/availability/<%= data[0].resid %>" method="get">
-                            <button type="submit" class="btn btn-primary btn-sm">Availability</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="background-color: transparent">Availability</button>
                         </form>
                     </td>
                     <td>
                         <form action="/restaurant/meals/<%= data[0].resid %>" method="get">
-                            <button type="submit" class="btn btn-primary btn-sm">mealType</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="background-color: transparent">mealType</button>
                         </form>
                     </td>
                     <td>
                         <form action="/restaurant/cuisines/<%= data[0].resid %>" method="get">
-                            <button type="submit" class="btn btn-primary btn-sm">cuisine</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="background-color: transparent">cuisine</button>
                         </form>
                     </td>
                     <td>
                         <form action="/restaurant/menu/<%= data[0].resid %>" method="get">
-                            <button type="submit" class="btn btn-primary btn-sm">menu</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="background-color: transparent">menu</button>
                         </form>
                     </td>
                 </tr>

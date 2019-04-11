@@ -34,7 +34,7 @@
             }
     
             .btn {
-                background-image: linear-gradient(to right, #9B6C4D 0%, #ffe187 51%, #9B6C4D 100%);
+                background-color: transparent;
                 border-color:darkgoldenrod;
                 color: #271E1E;
                 font-weight: bolder;
@@ -60,11 +60,16 @@
                     </div>
             </div>
             <p class="text-center">
-                    <a href= "/restaurant/cuisines/<%= id%>/insert" class="btn btn-primary btn-lg mt-3" role="button" aria-pressed="true">Add new cuisine</a>
-                </p>
+                    <a href= "/restaurant/cuisines/<%= id%>/insert" class="btn btn-primary btn-lg mt-3" role="button" aria-pressed="true" style="background-image: linear-gradient(to right, #9B6C4D 0%, #ffe187 51%, #9B6C4D 100%); border-color:darkgoldenrod;">Add new cuisine</a>
+                    </p>
             
         </div>
     <div class="container">
+        <p class="text-right">
+            <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+        </p>
+        <br>
+        <h4>View All Cuisines</h4>
         <table class="table">
             <thead>
             <tr>
