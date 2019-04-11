@@ -56,9 +56,8 @@ router.get('/insert',(req,res)=>{
 router.post('/confirmation',(req,res)=>{
     let date = req.body.date;
 
-    pool.query(query.availability_read_query_date,[date])
+    pool.query(query.availability_read_query_date_distinct,[date])
         .then(result=>{
-            let s1 = new Set();
             return result.rows;
         })
         .then(async (results)=>{

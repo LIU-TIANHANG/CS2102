@@ -32,6 +32,7 @@ module.exports = {
     availability_read_query_resid : 'SELECT * FROM Availability WHERE resid = $1',
     availability_read_query_aid : 'SELECT * FROM Availability WHERE aid = $1',
     availability_read_query_date : 'SELECT resid FROM Availability WHERE dateavailable = $1',
+    availability_read_query_date_distinct : 'SELECT DISTINCT resid FROM Availability WHERE dateavailable = $1',
     availability_insert_query : 'INSERT INTO Availability VALUES  (DEFAULT,$1,$2, $3,$4,$5);',
     availability_update_query : 'UPDATE Availability SET dateAvailable = $1 , timeAvailableStart=$2, timeAvailableEnd=$3, numSeats=$4 WHERE aid = $5',
     availability_delete_query : 'DELETE FROM Availability WHERE aid = $1',
@@ -117,35 +118,35 @@ module.exports = {
         'SELECT * FROM DateHasReservation UNION SELECT * FROM DateNoReservation\n' +
         'ORDER BY sDate\n' +
         ';\n',
-    admin_monitor : 'WITH \n' +
-        'DailyRestaurantBooking AS (\n' +
-        '\tSELECT R.resID, A.dateAvailable AS sDate, \n' +
-        'COUNT(DISTINCT (RSV.userID, RSV.aid)) AS numBooking\n' +
-        '\tFROM (Restaurants R INNER JOIN Availability A ON R.resID = A.resID)\n' +
-        '\t\t INNER JOIN Reservations RSV ON A.aid = RSV.aid\n' +
-        '\tWHERE A.dateAvailable <= $1 \n' +
-        '\tGROUP BY R.resID, A.dateAvailable\n' +
-        '),\n' +
-        'HasAvailabilityRecord AS(\n' +
-        '\tSELECT resID, AVG(numBooking) AS AvgBooking\n' +
-        '\tFROM DailyRestaurantBooking\n' +
-        '\tGROUP BY resID\n' +
-        '),\n' +
-        'NoAvailabilityRecord AS (\n' +
-        '\tSELECT resID, 0 AS AvgBooking \n' +
-        '\tFROM Restaurants R \n' +
-        '\tWHERE resID NOT IN (SELECT resID FROM HasAvailabilityRecord)\n' +
-        '),\n' +
-        'AverageRestaurantBooking AS (\n' +
-        '\tSELECT * FROM HasAvailabilityRecord UNION SELECT * FROM NoAvailabilityRecord\n' +
-        '),\n' +
-        'RestaurantRating AS (\n' +
-        '\tSELECT Res.resID AS resID, COALESCE(AVG(Rev.rating),0) AS rating\n' +
-        '\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n' +
-        '\tGROUP BY Res.resID \n' +
-        ')\n' +
-        'SELECT R1.resID, R1.AvgBooking, R2.rating\n' +
-        'FROM AverageRestaurantBooking R1 NATURAL JOIN RestaurantRating R2\n' +
-        'ORDER BY R1.AvgBooking DESC, R2.rating DESC\n' +
-        ';\n',
+    admin_monitor : "WITH \n" +
+        "DailyRestaurantBooking AS (\n" +
+        "\tSELECT R.resID, A.dateAvailable AS sDate, \n" +
+        "COUNT(DISTINCT (RSV.userID, RSV.aid)) AS numBooking\n" +
+        "\tFROM (Restaurants R INNER JOIN Availability A ON R.resID = A.resID)\n" +
+        "\t\t INNER JOIN Reservations RSV ON A.aid = RSV.aid\n" +
+        "\tWHERE A.dateAvailable <= $1 \n" +
+        "\tGROUP BY R.resID, A.dateAvailable\n" +
+        "),\n" +
+        "HasAvailabilityRecord AS(\n" +
+        "\tSELECT resID, AVG(numBooking) AS AvgBooking\n" +
+        "\tFROM DailyRestaurantBooking\n" +
+        "\tGROUP BY resID\n" +
+        "),\n" +
+        "NoAvailabilityRecord AS (\n" +
+        "\tSELECT resID, 0 AS AvgBooking \n" +
+        "\tFROM Restaurants R \n" +
+        "\tWHERE resID NOT IN (SELECT resID FROM HasAvailabilityRecord)\n" +
+        "),\n" +
+        "AverageRestaurantBooking AS (\n" +
+        "\tSELECT * FROM HasAvailabilityRecord UNION SELECT * FROM NoAvailabilityRecord\n" +
+        "),\n" +
+        "RestaurantRating AS (\n" +
+        "\tSELECT Res.resID AS resID, COALESCE(AVG(Rev.rating),0) AS rating\n" +
+        "\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n" +
+        "\tGROUP BY Res.resID \n" +
+        ")\n" +
+        "SELECT R1.resID, R1.AvgBooking, R2.rating, RE.rname\n" +
+        "FROM AverageRestaurantBooking R1 NATURAL JOIN RestaurantRating R2 NATURAL JOIN Restaurants RE\n" +
+        "ORDER BY R1.AvgBooking DESC, R2.rating DESC\n" +
+        ";\n",
 };

@@ -52,6 +52,7 @@ router.get('/adminMonitor',(req,res)=>{
                 num = num.substring(0,4);
                 avgBooking.push(num);
             }
+            console.log(data.rows);
             res.render('complexQuery/AM',{data:data.rows,avgBooking:avgBooking})
         })
         .catch(err=>{
