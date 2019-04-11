@@ -89,9 +89,10 @@ router.post('/update/:id',(req,res)=>{
 });
 
 router.post('/delete/:id', function(req, res) {
+    console.log("hi");
     pool.query(query.restaurants_delete_query,[req.params.id])
         .then(result=>{
-            res.redirect("/restaurant/" + req['user'].userid);
+            res.redirect("/restaurant");
         })
         .catch(err=>{
             console.log(err);

@@ -16,7 +16,13 @@ router.get('/restaurantRecommendations',(req,res)=>{
     let userid = req['user'].userid;
     pool.query(query.restaurant_recommendation,[userid])
         .then(result=>{
-            res.render('complexQuery/rr',{data : result.rows});
+            let data = result.rows;
+            let output = [];
+            for(let i=0;i<data.length;i++){
+                output.push(data[i].rating.substring(0,3));
+            }
+            console.log(output)
+            res.render('complexQuery/RR',{data : result.rows,output,output});
         })
 });
 
