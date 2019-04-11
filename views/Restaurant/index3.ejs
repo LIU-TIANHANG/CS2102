@@ -61,7 +61,6 @@
     </style>
 </head>
 <body>
-<h1>CS2102: <%= title%></h1>
 <div class="main">
     <div class="jumbotron">
             <div class="card" style="background-color: blanchedalmond; opacity: 0.70">
@@ -87,29 +86,30 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-3 p-0">
-                                                <label for="mealType">Select Cuisine</label>
-                                                <select class="selectpicker" id="mealType" multiple data-live-search="true">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
+                                                <label for="cuisine">Select Cuisine</label>
+                                                <select class="selectpicker" id="mealType" name="mealType" multiple data-live-search="true">
+                                                    <% for(var i=0; i<mealtype.length; i++) { %>
+                                                        <option><%= mealtype[i].mealtype%></option>
+                                                    <%}%>
                                                 </select>
                                         </div>
                                         <div class="col-md-3 p-0">
                                             <label for="mealType">Select Meal Type</label>
-                                            <select class="selectpicker" id="mealType" multiple data-live-search="true">
-                                                    <option>Mustard</option>
-                                                    <option>Ketchup</option>
-                                                    <option>Relish</option>
+                                            <select class="selectpicker" id="mealType" name ="cuisine" multiple data-live-search="true">
+                                                <% for(var i=0; i<cuisine.length; i++) { %>
+                                                    <option><%= cuisine[i].cuisine%></option>
+                                                <%}%>
                                             </select>
 
                                         </div>
                                         <div class="col-md-3 p-0">
                                             <label for="rating">Select Rating</label>
                                             <select class="form-control search-slt" id="rating">
-                                                <option>Example one</option>
-                                                <option>Example one</option>
-                                                <option>Example one</option>
-                                                <option>Example one</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
                                             </select>
 
                                         </div>
@@ -117,40 +117,14 @@
                                 </div>
                                 
                             </div>
+                        <button>Search</button>
                         </form>
             </div>
             
             <div class="col">
                 <br>
                 <h4>View All Restaurants</h4>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Opening Hours</th>
-                        <th scope="col">Intro</th>
-                        <th scope="col">Contact</th>
-                        <th scope="col">Meal Types</th>
-                        <th scope="col">Cuisine</th>
-                        <th scope="col">Rating</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% for(var i=0; i<data.length; i++) { %>
-                        <tr>
-                            <td><%= data[i].resid%></td>
-                            <td><%= data[i].rname%></td>
-                            <td><%= data[i].openinghour%></td>
-                            <td><%= data[i].intro%></td>
-                            <td><%= data[i].contactno%></td>
-                            <td><%= data[i].mealType</td>
-                            <td><%= data[i].Cuisine</td>
-                            <td><%= data[i].rating</td>
-                        </tr>
-                    <% } %>
-                    </tbody>
-                </table>
+
             </div>
         </div>
     </div>

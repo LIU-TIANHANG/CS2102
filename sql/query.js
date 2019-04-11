@@ -18,14 +18,15 @@ module.exports = {
     register_insert_query_admin : 'INSERT INTO Admins VALUES (DEFAULT, $1,$2,$3,$4,$5)',
     register_insert_query_RO : 'INSERT INTO RestaurantOwners VALUES (DEFAULT, $1,$2,$3,$4,$5)',
     register_no_duplicated_query : 'WITH account AS (SELECT email FROM users UNION SELECT email FROM admins UNION SELECT email FROM RestaurantOwners) SELECT 1 FROM account WHERE email= $1',
-
+    user_add_point : "UPDATE users SET points = (SELECT points FROM users WHERE userid = $1) +$2 WHERE userid = $3",
 
     reservations_read_query : 'SELECT * FROM Reservations NATURAL JOIN Availability',
     reservations_read_query_userID : 'SELECT * FROM Reservations NATURAL JOIN Availability NATURAL JOIN Restaurants  where userid = $1',
     reservations_read_query_aid_userID : 'SELECT numPeople FROM Reservations WHERE aid = $1 AND userID = $2',
+    reservations_read_query_resid : "SELECT * FROM Reservations NATURAL JOIN Availability NATURAL JOIN users  WHERE resid = $1 AND attendance = $2 ",
     reservations_insert_query : "INSERT INTO Reservations VALUES ($1, 'booked', $2 , $3)",
     reservations_delete_query : 'DELETE FROM Reservations WHERE aid = $1 AND userid = $2',
-
+    reservations_update_query : 'UPDATE Reservations SET attendance = $1 WHERE aid = $2 AND userid = $3',
 
     availability_read_query : 'SELECT * FROM Availability',
     availability_read_query_resid : 'SELECT * FROM Availability WHERE resid = $1',
@@ -69,4 +70,6 @@ module.exports = {
     menu_read_query : 'SELECT * FROM  menu WHERE resID = $1',
     menu_insert_query : 'INSERT INTO menu VALUES ($1,$2,$3,$4)',
     menu_delete_query : 'DELETE FROM menu WHERE resid = $1 AND name = $2',
+
+    filter_query : 'SELECT * FROM restaurants NATURAL JOIN offers NATURAL JOIN  serves WHERE cuisine = $1 AND mealtype = $2'
 };

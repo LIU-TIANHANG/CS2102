@@ -1,0 +1,103 @@
+<!--home page of availability-->
+<html>
+<head>
+    <% include ../partials/home %>
+
+    <style>
+        .container{
+            overflow: scroll;
+        }
+
+        .row{
+            padding: 1%;
+        }
+
+        .jumbotron{
+            width: 100%;
+            height: 300px;
+            background-image: url(https://images.pexels.com/photos/541216/pexels-photo-541216.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .masthead-brand {
+            margin-top: 25px;
+            color:#271E1E;
+            font-style: oblique;
+        }
+
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+
+        .btn {
+            background-image: linear-gradient(to right, #9B6C4D 0%, #ffe187 51%, #9B6C4D 100%);
+            border-color: whitesmoke;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="jumbotron">
+        <div class="card" style="background-color: aliceblue; opacity: 0.75">
+            <h1 class="masthead-brand mb-3">Availability</h1>
+            <div class="row">
+                <div class="col"><hr></div>
+                <div class="col-auto">Add an available time slot, or view all availability</div>
+                <div class="col"><hr></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">user last name</th>
+                <th scope="col">Date</th>
+                <th scope="col">start time</th>
+                <th scope="col">end time</th>
+                <th scope="col">num of seats</th>
+                <th scope="col">Confirm attendance</th>
+                <th scope="col">Missing</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(var i=0; i<data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].lastname%></td>
+                    <td><%= date[i]%></td>
+                    <td><%= data[i].timeavailablestart %></td>
+                    <td><%= data[i].timeavailableend%></td>
+                    <td><%= data[i].numpeople%></td>
+                    <td>
+                        <form action="/restaurant/reservations/<%= data[i].userid%>/<%= data[i].aid%>/<%= data[i].resid%>" method="post">
+                            <button type="submit" class="btn btn-danger ">Confirm</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/restaurant/reservations/miss/<%= data[i].userid%>/<%= data[i].aid%>/<%= data[i].resid%>" method="post">
+                            <button type="submit" class="btn btn-danger ">Miss</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+
+</html>
