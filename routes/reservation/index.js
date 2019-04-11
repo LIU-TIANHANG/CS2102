@@ -218,6 +218,8 @@ router.post('/delete/:aid/:userid',(req,res)=> {
     })().catch(e => console.error(e.stack))
 });
 
+
+
 function dateFormatModifer(data){
     var date  = [];
     for(let i=0 ;i < data.rows.length ;i++){

@@ -36,6 +36,7 @@
             margin-right: auto;
             width: auto;
         }
+
         </style>
 </head>
 
@@ -43,16 +44,15 @@
 
 
 <div class="jumbotron">
-        <div class="container">
-                <div class = "row">
-                    <div class="col">
-                        <hr>
-                        <h2 class="title text-center mt-5">Welcome to <%= rname %> time slot management</h2>
-                        <hr>
-                    </div>
-                </div>
-            </div>
+
     <div class="container">
+        <div class = "row">
+                <div class="col">
+                    <hr>
+                    <h3 class="title text-center mt-5">Welcome to <%= rname %> time slot management</h3>
+                    <hr>
+                </div>
+        </div>
         <div class="card mx-auto" style="max-width:45rem">
             <h5 class="section__heading text-center mt-3">Add a Timeslot</h5>
             <p class="section__subheading text-center">
@@ -66,21 +66,25 @@
                 
                 <form id="html_form" action="insert" role="form" method="post">
                     <div class="form-group">
-                        <label for="date">Date</label>
+                            <label for="date" style="font-weight: bold">Restaurant Name</label>
+                            <input type="text" readonly class="form-control-plaintext" id="name" value="<%= rname %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="date" style="font-weight: bold">Date</label>
                         <input type="date" id="date" name="date">
                     </div>
                     <div class="form-group">
-                        <label for="startTime">Start Hour</label>
+                        <label for="startTime" style="font-weight: bold">Start Hour</label>
                         <select id="startTime" name="startTime">
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="endTime">End Hour</label>
+                        <label for="endTime" style="font-weight: bold">End Hour</label>
                         <select id="endTime" name="endTime" >
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="slot">Number of Slots</label>
+                        <label for="slot" style="font-weight: bold">Number of Seats</label>
                         <input required type="tel" class="form-control" id="slot" name="slot" placeholder="Enter the number of slots">
                     </div>
 
