@@ -71,7 +71,7 @@ module.exports = {
 
     menu_read_query : 'SELECT * FROM  menu WHERE resID = $1',
     menu_insert_query : 'INSERT INTO menu VALUES ($1,$2,$3,$4)',
-    menu_delete_query : 'DELETE FROM menu WHERE resid = $1 AND name = $2',
+    menu_delete_query : 'DELETE FROM menu WHERE resid = $1 AND item = $2',
 
     filter_query : 'SELECT * FROM restaurants NATURAL JOIN offers NATURAL JOIN  serves WHERE cuisine = $1 AND mealtype = $2',
     restaurant_recommendation : 'WITH UserCuisines AS (\n' +
