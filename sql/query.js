@@ -71,5 +71,51 @@ module.exports = {
     menu_insert_query : 'INSERT INTO menu VALUES ($1,$2,$3,$4)',
     menu_delete_query : 'DELETE FROM menu WHERE resid = $1 AND name = $2',
 
-    filter_query : 'SELECT * FROM restaurants NATURAL JOIN offers NATURAL JOIN  serves WHERE cuisine = $1 AND mealtype = $2'
+    filter_query : 'SELECT * FROM restaurants NATURAL JOIN offers NATURAL JOIN  serves WHERE cuisine = $1 AND mealtype = $2',
+    restaurant_recommendation : 'WITH UserCuisines AS (\n' +
+        '\tSELECT O1.cuisine AS cuisine, COUNT(*) AS numReservations\n' +
+        '\tFROM (Reservations R LEFT JOIN Availability A on R.aid = A.aid) \n' +
+        'LEFT JOIN Offers O1 ON A.resID = O1.resID\n' +
+        '\tWHERE R.userID = $1\n' +
+        '\tGROUP BY O1.cuisine ),\n' +
+        'OtherCuisines AS ( \n' +
+        '\tSELECT C.cuisine, 0 AS numReservations \n' +
+        '\tFROM Cuisines C\n' +
+        '\tWHERE C.cuisine NOT IN (SELECT UC.cuisine FROM UserCuisines UC)),\n' +
+        'TopCuisines AS (\n' +
+        '\tSELECT * FROM UserCuisines\n' +
+        '\tUNION\n' +
+        '\tSELECT * FROM OtherCuisines\n' +
+        '\tORDER BY numReservations DESC \n' +
+        '\tLIMIT 3 ),\n' +
+        'RestaurantRating AS (\n' +
+        '\tSELECT Res.resID AS resID, Res.rname AS rname, COALESCE(AVG(Rev.rating),0) AS rating\n' +
+        '\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n' +
+        '\tGROUP BY Res.resID )\n' +
+        'SELECT RR.resID, RR.rname, RR.rating\n' +
+        'FROM RestaurantRating RR LEFT JOIN Offers O ON RR.resID = O.resID\n' +
+        'WHERE O.cuisine IN (SELECT TC.cuisine FROM TopCuisines TC)\n' +
+        'ORDER BY RR.rating DESC\n' +
+        'LIMIT 10\n' +
+        ';\n',
+    history_reservation: 'WITH \n' +
+        'DateHasReservation AS ( \n' +
+        '\tSELECT A.dateAvailable AS sDate, SUM(R.numPeople) AS totalNumAttendees\n' +
+        '\tFROM Availability A LEFT JOIN Reservations R ON A.aid = R.aid\n' +
+        '\tWHERE A.resID = $1\n' +
+        '\tAND R.attendance = \'attended\'\n' +
+        '\tAND A.dateAvailable <= $2 \n' +
+        '\tGROUP BY A.dateAvailable\n' +
+        '),\n' +
+        'DateNoReservation AS ( \n' +
+        '\tSELECT A.dateAvailable AS sDate, 0 AS totalNumAttendees\n' +
+        '\tFROM Availability A\n' +
+        '\tWHERE A.resID = $3\n' +
+        '\tAND A.dateAvailable <= $4' +
+        '\tAND A.dateAvailable NOT IN (SELECT sDate FROM DateHasReservation)\n' +
+        ')\n' +
+        'SELECT * FROM DateHasReservation UNION SELECT * FROM DateNoReservation\n' +
+        'ORDER BY sDate\n' +
+        ';\n'
+
 };
