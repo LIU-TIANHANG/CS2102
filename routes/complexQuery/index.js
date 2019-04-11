@@ -24,8 +24,15 @@ router.get('/historyReservation/:resid',(req,res)=>{
     const today = new Date();
     const resid = req.params.resid;
     pool.query(query.history_reservation,[resid,today,resid,today])
-        .then(result=>{
-            console.log(result.rows);
+        .then(data=>{
+            console.log(data.rows);
+            var date  = [];
+            var totalSeat = [];
+            for(let i=0 ;i < data.rows.length ;i++){
+                date[i] =  data.rows[0].sdate.toString().substring(4,15);
+                totalSeat.push(data.rows[i].totalnumattendees);
+            }
+            res.render("complexQuery/HR",{totalSeat:totalSeat, date:date});
         })
 })
 
