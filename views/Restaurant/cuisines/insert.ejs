@@ -36,54 +36,22 @@
 <body>
 
 <div class="jumbotron jumbotron-fluid">
-    <nav class="navbar navbar-dark fixed-top" style="background-color:#271E1E;">
-        <a class="navbar-brand" href="#" style="color:antiquewhite"><%= title%></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="card mx-auto mt-5 mb-5" style="width:700px; background-color: #271E1E; opacity: 0.85">
-        <div class="card-header">Add A mealtypet</div>
+    <div class="card mx-auto mt-5 mb-5" style="width:60vw; background-color: #271E1E; opacity: 0.85">
+        <div class="card-header">Add A Cuisine</div>
         <div class="card-body">
             <% if (typeof message == "string" && message) { %>
                 <p class="alert alert-danger"><%= message %></p>
             <% } %>
                 <form id="html_form" action="#" role="form" method="post">
                 <div class="form-group">
-                    <label for="mealtype" style="color: antiquewhite">MealType</label>
-                    <select name="mealtype" id="mealtype">
+                    <label for="Cuisine" style="color: antiquewhite">Cuisine</label>
+                    <select name="Cuisine" id="Cuisine">
                         <% for(var i=0; i<data.length; i++) { %>
                             <option><%= data[i].cuisine%></option>
                         <%}%>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" style="width: 659px; font-weight: bold">Submit</button>
+                <button type="submit" class="btn btn-primary btn-block" style="width: 55vw; font-weight: bold">Submit</button>
             </form>
 
         </div>
