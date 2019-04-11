@@ -22,8 +22,8 @@ router.get('/:id/insert',(req,res)=>{
 });
 
 router.post('/:id/insert',(req,res)=>{
-    let mealtype = req.body.mealtype;
-    pool.query(query.offers_insert_query,[req.params.id,mealtype])
+    let Cuisine = req.body.Cuisine;
+    pool.query(query.offers_insert_query,[req.params.id,Cuisine])
         .then(result=>{
             res.redirect("/restaurant/cuisines/" + req.params.id);
         })

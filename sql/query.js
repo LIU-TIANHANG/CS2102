@@ -41,7 +41,7 @@ module.exports = {
     availability_read_query_count_slot_restaurant : 'SELECT rname , sum(numSeats) FROM Availability NATURAL JOIN Restaurants GROUP BY rname',
 
 
-    review_read_query : 'SELECT * FROM reviews',
+    review_read_query : 'SELECT * FROM reviews NATURAL JOIN Restaurants WHERE userid= $1',
     review_insert_query : 'INSERT INTO reviews VALUES($1,$2,$3,$4)',
     review_delete_query : 'DELETE FROM reviews WHERE resid = $1 AND userid = $2',
     review_read_query_resId_userId : 'SELECT rname,rating, review FROM reviews, restaurants WHERE reviews.resid = $1 AND userid = $2',

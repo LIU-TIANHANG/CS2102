@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="288549ca-335c-401e-a396-6dbf05ddf2bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/complexQuery/AM.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Restaurant/availability/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Restaurant/availability/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/complexQuery/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/complexQuery/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Restaurant/cuisines/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Restaurant/cuisines/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/review/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/review/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/Schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/Schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/sql/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/complexQuery/HR.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/complexQuery/HR.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Restaurant/index4.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Restaurant/index4.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/landing/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/landing/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/reservation/restaurant.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/reservation/restaurant.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/review/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/index.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,11 +48,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/reservation/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+            <state relative-caret-position="2684">
+              <caret line="220" selection-start-line="220" selection-end-line="226" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/Restaurant/cuisines/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Restaurant/cuisines/insert.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -70,6 +90,7 @@
       <find>res</find>
       <find>cuisine</find>
       <find>title</find>
+      <find>text</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -78,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/routes/graph/index.js" />
         <option value="$PROJECT_DIR$/views/graph/graph_restaurant.ejs" />
         <option value="$PROJECT_DIR$/views/town/index.js" />
         <option value="$PROJECT_DIR$/views/town/index.ejs" />
@@ -90,23 +110,18 @@
         <option value="$PROJECT_DIR$/views/cuisines/index.ejs" />
         <option value="$PROJECT_DIR$/routes/cuisines/index.js" />
         <option value="$PROJECT_DIR$/views/home/register.ejs" />
-        <option value="$PROJECT_DIR$/routes/review/index.js" />
         <option value="$PROJECT_DIR$/views/Restaurant/insert.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/update.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/meals/index.ejs" />
         <option value="$PROJECT_DIR$/routes/Restaurant/meals/index.js" />
         <option value="$PROJECT_DIR$/views/Restaurant/cuisines/index.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/cuisines/insert.ejs" />
-        <option value="$PROJECT_DIR$/routes/Restaurant/cuisines/index.js" />
         <option value="$PROJECT_DIR$/views/Restaurant/index.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/menu/insert.ejs" />
         <option value="$PROJECT_DIR$/routes/Restaurant/menu/index.js" />
         <option value="$PROJECT_DIR$/views/Restaurant/menu/index.ejs" />
-        <option value="$PROJECT_DIR$/views/landing/index.ejs" />
         <option value="$PROJECT_DIR$/routes/home/index.js" />
-        <option value="$PROJECT_DIR$/sql/Schema.sql" />
         <option value="$PROJECT_DIR$/views/reservation/insert.ejs" />
-        <option value="$PROJECT_DIR$/views/reservation/restaurant.ejs" />
         <option value="$PROJECT_DIR$/views/reservation/availability.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/index2.ejs" />
         <option value="$PROJECT_DIR$/views/reservation/index.ejs" />
@@ -114,7 +129,6 @@
         <option value="$PROJECT_DIR$/views/Restaurant/meals/insert.ejs" />
         <option value="$PROJECT_DIR$/views/cuisines/insert.ejs" />
         <option value="$PROJECT_DIR$/views/meals/insert.ejs" />
-        <option value="$PROJECT_DIR$/views/Restaurant/index4.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/index3.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/landing/user.ejs" />
@@ -123,12 +137,19 @@
         <option value="$PROJECT_DIR$/views/Restaurant/availability/update.ejs" />
         <option value="$PROJECT_DIR$/routes/Restaurant/index.js" />
         <option value="$PROJECT_DIR$/routes/reservation/index.js" />
-        <option value="$PROJECT_DIR$/sql/query.js" />
         <option value="$PROJECT_DIR$/views/complexQuery/HR.ejs" />
         <option value="$PROJECT_DIR$/views/complexQuery/AD.ejs" />
         <option value="$PROJECT_DIR$/views/complexQuery/AM.ejs" />
         <option value="$PROJECT_DIR$/routes/complexQuery/index.js" />
         <option value="$PROJECT_DIR$/routes/Restaurant/availability/index.js" />
+        <option value="$PROJECT_DIR$/sql/Schema.sql" />
+        <option value="$PROJECT_DIR$/views/landing/index.ejs" />
+        <option value="$PROJECT_DIR$/sql/query.js" />
+        <option value="$PROJECT_DIR$/views/review/index.ejs" />
+        <option value="$PROJECT_DIR$/routes/review/index.js" />
+        <option value="$PROJECT_DIR$/views/Restaurant/index4.ejs" />
+        <option value="$PROJECT_DIR$/views/reservation/restaurant.ejs" />
+        <option value="$PROJECT_DIR$/routes/Restaurant/cuisines/index.js" />
       </list>
     </option>
   </component>
@@ -158,18 +179,6 @@
               <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS2102" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="complexQuery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="graph" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="reservation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -183,30 +192,18 @@
               <item name="CS2102" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="Restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="availability" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="complexQuery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="cuisines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS2102" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="graph" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS2102" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="landing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS2102" type="b2602c69:ProjectViewProjectNode" />
@@ -219,7 +216,7 @@
               <item name="CS2102" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="availability" type="462c0819:PsiDirectoryNode" />
+              <item name="cuisines" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,19 +238,19 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\reservation" />
-      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\Restaurant" />
-      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\routes\Restaurant" />
-      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\Restaurant\menus" />
-      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\routes\Restaurant\cuisines" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\public\javascripts\build" />
       <recent name="E:\CS2102\testing" />
       <recent name="E:\CS2102\testing\public\javascripts" />
       <recent name="E:\CS2102\testing\routes" />
       <recent name="E:\CS2102\testing\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\reservation" />
+      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\Restaurant" />
+      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\routes\Restaurant" />
+      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\views\Restaurant\menus" />
+      <recent name="C:\Users\tainh\Desktop\CS2102\Github\CS2102\routes\Restaurant\cuisines" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -323,12 +320,12 @@
       <workItem from="1554825044665" duration="193000" />
       <workItem from="1554900165501" duration="20768000" />
       <workItem from="1554961180560" duration="4594000" />
-      <workItem from="1554988534791" duration="3528000" />
+      <workItem from="1554988534791" duration="6260000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187809000" />
+    <option name="totallyTimeSpent" value="190541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -343,7 +340,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.34161073" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.34161073" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="npm" order="2" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="Favorites" order="3" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
@@ -352,7 +349,7 @@
       <window_info id="Job Explorer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30878186" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30878186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39660057" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -381,24 +378,16 @@
           <line>60</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>41</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="457" selection-start-line="457" selection-end-line="457" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/insert.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/pg/lib/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1021">
@@ -424,20 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="23" column="69" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/cuisines/insert.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/Restaurant/cuisines/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -473,13 +448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/landing/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" lean-forward="true" selection-end-line="149" />
         </state>
       </provider>
     </entry>
@@ -527,13 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/reservation/restaurant.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -589,13 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/Schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="88" column="63" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/town/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -603,34 +557,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="61" column="22" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/landing/user.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="141" column="56" selection-start-line="141" selection-start-column="56" selection-end-line="141" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#p#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/table.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="52" column="21" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="52" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/index4.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -652,34 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/reservations.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/Restaurant/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="142" column="54" selection-start-line="142" selection-start-column="54" selection-end-line="142" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/index3.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="89" column="105" selection-start-line="89" selection-start-column="105" selection-end-line="89" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/reservation/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="220" selection-start-line="220" selection-end-line="226" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -707,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="149" column="14" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/complexQuery/RR.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -731,10 +626,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sql/Schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="129" selection-start-line="129" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-631">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/landing/user.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="141" column="56" selection-start-line="141" selection-start-column="56" selection-end-line="141" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/landing/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="137" column="41" selection-start-line="137" selection-start-column="41" selection-end-line="137" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/review/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/review/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="80" column="27" lean-forward="true" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/complexQuery/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="106">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Restaurant/index3.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Restaurant/index4.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Restaurant/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="171" column="25" lean-forward="true" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Restaurant/reservations.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -745,10 +724,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
+    <entry file="file://$PROJECT_DIR$/views/reservation/restaurant.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        <state relative-caret-position="119">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/reservation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2684">
+          <caret line="220" selection-start-line="220" selection-end-line="226" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Restaurant/cuisines/insert.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Restaurant/cuisines/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>

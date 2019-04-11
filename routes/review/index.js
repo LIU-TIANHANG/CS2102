@@ -13,7 +13,8 @@ const pool = require('./../../sql/pool');
 
 
 router.get('/',(req,res)=>{
-    pool.query(query.review_read_query)
+    let userId = req['user'].userid;
+    pool.query(query.review_read_query,[userId])
         .then(result=>{
             res.render('review/index',{data:result.rows});
         })

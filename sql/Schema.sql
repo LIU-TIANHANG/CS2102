@@ -59,11 +59,6 @@ CREATE TABLE Restaurants (
 );
 
 
-
-
---e.g query
-INSERT INTO Restaurants VALUES (DEFAULT, 'the first restaurants', '00:00:00','chinese', 'a brief intro of sql', '12345677');
-
 CREATE TABLE Availability(
     aid SERIAL UNIQUE,
     resid INTEGER,
@@ -75,7 +70,6 @@ CREATE TABLE Availability(
     FOREIGN KEY (resid) REFERENCES Restaurants(resid) ON DELETE CASCADE
 );
 
-INSERT INTO Availability VALUES  (DEFAULT,100,'January 8, 1999','00:00:00','10:00:00',5);
 
 CREATE TABLE Menu(
 	item VARCHAR(50),
@@ -100,8 +94,6 @@ CREATE TABLE Reservations(
 	CHECK (numPeople > 0)
 );
 
-INSERT INTO Reservations VALUES (DEFAULT, 'January 8, 1999', 'breakfast','1', 'true', '1' , '1');
-
 CREATE TABLE Reviews(
 	userID      INT,
 	resID       INT,
@@ -112,18 +104,6 @@ CREATE TABLE Reviews(
 	FOREIGN KEY (resID) REFERENCES Restaurants ON DELETE CASCADE,
 	CHECK (rating <= 5)
 );
-
-INSERT INTO Users VALUES (DEFAULT, '123','th','liu','tainhang3@Hotmil.com','standard');
--- Restaurants INSERTION
-
--- MENU insertion
-INSERT INTO Menu VALUES('the first menu', 34.32, 'a brief desciption',1);
-
--- query helper
-SELECT * FROM Restaurants2;
-
-SELECT * FROM Users;
-SELECT * FROM Menu;
 
 
 
