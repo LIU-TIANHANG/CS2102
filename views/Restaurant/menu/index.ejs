@@ -24,7 +24,7 @@
             <td><%= data[i].price%></td>
             <td><%= data[i].description%></td>
             <td>
-                <form action="/restaurant/menu/<%= data[i].resid%>/delete/<%= data[i].name%>" method="get">
+                <form action="/restaurant/menu/<%= data[i].resid%>/delete/<%= data[i].item%>" method="get">
                     <button type="submit" class="btn btn-danger ">Delete</button>
                 </form>
             </td>

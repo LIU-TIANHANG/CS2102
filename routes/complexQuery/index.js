@@ -17,11 +17,12 @@ router.get('/restaurantRecommendations',(req,res)=>{
     pool.query(query.restaurant_recommendation,[userid])
         .then(result=>{
             let data = result.rows;
+            console.log(data);
             let output = [];
             for(let i=0;i<data.length;i++){
                 output.push(data[i].rating.substring(0,3));
             }
-            console.log(output)
+            console.log(output);
             res.render('complexQuery/RR',{data : result.rows,output,output});
         })
 });
@@ -35,7 +36,7 @@ router.get('/historyReservation/:resid',(req,res)=>{
             var date  = [];
             var totalSeat = [];
             for(let i=0 ;i < data.rows.length ;i++){
-                date[i] =  data.rows[0].sdate.toString().substring(4,15);
+                date[i] =  data.rows[i].sdate.toString().substring(4,15);
                 totalSeat.push(data.rows[i].totalnumattendees);
             }
             res.render("complexQuery/HR",{totalSeat:totalSeat, date:date});
