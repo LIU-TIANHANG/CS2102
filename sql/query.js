@@ -31,6 +31,7 @@ module.exports = {
 
     availability_read_query : 'SELECT * FROM Availability',
     availability_read_query_resid : 'SELECT * FROM Availability WHERE resid = $1',
+    availability_read_query_resid_date : 'SELECT * FROM Availability WHERE resid = $1 AND dateavailable = $2',
     availability_read_query_aid : 'SELECT * FROM Availability WHERE aid = $1',
     availability_read_query_date : 'SELECT resid FROM Availability WHERE dateavailable = $1',
     availability_read_query_date_distinct : 'SELECT DISTINCT resid FROM Availability WHERE dateavailable = $1',

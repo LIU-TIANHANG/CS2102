@@ -55,7 +55,7 @@ router.get('/insert',(req,res)=>{
 
 router.post('/confirmation',(req,res)=>{
     let date = req.body.date;
-
+    res.cookie('date',date);
     pool.query(query.availability_read_query_date_distinct,[date])
         .then(result=>{
             return result.rows;
@@ -103,7 +103,9 @@ router.post('/confirmation',(req,res)=>{
 
 router.post('/selectRestaurant',(req,res)=>{
     let resid = req.body.resid;
-    pool.query(query.availability_read_query_resid,[resid])
+    let date = req.cookies.date;
+
+    pool.query(query.availability_read_query_resid_date,[resid,date])
         .then(result=>{
             var date  = [];
             for(let i=0 ;i < result.rows.length ;i++){
