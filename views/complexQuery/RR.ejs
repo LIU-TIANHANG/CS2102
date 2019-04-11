@@ -1,17 +1,82 @@
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">name</th>
-        <th scope="col">rating</th>
-        <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <% for (let i=0; i< data.length;i++){%>
-            <td><%= data[i].rname%></td>
-            <td><%= data[i].rating%></td>
-        <%}%>
-    </tr>
-    </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ../partials/home %>
+    <style>
+        .container{
+            overflow: scroll;
+        }
+        .row{
+            padding: 1%;
+        }
+        .jumbotron{
+            width: 100%;
+            height:60vh;
+            background-image: url(https://images.pexels.com/photos/1002740/pexels-photo-1002740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            text-align: center;
+        }
+        .masthead-brand {
+            margin-top: 30px;
+            font-style: oblique;
+        }
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+        .btn {
+            background-color: bisque;
+            border-color: darkgoldenrod;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+    </style> 
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="jumbotron">
+                <div class="card mx-auto" style="width: fit-content; opacity:0.8; margin-top: 210px">
+                    <h1 class="masthead-brand mb-3">Restaurant Recommendations</h1>
+                    <hr>
+                    <h4 class="masthead mt-1 mb-1 mr-3 ml-3">Our application strives to make suitable recommendations based on your history.<br>We think you may like the following restaurants</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="container">
+                    <div class="row">
+                        <div class="col"><hr></div>
+                        <div class="col-auto" style="font-size: larger; font-weight: bold">Restaurants you may like</div>
+                        <div class="col"><hr></div>
+                    </div>
+                    <table class="table">
+                            <thead>
+                            <tr>
+                                <% for (let i=0; i< data.length;i++){%>
+                                    <th scope="col">name</th>
+                                    <th scope="col">rating</th>
+                                <%}%>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <% for (let i=0; i< data.length;i++){%>
+                                    <td><%= data[i].rname%></td>
+                                    <td><%= data[i].rating%></td>
+                                <%}%>
+                            </tr>
+                            </tbody>
+                    </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+
