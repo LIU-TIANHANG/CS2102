@@ -153,7 +153,7 @@ router.get('/filter',(req,res)=>{
         .then(cuisine=>{
             pool.query(query.meals_read_query)
                 .then(mealtype=>{
-                    res.render("Restaurant/index3",{cuisine:cuisine.rows,mealtype: mealtype.rows});
+                    res.render("Restaurant/index3",{cuisine:cuisine.rows, mealtype: mealtype.rows});
                 })
         })
 

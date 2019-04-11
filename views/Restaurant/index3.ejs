@@ -63,49 +63,53 @@
 <body>
 <div class="main">
     <div class="jumbotron">
+            <p class="text-right">
+                    <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="history.back(-1)" aria-pressed="true" style="background-color: gold">Back</button>
+            </p>
             <div class="card mx-auto" style="opacity: 0.9; margin-top: 20vh">
                 <div class="container">
                         <div class="row">
                             <div class="col">
                                     <form action="#" method="post" novalidate="novalidate">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <h3>Search Restaurants</h3>
-                                                    <hr>
-                                                            <div class="row">
-                                                                <label for="cuisine">Select Cuisine</label>
-                                                                <select class="selectpicker ml-3" id="cuisine" name="cuisine" multiple data-live-search="true">
-                                                                    <% for(var i=0; i<cuisine.length; i++) { %>
-                                                                        <option><%= cuisine[i].cuisine%></option>
-                                                                    
-                                                                    <%}%>
-                                                                </select>
-                                                            </div>
-                                                            <div class="row">
-                                                            
-                                                            <label for="mealType">Select Meal Type</label>
-                                                            <select class="selectpicker ml-3" id="mealType" name ="mealType" multiple data-live-search="true">
-                                                                <% for(var i=0; i<mealtype.length; i++) { %>
-                                                                    <option><%= mealtype[i].mealtype%></option>
-                                                                <%}%>
-                                                            </select>
-                                                            </div>
-                
-                                                            <div class="row">
-                                                            <label for="rating">Select Rating</label>
-                                                            <select class="form-control search-slt" id="rating">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div>
-                                                </div>
+                                        <div class="row">
                                                 
-                                            </div>
+                                            <div class="col-lg-12">
+                                                <h3>Search Restaurants</h3>
+                                                <hr>
+                                                    <div class="row">
+                                                        <label for="cuisine">Select Cuisine</label>
+                                                        <select class="selectpicker ml-3" id="cuisine" name="cuisine" multiple data-live-search="true">
+                                                            <% for(var i=0; i<cuisine.length; i++) { %>
+                                                                <option><%= cuisine[i].cuisine%></option>
+                                                            
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                    <div class="row">
+                                                        
+                                                    <label for="mealType">Select Meal Type</label>
+                                                    <select class="selectpicker ml-3" id="mealType" name ="mealType" multiple data-live-search="true">
+                                                        <% for(var i=0; i<mealtype.length; i++) { %>
+                                                            <option><%= mealtype[i].mealtype%></option>
+                                                        <%}%>
+                                                    </select>
+                                                    </div>
+            
+                                                    <div class="row">
+                                                        <label for="rating">Select Rating</label>
+                                                        <select class="form-control search-slt" id="rating">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                             </div>
+                                                
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Search</button>
-                                        </form>
+                                    </form>
                             </div>
                         </div>
                 </div>

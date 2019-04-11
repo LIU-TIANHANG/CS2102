@@ -108,7 +108,11 @@
 
     </div>
     <div class="container">
+        <p class="text-right">
+            <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+        </p>
         <div class="row">
+                
                 <table class="table">
                         <thead>
                         <tr>
@@ -133,12 +137,12 @@
                                 <td><%= data[i].numseats%></td>
                                 <td>
                                     <form action="/restaurant/availability/<%= data[i].resid%>/update/<%= data[i].aid%>" method="get">
-                                        <button type="submit" class="btn btn-danger ">Update</button>
+                                        <button type="submit" class="btn btn-danger" style="background-color: transparent">Update</button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="/restaurant/availability/<%= data[i].resid%>/delete/<%= data[i].aid%>" method="get">
-                                        <button type="submit" class="btn btn-danger ">Delete</button>
+                                        <button type="submit" class="btn btn-danger" style="background-color: transparent">Delete</button>
                                     </form>
                                 </td>
                             </tr>

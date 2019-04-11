@@ -51,6 +51,9 @@
                 </div>
             </div>
             <div class="container">
+                    <p class="text-right">
+                            <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="history.back(-1)" aria-pressed="true" style="background-color: gold">Back</button>
+                    </p>
                     <div class="row">
                         <div class="col"><hr></div>
                         <div class="col-auto" style="font-size: larger; font-weight: bold">Restaurants you may like</div>
@@ -59,19 +62,21 @@
                     <table class="table">
                             <thead>
                             <tr>
-                                <% for (let i=0; i< data.length;i++){%>
+                                
                                     <th scope="col">name</th>
                                     <th scope="col">rating</th>
-                                <%}%>
+                                
                             </tr>
                             </thead>
                             <tbody>
+                            <% for (let i=0; i< data.length;i++){%>
                             <tr>
-                                <% for (let i=0; i< data.length;i++){%>
-                                    <td><%= data[i].rname%></td>
-                                    <td><%= data[i].rating%></td>
-                                <%}%>
+                                
+                                <td><%= data[i].rname%></td>
+                                <td><%= data[i].rating%></td>
+                                
                             </tr>
+                            <%}%>
                             </tbody>
                     </table>
             </div>
