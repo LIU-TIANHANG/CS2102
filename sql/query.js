@@ -19,6 +19,7 @@ module.exports = {
     register_insert_query_RO : 'INSERT INTO RestaurantOwners VALUES (DEFAULT, $1,$2,$3,$4,$5)',
     register_no_duplicated_query : 'WITH account AS (SELECT email FROM users UNION SELECT email FROM admins UNION SELECT email FROM RestaurantOwners) SELECT 1 FROM account WHERE email= $1',
     user_add_point : "UPDATE users SET points = (SELECT points FROM users WHERE userid = $1) +$2 WHERE userid = $3",
+    user_read_point : 'SELECT points FROM users WHERE userid = $1',
 
     reservations_read_query : 'SELECT * FROM Reservations NATURAL JOIN Availability',
     reservations_read_query_userID : 'SELECT * FROM Reservations NATURAL JOIN Availability NATURAL JOIN Restaurants  where userid = $1',
@@ -93,7 +94,7 @@ module.exports = {
         '\tSELECT Res.resID AS resID, Res.rname AS rname, COALESCE(AVG(Rev.rating),0) AS rating\n' +
         '\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n' +
         '\tGROUP BY Res.resID )\n' +
-        'SELECT DISTINCT RR.resID, RR.rname, RR.rating\n' +
+        'SELECT RR.resID, RR.rname, RR.rating\n' +
         'FROM RestaurantRating RR LEFT JOIN Offers O ON RR.resID = O.resID\n' +
         'WHERE O.cuisine IN (SELECT TC.cuisine FROM TopCuisines TC)\n' +
         'ORDER BY RR.rating DESC\n' +

@@ -17,11 +17,12 @@ router.get('/restaurantRecommendations',(req,res)=>{
     pool.query(query.restaurant_recommendation,[userid])
         .then(result=>{
             let data = result.rows;
+            console.log(data);
             let output = [];
             for(let i=0;i<data.length;i++){
                 output.push(data[i].rating.substring(0,3));
             }
-            console.log(output)
+            console.log(output);
             res.render('complexQuery/RR',{data : result.rows,output,output});
         })
 });

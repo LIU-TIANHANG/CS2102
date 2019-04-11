@@ -109,7 +109,16 @@ router.post('/login',(req,res,next)=>{
                 res.cookie('authentication',user.type);
                 console.log(user.type);
                 if(user.type == "user"){
-                    return res.render('landing/user');
+                    pool.query(query.user_read_point,[user.id])
+                        .then(result=>{
+                            console.log(result.rows);
+                            return res.render('landing/user',{point : result.rows});
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                            res.send(err);
+                        })
+
                 }else if(user.type == "admin"){
                     return res.render('landing/index');
                 }else if (user.type == "RO"){
