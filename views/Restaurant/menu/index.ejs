@@ -2,37 +2,98 @@
 <html>
 <head>
     <% include ../../partials/home %>
-
+    <style>
+            .container{
+                overflow: scroll;
+            }
+    
+            .row{
+                padding: 1%;
+            }
+    
+            .jumbotron{
+                width: 100%;
+                height: 45vh;
+                background-image: url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+                background-size:cover;
+                background-repeat: no-repeat;
+                opacity: 0.9;
+                text-align: center;
+            }
+    
+            .masthead-brand {
+                margin-top: 10vh;
+                color:#271E1E;
+                font-style: oblique;
+            }
+    
+            .main {
+                overflow: scroll;
+                height:fit-content;
+            }
+    
+            .btn {
+                background-color: bisque;
+                border-color: darkgoldenrod;
+                color: #271E1E;
+                font-weight: bolder;
+            }
+    
+            .container-head{
+                height:fit-content;
+                background-color: #271E1E;
+                align-content: center;
+            }
+    </style>
 </head>
 <body>
 <h1>CS2102: <%= title%></h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">res ID</th>
-        <th scope="col">name</th>
-        <th scope="col">price</th>
-        <th scope="col">description</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(var i=0; i<data.length; i++) { %>
-        <tr>
-            <td><%= data[i].resid%></td>
-            <td><%= data[i].item%></td>
-            <td><%= data[i].price%></td>
-            <td><%= data[i].description%></td>
-            <td>
-                <form action="/restaurant/menu/<%= data[i].resid%>/delete/<%= data[i].item%>" method="get">
-                    <button type="submit" class="btn btn-danger ">Delete</button>
-                </form>
-            </td>
-        </tr>
-    <% } %>
-    </tbody>
-</table>
-<a href= "/restaurant/menu/<%= id%>/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new menu</a>
+
+<div class="main">
+    <div class="jumbotron">
+            <div class="card mt-5" style="background-color:transparent; border: transparent">
+                    <h1 class="masthead-brand mb-3">Menu</h1>
+                </div>
+                <p class="text-center mt-3">
+                        <a href= "/restaurant/menu/<%= id%>/insert" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Add new menu</a>
+                    </p>
+    </div>
+    <div class="container">
+        <div class="d-flex justify-content-end mb-3">
+                <div class="btn-toolbar">
+                        <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+                        <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
+                </div>
+            </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">res ID</th>
+                <th scope="col">name</th>
+                <th scope="col">price</th>
+                <th scope="col">description</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(var i=0; i<data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].resid%></td>
+                    <td><%= data[i].item%></td>
+                    <td><%= data[i].price%></td>
+                    <td><%= data[i].description%></td>
+                    <td>
+                        <form action="/restaurant/menu/<%= data[i].resid%>/delete/<%= data[i].item%>" method="get">
+                            <button type="submit" class="btn btn-danger ">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
 </body>
 
