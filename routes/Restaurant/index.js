@@ -129,7 +129,7 @@ router.post('/reservations/:userid/:aid/:resid',(req,res)=>{
             throw e
         } finally {
             client.release();
-            res.redirect('reservation/' + req.params.resid);
+            res.redirect('/restaurant/reservations/' + req.params.resid);
         }
     })().catch(e => console.error(e.stack))
 });
@@ -140,7 +140,7 @@ router.post('/reservations/miss/:userid/:aid/:resid',(req,res)=>{
 
     pool.query(query.reservations_update_query,["missing",aid,userid])
         .then(result=>{
-            res.redirect('reservation/' + req.params.resid);
+            res.redirect('/restaurant/reservations/' + req.params.resid);
         })
         .catch(err=>{
             console.log(err);

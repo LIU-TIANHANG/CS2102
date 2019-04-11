@@ -21,6 +21,7 @@ const graph = require('./routes/graph/index');
 const town = require('./routes/town/index');
 const meals = require('./routes/meals/index');
 const cuisine = require('./routes/cuisines/index');
+const complexQuery = require('./routes/complexQuery/index');
 var app = express();
 
 
@@ -58,6 +59,7 @@ app.use('/graph',graph);
 app.use('/meals',meals);
 app.use('/town',town);
 app.use('/cuisine',cuisine);
+app.use('/complexQuery',complexQuery);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

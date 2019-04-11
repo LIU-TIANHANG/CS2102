@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">name</th>
+        <th scope="col">rating</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <% for (let i=0; i< data.length;i++){%>
+            <td><%= data[i].rname%></td>
+            <td><%= data[i].rating%></td>
+        <%}%>
+    </tr>
+    </tbody>
+</table>
