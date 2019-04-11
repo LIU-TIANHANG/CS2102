@@ -53,7 +53,7 @@ router.post('/:id/insert',function (req,res) {
                 }
 
             ).catch(err=>{
-                res.send(err);
+                res.send(err.toString());
             })
 
         }).catch( err =>{

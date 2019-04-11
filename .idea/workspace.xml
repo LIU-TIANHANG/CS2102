@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="288549ca-335c-401e-a396-6dbf05ddf2bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/complexQuery/HR.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/complexQuery/AM.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Restaurant/availability/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Restaurant/availability/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/complexQuery/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/complexQuery/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/sql/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/complexQuery/HR.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/complexQuery/HR.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,29 +40,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/complexQuery/HR.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/complexQuery/index.js">
+        <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/graph/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+            <state relative-caret-position="204">
+              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -87,9 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/plot/restaurantAvailble.ejs" />
-        <option value="$PROJECT_DIR$/routes/Restaurant/availability/index.js" />
-        <option value="$PROJECT_DIR$/views/reservation/confirmation.ejs" />
         <option value="$PROJECT_DIR$/routes/graph/index.js" />
         <option value="$PROJECT_DIR$/views/graph/graph_restaurant.ejs" />
         <option value="$PROJECT_DIR$/views/town/index.js" />
@@ -131,13 +119,16 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/landing/user.ejs" />
         <option value="$PROJECT_DIR$/views/complexQuery/RR.ejs" />
-        <option value="$PROJECT_DIR$/sql/query.js" />
         <option value="$PROJECT_DIR$/views/Restaurant/availability/index.ejs" />
         <option value="$PROJECT_DIR$/views/Restaurant/availability/update.ejs" />
         <option value="$PROJECT_DIR$/routes/Restaurant/index.js" />
         <option value="$PROJECT_DIR$/routes/reservation/index.js" />
-        <option value="$PROJECT_DIR$/routes/complexQuery/index.js" />
+        <option value="$PROJECT_DIR$/sql/query.js" />
         <option value="$PROJECT_DIR$/views/complexQuery/HR.ejs" />
+        <option value="$PROJECT_DIR$/views/complexQuery/AD.ejs" />
+        <option value="$PROJECT_DIR$/views/complexQuery/AM.ejs" />
+        <option value="$PROJECT_DIR$/routes/complexQuery/index.js" />
+        <option value="$PROJECT_DIR$/routes/Restaurant/availability/index.js" />
       </list>
     </option>
   </component>
@@ -332,11 +323,12 @@
       <workItem from="1554825044665" duration="193000" />
       <workItem from="1554900165501" duration="20768000" />
       <workItem from="1554961180560" duration="4594000" />
+      <workItem from="1554988534791" duration="3528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184281000" />
+    <option name="totallyTimeSpent" value="187809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -351,7 +343,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.33691275" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.34161073" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="npm" order="2" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
       <window_info id="Favorites" order="3" sideWeight="0.5021097" side_tool="true" weight="0.25512227" />
@@ -360,7 +352,7 @@
       <window_info id="Job Explorer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.30878186" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30878186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39660057" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -393,13 +385,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/Restaurant/update.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="116" column="120" selection-start-line="116" selection-start-column="120" selection-end-line="116" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -656,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/Restaurant/availability/update.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -691,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/Restaurant/index3.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -719,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/complexQuery/RR.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/graph/graph_restaurant.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -738,25 +702,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/graph/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        <state relative-caret-position="408">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/complexQuery/HR.ejs">
+    <entry file="file://$PROJECT_DIR$/sql/query.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="355">
+          <caret line="149" column="14" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/complexQuery/RR.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="80" column="28" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="80" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/complexQuery/AM.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/complexQuery/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+        <state relative-caret-position="168">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/complexQuery/HR.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/Restaurant/availability/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
         </state>
       </provider>
     </entry>

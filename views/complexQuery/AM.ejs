@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/home %>
+</head>
+<body>
+<div class="row" style="margin-top: 50px">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+            <tr>
+
+                <th scope="col">name</th>
+                <th scope="col">Average booking</th>
+                <th scope="col">rating</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let i=0; i< data.length;i++){%>
+                <tr>
+
+                    <td><%= data[i].resid%></td>
+                    <td><%= avgBooking[i]%></td>
+                    <td><%= data[i].rating%></td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+</body>
+</html>

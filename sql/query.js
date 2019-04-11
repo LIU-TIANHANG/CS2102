@@ -116,6 +116,36 @@ module.exports = {
         ')\n' +
         'SELECT * FROM DateHasReservation UNION SELECT * FROM DateNoReservation\n' +
         'ORDER BY sDate\n' +
-        ';\n'
-
+        ';\n',
+    admin_monitor : 'WITH \n' +
+        'DailyRestaurantBooking AS (\n' +
+        '\tSELECT R.resID, A.dateAvailable AS sDate, \n' +
+        'COUNT(DISTINCT (RSV.userID, RSV.aid)) AS numBooking\n' +
+        '\tFROM (Restaurants R INNER JOIN Availability A ON R.resID = A.resID)\n' +
+        '\t\t INNER JOIN Reservations RSV ON A.aid = RSV.aid\n' +
+        '\tWHERE A.dateAvailable <= $1 \n' +
+        '\tGROUP BY R.resID, A.dateAvailable\n' +
+        '),\n' +
+        'HasAvailabilityRecord AS(\n' +
+        '\tSELECT resID, AVG(numBooking) AS AvgBooking\n' +
+        '\tFROM DailyRestaurantBooking\n' +
+        '\tGROUP BY resID\n' +
+        '),\n' +
+        'NoAvailabilityRecord AS (\n' +
+        '\tSELECT resID, 0 AS AvgBooking \n' +
+        '\tFROM Restaurants R \n' +
+        '\tWHERE resID NOT IN (SELECT resID FROM HasAvailabilityRecord)\n' +
+        '),\n' +
+        'AverageRestaurantBooking AS (\n' +
+        '\tSELECT * FROM HasAvailabilityRecord UNION SELECT * FROM NoAvailabilityRecord\n' +
+        '),\n' +
+        'RestaurantRating AS (\n' +
+        '\tSELECT Res.resID AS resID, COALESCE(AVG(Rev.rating),0) AS rating\n' +
+        '\tFROM Restaurants Res LEFT JOIN Reviews Rev ON Res.resID = Rev.resID\n' +
+        '\tGROUP BY Res.resID \n' +
+        ')\n' +
+        'SELECT R1.resID, R1.AvgBooking, R2.rating\n' +
+        'FROM AverageRestaurantBooking R1 NATURAL JOIN RestaurantRating R2\n' +
+        'ORDER BY R1.AvgBooking DESC, R2.rating DESC\n' +
+        ';\n',
 };

@@ -36,4 +36,22 @@ router.get('/historyReservation/:resid',(req,res)=>{
         })
 })
 
+router.get('/adminMonitor',(req,res)=>{
+    const today = new Date();
+    pool.query(query.admin_monitor,[today])
+        .then(data=>{
+            let avgBooking = [];
+            for(let i=0;i<data.rows.length;i++){
+                let num = data.rows[i].avgbooking;
+                num = num.substring(0,4);
+                avgBooking.push(num);
+            }
+            res.render('complexQuery/AM',{data:data.rows,avgBooking:avgBooking})
+        })
+        .catch(err=>{
+            console.log(err);
+            res.send(err);
+        })
+})
+
 module.exports = router;
