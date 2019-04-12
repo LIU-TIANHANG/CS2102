@@ -2,20 +2,78 @@
 <html>
 <head>
     <% include ../partials/home %>
+    <style>
+            .container-full-bg{
+                height:100vh;
+            }
+            .jumbotron {
+                background-image: url(https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+                background-size: cover;
+                height: 100vh;
+                background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            }
+        
+            .card-header {
+                font-weight: bold;
+                color: #271E1E;
+                background-color:bisque;
+            }
+            .btn {
+                background-color: bisque;
+                border-color: bisque;
+                color: #271E1E;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: auto;
+            }
+    
+            .card{
+                width:600px;
+            }
+    
+            .section__heading{
+                color: white;
+            }
+    
+            .section__subheading{
+                color:aliceblue;
+            }
+    </style>
 </head>
 <body>
-    <div class="row" style="margin-top:50px;">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="meal">Add new cuisine</label>
-                    <input type="text" id="cuisine" name="cuisine" placeholder="add a new cuisine">
+    <div class="jumbotron">
+        <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!-- Heading -->
+                        <hr>
+                        <h2 class="section__heading text-center">
+                                Add a Cuisine
+                        </h2>
+                        <!-- Subheading -->
+                        <p class="section__subheading text-center">
+                            Add a new cuisine! French? Japanese? Fusion?
+                        </p>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
+        </div>  
+        <div class="container">
+            <div class="card mx-auto mt-auto mb-auto">
+            <div class="card-header">Add a new cuisine</div>
+            <div class="card-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="meal">Add new cuisine</label>
+                        <input type="text" id="cuisine" name="cuisine" placeholder="add a new cuisine">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            </div>
         </div>
-        <div class="col-2"></div>
     </div>
 </body>
 </html>

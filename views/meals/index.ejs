@@ -2,38 +2,88 @@
 <html>
 <head>
 <% include ../partials/home %>
+<style>
+        .container{
+            overflow: scroll;
+        }
+
+        .row{
+            padding: 1%;
+        }
+
+        .jumbotron{
+            width: 100%;
+            height: 45vh;
+            background-image: url(https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+            background-size:cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .masthead-brand {
+            margin-top: 10vh;
+            color:#271E1E;
+            font-style: oblique;
+        }
+
+        .main {
+            overflow: scroll;
+            height:fit-content;
+        }
+
+        .btn {
+            background-color: bisque;
+            border-color: darkgoldenrod;
+            color: #271E1E;
+            font-weight: bolder;
+        }
+
+        .container-head{
+            height:fit-content;
+            background-color: #271E1E;
+            align-content: center;
+        }
+</style>
 </head>
 <body>
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-    <table class="table">
-    <thead>
-    <tr>
-    <th scope="col">Meal</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(var i=0; i<data.length; i++) { %>
-<tr>
-    <td><%= data[i].mealtype%></td>
-        <td>
-        <form action="/meals/delete/<%= data[i].mealtype%>" method="post">
-        <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        </td>
-</tr>
-        <% } %>
-
-</tbody>
-</table>
-</div>
-<div class="col-2"></div>
+<div class="main">
+    <div class="jumbotron">
+            <div class="card mt-5" style="background-color:transparent; border: transparent">
+                    <h1 class="masthead-brand mb-3">Meal Type</h1>
+                </div>
+                <p class="text-center mt-3">
+                    <a href="/meals/insert" class="btn btn-primary btn-lg" role="button">Add new mealType</a>
+                </p>
     </div>
-    <div class="row">
-    <div class="col text-center">
-    <a href="/meals/insert" class="btn btn-info" role="button">Add new mealType</a>
-</div>
+    <div class="container">
+        <div class="d-flex justify-content-end mb-3">
+            <div class="btn-toolbar">
+                    <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+                    <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
+            </div>
+        </div>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">Meal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<data.length; i++) { %>
+    <tr>
+        <td><%= data[i].mealtype%></td>
+            <td>
+            <form action="/meals/delete/<%= data[i].mealtype%>" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </td>
+    </tr>
+            <% } %>
+
+    </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

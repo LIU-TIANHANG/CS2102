@@ -61,7 +61,7 @@
 
         .jumbotron{
             width: 100%;
-            height: 290px;
+            height: 40vh;
             background-image: url(https://images.pexels.com/photos/34650/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
             background-size:cover;
             background-repeat: no-repeat;
@@ -70,7 +70,7 @@
         }
 
         .masthead-brand {
-            margin-top: 90px;
+            margin-top: 10vh;
             color: white;
             font-style: oblique;
         }
@@ -92,15 +92,17 @@
             background-color: #271E1E;
             align-content: center;
         }
+
+        .btn-toolbar{
+            align-content: flex-start;
+        }
     </style>
 
 </head>
 <body>
-<h1>CS2102: <%= title%></h1>
 
 <div class="main">
     <div class="jumbotron">
-
         <h1 class="masthead-brand mb-3">Availability</h1>
         <p class="text-center">
             <a href= "/restaurant/availability/<%= id%>/insert" class="btn btn-primary" role="button" aria-pressed="true">Add new available slot</a>
@@ -108,9 +110,13 @@
 
     </div>
     <div class="container">
-        <p class="text-right">
-            <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
-        </p>
+        <div class="d-flex justify-content-end mb-3">
+            <div class="btn-toolbar">
+                    <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+                    <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
+            </div>
+        </div>
+        
         <div class="row">
                 
                 <table class="table">
@@ -153,6 +159,7 @@
         <!--<a href= "/reservation/insert" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new reservation</a>-->
     </div>
 </div>
+
 </body>
 
 </html>

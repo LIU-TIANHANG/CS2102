@@ -53,8 +53,8 @@
 <body>
 <div class="main">
     <div class="jumbotron">
-        <div class="card" style="background-color: blanchedalmond; opacity: 0.70">
-            <h1 class="masthead-brand mb-3">View Restaurants</h1>
+        <div class="card" style="background-color: blanchedalmond; opacity: 0.70; margin-top: 5vh">
+            <h1 class="masthead-brand mb-3 mt-5">View Restaurants</h1>
             <div class="row">
                 <div class="col"><hr></div>
                 <div class="col-auto">Displays search results based on filter selections</div>
@@ -64,9 +64,15 @@
     </div>
 
     <div class="container">
+            
         <div class="row">
-
             <div class="col">
+                <div class="d-flex justify-content-end mb-3">
+                        <div class="btn-toolbar">
+                                <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+                                <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
+                        </div>
+                    </div>
                 <br>
                 <h4>View All Restaurants</h4>
                 <table class="table">

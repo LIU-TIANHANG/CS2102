@@ -2,38 +2,97 @@
 <html>
 <head>
 <% include ../partials/home %>
+    <style>
+            .container{
+                overflow: scroll;
+            }
+
+            .row{
+                padding: 1%;
+            }
+
+            .jumbotron{
+                width: 100%;
+                height: 45vh;
+                background-image: url(https://images.pexels.com/photos/1268558/pexels-photo-1268558.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+                background-size:cover;
+                background-repeat: no-repeat;
+                opacity: 0.9;
+                text-align: center;
+            }
+
+            .masthead-brand {
+                margin-top: 65px;
+                color:#271E1E;
+                font-style: oblique;
+            }
+
+            .main {
+                overflow: scroll;
+                height:fit-content;
+            }
+
+            .btn {
+                background-color: transparent;
+                border-color:darkgoldenrod;
+                color: #271E1E;
+                font-weight: bolder;
+            }
+
+            .container-head{
+                height:fit-content;
+                background-color: #271E1E;
+                align-content: center;
+            }
+    </style>
 </head>
 <body>
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-    <table class="table">
-    <thead>
-    <tr>
-    <th scope="col">cuisine</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(var i=0; i<data.length; i++) { %>
-<tr>
-    <td><%= data[i].cuisine%></td>
-        <td>
-        <form action="/cuisine/delete/<%= data[i].cuisine%>" method="post">
-        <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        </td>
-</tr>
-        <% } %>
-
-</tbody>
-</table>
-</div>
-<div class="col-2"></div>
+<div class="main">
+    <div class="jumbotron">
+                <div class="card mt-3" style="background-color: antiquewhite; opacity: 0.75">
+                    <h1 class="masthead-brand mb-3">Cuisine</h1>
+                    <div class="row">
+                            <div class="col"><hr></div>
+                            <div class="col-auto">Add a cuisine, <b>or</b> view all cuisines</div>
+                            <div class="col"><hr></div>
+                        </div>
+                </div>
+                <p class="text-center">
+                    <a href="/cuisine/insert" class="btn btn-primary btn-lg mt-3" role="button" style="background-color: goldenrod">Add new cuisine</a>
+                </p>
+                
     </div>
-    <div class="row">
-    <div class="col text-center">
-    <a href="/cuisine/insert" class="btn btn-info" role="button">Add new cuisine</a>
+    <div class="container">
+        <div class="d-flex justify-content-end mb-3">
+                <div class="btn-toolbar">
+                        <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
+                        <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
+                </div>
+            </div>
+        <h4>View All Cuisines</h4>
+        <table class="table">
+        <thead>
+        <tr>
+        <th scope="col">cuisine</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i<data.length; i++) { %>
+    <tr>
+        <td><%= data[i].cuisine%></td>
+            <td>
+            <form action="/cuisine/delete/<%= data[i].cuisine%>" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </td>
+    </tr>
+            <% } %>
+
+    </tbody>
+        </table>
+    </div>
 </div>
-</div>
+
+
 </body>
 </html>

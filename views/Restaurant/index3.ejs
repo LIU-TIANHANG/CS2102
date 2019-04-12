@@ -78,7 +78,7 @@
                                                 <hr>
                                                     <div class="row">
                                                         <label for="cuisine">Select Cuisine</label>
-                                                        <select class="selectpicker ml-3" id="cuisine" name="cuisine" multiple data-live-search="true">
+                                                        <select class="selectpicker ml-3" id="cuisine" name="cuisine">
                                                             <% for(var i=0; i<cuisine.length; i++) { %>
                                                                 <option><%= cuisine[i].cuisine%></option>
                                                             
@@ -88,7 +88,7 @@
                                                     <div class="row">
                                                         
                                                     <label for="mealType">Select Meal Type</label>
-                                                    <select class="selectpicker ml-3" id="mealType" name ="mealType" multiple data-live-search="true">
+                                                    <select class="selectpicker ml-3" id="mealType" name ="mealType">
                                                         <% for(var i=0; i<mealtype.length; i++) { %>
                                                             <option><%= mealtype[i].mealtype%></option>
                                                         <%}%>

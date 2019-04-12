@@ -2,18 +2,30 @@
 <html>
 <head>
     <!-- Page Title -->
+    
     <title><%= title%></title>
+    <% include ../partials/home %>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
     <!-- CSS for Styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
+        .container-full-bg{
+            height:100vh;
+            width: 100vw;
+        }
+
         .jumbotron {
         background-image: url(https://images.pexels.com/photos/704982/pexels-photo-704982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-          background-size: cover;
-          margin-top: 0;
-          margin-bottom: 0;
-          height: 100vh;
+        background-size: cover;
+        margin-left: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        height: 100vh;
+        position:-webkit-sticky;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
         }
   
         .card-header {
@@ -41,85 +53,60 @@
     <script src="javascripts/insertScript.js"></script>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid">
-    <!--Navbar update links-->
-    <nav class="navbar navbar-dark fixed-top" style="background-color:#271E1E;">
-        <a class="navbar-brand" href="#" style="color:antiquewhite"><%= title%></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="card mx-auto mt-5 mb-5" style="width:60vw; background-color: #271E1E; opacity: 0.9">
-        <div class="card-header">Update Restaurant</div>
-        <div class="card-body">
-        <% if (typeof message == "string" && message) { %>
-                <p class="alert alert-danger"><%= message %></p>
-        <% } %>
-            <form id="html_form" action="<%= data[0].resid%>" role="form" method="post">
+<div class="container-full-bg">
+    
+    <div class="jumbotron">
+        <!--Navbar update links--> 
+    <div class="container">
+        <div class="card mx-auto mt-5 mb-5" style="width:60vw; background-color: #271E1E; opacity: 0.9">
+            <div class="card-header">Update Restaurant</div>
+            <div class="card-body">
+            <% if (typeof message == "string" && message) { %>
+                    <p class="alert alert-danger"><%= message %></p>
+            <% } %>
+                <form id="html_form" action="<%= data[0].resid%>" role="form" method="post">
+                    <div class="form-group">
+                        <label for="name" style="color: antiquewhite">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
+                    </div>
+                    <div>
+                            <label for="oh" style="color: antiquewhite">Opening Hour</label>
+                            <select id="oh" name="oh" >
+                            </select>
+                    </div>
                 <div class="form-group">
-                    <label for="name" style="color: antiquewhite">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" aria-describedby="matricHelp" value="<%= data[0].rname%>">
-                </div>
-                <div>
-                        <label for="oh" style="color: antiquewhite">Opening Hour</label>
-                        <select id="oh" name="oh" >
-                        </select>
-                </div>
-            <div class="form-group">
-                <label for="ch" style="color: antiquewhite">Closing Hour</label>
-                <select id="ch" name="ch" >
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="town" style="color: antiquewhite">Town</label>
-                <select name="town" id="town">
-                    <% for(var i=0; i<town.length; i++) { %>
-                        <option><%= town[i].town%></option>
-                    <%}%>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="address" style="color: antiquewhite">Address</label>
-                <input required type="text" class="form-control" id="address" name="address" placeholder="<%= data[0].address%>">
-            </div>
-                <div class="form-group">
-                    <label for="introduction" style="color: antiquewhite">A brief introduction for customer</label>
-                    <textarea class="form-control" rows=4 id="introduction" name="introduction"><%= data[0].intro%></textarea>
+                    <label for="ch" style="color: antiquewhite">Closing Hour</label>
+                    <select id="ch" name="ch" >
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="telephone" style="color: antiquewhite">Contact number</label>
-                    <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactno%>">
+                    <label for="town" style="color: antiquewhite">Town</label>
+                    <select name="town" id="town">
+                        <% for(var i=0; i<town.length; i++) { %>
+                            <option><%= town[i].town%></option>
+                        <%}%>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" style="font-weight: bold">
-                        Update Restaurant information
+                <div class="form-group">
+                    <label for="address" style="color: antiquewhite">Address</label>
+                    <input required type="text" class="form-control" id="address" name="address" placeholder="<%= data[0].address%>">
+                </div>
+                    <div class="form-group">
+                        <label for="introduction" style="color: antiquewhite">A brief introduction for customer</label>
+                        <textarea class="form-control" rows=4 id="introduction" name="introduction"><%= data[0].intro%></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone" style="color: antiquewhite">Contact number</label>
+                        <input type="tel" class="form-control" id="telephone" name="telephone" value="<%= data[0].contactno%>">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="font-weight: bold">
+                            Update Restaurant information
                     </button>
-            </form>
+                    <button type="reset" class="btn btn-primary btn-block" role="button" onclick="history.back(-1)" style="background-color: red; color: white; font-weight: bold; border: transparent">Cancel submit</button>
+
+                </form>
+            </div>
+        </div>
         </div>
     </div>
 </div>
