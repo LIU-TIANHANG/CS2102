@@ -43,19 +43,21 @@
     <body>
         <div class="main">
             <div class="jumbotron">
-                <div class="card mx-auto" style="width: fit-content; opacity:0.8; margin-top: 210px">
-                    <h1 class="masthead-brand mb-3">Restaurant Recommendations</h1>
-                    <hr>
-                    <h4 class="masthead mt-1 mb-1 mr-3 ml-3">Our application strives to make suitable recommendations based on your history.<br>We think you may like the following restaurants</h4>
-                    <hr>
-                </div>
+                <div class="container">
+                    <div class="card mx-auto" style="width: fit-content; opacity:0.8">
+                        <h1 class="masthead-brand mb-3">Restaurant Recommendations</h1>
+                        <hr>
+                        <h4 class="masthead mt-1 mb-1 mr-3 ml-3">Our application strives to make suitable recommendations based on your history.<br>We think you may like the following restaurants</h4>
+                        <hr>
+                    </div>
+                 </div>
             </div>
             <div class="container">
                     <div class="d-flex justify-content-end mb-3">
                         <div class="btn-toolbar">
                             <button type="reset" class="btn btn-primary btn-lg mt-3 mr-1" role="button" onclick="history.back(-1)" aria-pressed="true">Back</button>
-                            <button type="reset" class="btn btn-primary btn-lg mt-3" role="button" onclick="" aria-pressed="true" style="background-color: gold">Return to Index</button>
-                    </div>
+                            <a href="/redirect" class="btn btn-primary btn-lg mt-3" role="button" aria-pressed="true" style="background-color: gold">Return to Index</a>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col"><hr></div>
