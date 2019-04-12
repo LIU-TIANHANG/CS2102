@@ -67,7 +67,8 @@ CREATE TABLE Availability(
     timeAvailableEnd TIME,
     numSeats INTEGER NOT NULL,
     PRIMARY KEY (resid,dateAvailable,timeAvailableStart,timeAvailableEnd),
-    FOREIGN KEY (resid) REFERENCES Restaurants(resid) ON DELETE CASCADE
+    FOREIGN KEY (resid) REFERENCES Restaurants(resid) ON DELETE CASCADE.
+    check (numSeats >=0)
 );
 
 
