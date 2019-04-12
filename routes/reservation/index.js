@@ -126,9 +126,9 @@ router.post('/insert',(req,res)=>{
 
         try {
             await client.query('BEGIN')
-            await client.query(query.availability_minus_seat_query,[aid,seats,aid])
 
             await client.query(query.reservations_insert_query,[seats,userId,aid])
+            await client.query(query.availability_minus_seat_query,[aid,seats,aid])
             await client.query('COMMIT')
         } catch (e) {
             await client.query('ROLLBACK')

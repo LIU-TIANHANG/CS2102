@@ -136,7 +136,26 @@ router.get('/logout',(req,res)=>{
 });
 
 
+router.get('/redirect',(req,res)=>{
+    let authentication = req.cookies.authentication;
+    let userid = req['user'].userid;
+    if(authentication == "user"){
+        pool.query(query.user_read_point,[userid])
+            .then(result=>{
+                console.log(result.rows);
+                return res.render('landing/user',{point : result.rows});
+            })
+            .catch(err=>{
+                console.log(err);
+                res.send(err);
+            })
 
+    }else if(authentication == "admin"){
+        return res.render('landing/index');
+    }else if (authentication == "RO"){
+        return res.redirect('restaurant/' + userid);
+    }
+})
 
 router.post('/register',(req,res)=>{
     let error = [];
